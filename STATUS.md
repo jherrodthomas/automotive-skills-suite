@@ -1,6 +1,6 @@
 # Automotive Skills Suite — STATUS
 
-_Generated: 2026-05-11 by autonomous daily run._
+_Generated: 2026-05-12 by autonomous daily run._
 
 **Builders:** 76 · **Reviewers:** 76 · **Paired:** 76/76 (100.0%)
 
@@ -36,7 +36,7 @@ _Generated: 2026-05-11 by autonomous daily run._
 | `dfmea-builder.skill` | quality | `dfmea-checklist-reviewer.skill` | 2026-05-01 | 🟢 paired & fresh |
 | `dia-builder.skill` | safety | `dia-checklist-reviewer.skill` | 2026-05-01 | 🟢 paired & fresh |
 | `dtc-catalog-builder.skill` | diagnostics | `dtc-catalog-checklist-reviewer.skill` | 2026-05-02 | 🟢 paired & fresh |
-| `fishbone-builder.skill` | other | `fishbone-checklist-reviewer.skill` | 2026-05-01 | 🟢 paired & fresh |
+| `fishbone-builder.skill` | quality | `fishbone-checklist-reviewer.skill` | 2026-05-01 | 🟢 paired & fresh |
 | `flexray-config-builder.skill` | comms | `flexray-config-checklist-reviewer.skill` | 2026-05-02 | 🟢 paired & fresh |
 | `fmeda-builder.skill` | safety | `fmeda-checklist-reviewer.skill` | 2026-05-01 | 🟢 paired & fresh |
 | `fsc-builder.skill` | safety | `fsc-checklist-reviewer.skill` | 2026-05-01 | 🟢 paired & fresh |
@@ -52,18 +52,18 @@ _Generated: 2026-05-11 by autonomous daily run._
 | `mbse-model-architecture-builder.skill` | mbse | `mbse-model-architecture-checklist-reviewer.skill` | 2026-05-02 | 🟢 paired & fresh |
 | `mbse-requirements-allocation-builder.skill` | mbse | `mbse-requirements-allocation-checklist-reviewer.skill` | 2026-05-02 | 🟢 paired & fresh |
 | `mbse-system-context-builder.skill` | mbse | `mbse-system-context-checklist-reviewer.skill` | 2026-05-02 | 🟢 paired & fresh |
-| `msa-gage-rr-builder.skill` | other | `msa-gage-rr-checklist-reviewer.skill` | 2026-05-01 | 🟢 paired & fresh |
+| `msa-gage-rr-builder.skill` | quality | `msa-gage-rr-checklist-reviewer.skill` | 2026-05-01 | 🟢 paired & fresh |
 | `odx-builder.skill` | diagnostics | `odx-checklist-reviewer.skill` | 2026-05-02 | 🟢 paired & fresh |
 | `pfmea-builder.skill` | quality | `pfmea-checklist-reviewer.skill` | 2026-05-01 | 🟢 paired & fresh |
 | `ppap-package-builder.skill` | quality | `ppap-checklist-reviewer.skill` | 2026-05-01 | 🟢 paired & fresh |
 | `safety-case-builder.skill` | safety | `safety-case-checklist-reviewer.skill` | 2026-05-01 | 🟢 paired & fresh |
-| `safety-gate-review-builder.skill` | safety | `safety-gate-review-checklist-reviewer.skill` | 2026-05-02 | 🟢 paired & fresh |
+| `safety-gate-review-builder.skill` | program-mgmt | `safety-gate-review-checklist-reviewer.skill` | 2026-05-02 | 🟢 paired & fresh |
 | `safety-plan-builder.skill` | safety | `safety-plan-checklist-reviewer.skill` | 2026-05-01 | 🟢 paired & fresh |
-| `safety-program-risk-register-builder.skill` | safety | `safety-program-risk-register-checklist-reviewer.skill` | 2026-05-02 | 🟢 paired & fresh |
+| `safety-program-risk-register-builder.skill` | program-mgmt | `safety-program-risk-register-checklist-reviewer.skill` | 2026-05-02 | 🟢 paired & fresh |
 | `secure-coding-guidelines-builder.skill` | cyber | `secure-coding-guidelines-checklist-reviewer.skill` | 2026-05-01 | 🟢 paired & fresh |
 | `sotif-analysis-builder.skill` | sotif | `sotif-analysis-checklist-reviewer.skill` | 2026-05-01 | 🟢 paired & fresh |
 | `sotif-validation-strategy-builder.skill` | sotif | `sotif-validation-strategy-checklist-reviewer.skill` | 2026-05-01 | 🟢 paired & fresh |
-| `spc-chart-builder.skill` | other | `spc-chart-checklist-reviewer.skill` | 2026-05-01 | 🟢 paired & fresh |
+| `spc-chart-builder.skill` | quality | `spc-chart-checklist-reviewer.skill` | 2026-05-01 | 🟢 paired & fresh |
 | `sw-arch-builder.skill` | safety | `sw-arch-checklist-reviewer.skill` | 2026-05-01 | 🟢 paired & fresh |
 | `sw-fmea-builder.skill` | safety | `sw-fmea-checklist-reviewer.skill` | 2026-05-01 | 🟢 paired & fresh |
 | `sw-hsis-builder.skill` | safety | `sw-hsis-checklist-reviewer.skill` | 2026-05-01 | 🟢 paired & fresh |
@@ -85,8 +85,8 @@ _Generated: 2026-05-11 by autonomous daily run._
 
 ## Summary
 
-- Total builders: **76**
-- Total reviewers: **76**
-- Paired ratio: **100.0%** (76/76)
-- Domain spread: safety=17, comms=8, quality=7, cyber=6, autosar=5, diagnostics=5, v&v=5, aspice=4, sysml=4, calibration=3, program-mgmt=3, other=3, mbse=3, sotif=3
-- Flags: 🟢 paired & fresh: 76
+- 🟢 paired & fresh (≤30 days): **76**
+- 🟡 paired but stale (30+ days): **0**
+- 🔴 missing paired reviewer: **0**
+- Domains covered: **13** (aspice=4, autosar=5, calibration=3, comms=8, cyber=6, diagnostics=5, mbse=3, program-mgmt=5, quality=10, safety=15, sotif=3, sysml=4, v&v=5)
+- Two aliases honored: `item-definition-builder ↔ item-def-checklist-reviewer`, `ppap-package-builder ↔ ppap-checklist-reviewer`
