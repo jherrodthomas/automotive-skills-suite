@@ -77,3 +77,22 @@ _Maintained by `automotive-skills-daily-standup` scheduled task._
 - Human review: if the proposed `aspice-assessment-builder` description rewrite looks right, ship it as a manual commit and close #5. Same posture as #3/#4.
 - Repackaging note for a human pass: `aspice-assessment-builder.skill` carries a stray empty `.placeholder` file and is missing a v4.0 reference doc — both worth fixing the next time the archive is rebuilt.
 - Issue #2 ("goodd") still needs Sunday TRIAGE — still too low-confidence to label.
+
+
+## 2026-05-16 (autonomous run, RELEASE)
+
+**Mode:** RELEASE
+**Action:** Cut the first weekly snapshot. Created `RELEASES.md` with the `v2026.05.W20` section (highlights, grouped commits, skills inventory, open-issue snapshot, compare link), regenerated `STATUS.md`, and prepared the lightweight tag `v2026.05.W20` to point at this commit. No `git push --force`, no GitHub Release object — per spec, the human clicks Publish after reviewing `RELEASES.md`.
+**Files touched:**
+- `STATUS.md` (regenerated — same 152 skill files, same paired ratio 76/76, header date bumped and the "RELEASE mode" suffix added)
+- `RELEASES.md` (new)
+- `docs/AUTONOMOUS_LOG.md` (this entry)
+**Tests:** N/A (no test suite in this repo yet)
+**Skill count:** 76 builders / 76 reviewers / 100.0% paired (alias map unchanged)
+**Open issues:** 5 (#2 untriaged + #3 hara, #4 cs-concept, #5 aspice serviced this week awaiting close-out, #6 8d carries to W21)
+**Notes:** Weekly commit count was non-zero (4 commits Mon→Fri: 1 plan + 3 polish), so the release was cut rather than skipped. Tag chosen as `v2026.05.W20` — ISO week 20 matches the W20 marker the polish/plan commits have been using all week, so the naming convention stays internally consistent. The compare link uses `3c69553...v2026.05.W20` (the last commit before this week's window → the tag). The grouping in RELEASES.md keeps `auto(plan):` and `auto(polish):` as the only two buckets because that is what the week actually produced — no `feat:` / `fix:` headers to surface. Open-issue list captured verbatim from the API. Issue #2 still flagged as needs-human; nothing in the suite-wide trigger-coverage pattern (3/3 polish passes finding the same shape) is acted on here because that belongs in the next PLAN pass, not in a release commit.
+**Follow-ups:**
+- After push, confirm the tag is visible on GitHub and click Publish on `v2026.05.W20` once the human has skimmed RELEASES.md.
+- Tomorrow (Sun) is TRIAGE — service issue #2 with the "needs human triage" treatment (don't label below 80% confidence), and add the 30+-day quiet comment to anything stale (currently nothing in the open set is 30+ days old, so this should be a near-no-op).
+- W21 PLAN on Monday should land the scripted suite-wide trigger-coverage audit that the three POLISH passes this week have been pointing at, plus carry forward `8d-problem-solving-builder.skill` (issue #6) since it didn't get a POLISH pass this week.
+- Watch for future weeks where a `feat:` or `fix:` lands so RELEASES.md grouping starts exercising those buckets — current template handles them but they have not appeared yet.
