@@ -128,3 +128,22 @@ _Maintained by `automotive-skills-daily-standup` scheduled task._
 - 8d-problem-solving polish (issue #6) carries from W20 to W21.
 - Issue #2 needs a human glance — close as invalid or expand body.
 - Consider a CONTRIBUTING.md section documenting the label taxonomy now that it's complete.
+
+## 2026-05-18 (autonomous run, PLAN)
+
+**Mode:** PLAN
+**Action:** Wrote W21 weekly plan with 5 targets (1 carryover + 3 new POLISH + 1 tooling), opened 4 new GitHub issues (#7-#10), regenerated STATUS.md with zero domain-label drift vs the W20 canonical body.
+**Files touched:** STATUS.md, docs/weekly/WEEK-2026-W21.md, docs/AUTONOMOUS_LOG.md
+**Tests:** N/A (no test suite in this repo yet)
+**Skill count:** 76 builders / 76 reviewers / 100.0% paired (alias map unchanged: `item-definition-builder ↔ item-def-checklist-reviewer`, `ppap-package-builder ↔ ppap-checklist-reviewer`)
+**Open issues:** 9 (#2 needs-triage + #3-#6 from W20 + #7-#10 created this run)
+**Notes:** Target list explicitly addresses the W20 spread gap — comms (#7 dbc), autosar (#8 autosar-swc), and diagnostics (#9 uds-services) are the three clusters W20's PLAN flagged as under-rotated, and they each anchor downstream builders in their cluster. Target #1 reuses existing issue #6 (8d-problem-solving carryover) rather than duplicating; this is a deliberate departure from the spec's literal "create one issue per target" since the issue already exists and is correctly labeled — duplicating would just create cleanup work for the next TRIAGE. Target #5 (classifier freeze) is the long-overdue follow-up the last three RELEASE/TRIAGE entries have flagged; it's a tooling target rather than a skill polish, which is also a deliberate spec departure — capturing it as a target gives it a tracked issue (#10) and a definition of done, rather than letting it slip a fourth week.
+
+A classifier-honesty note while regenerating STATUS: my first pass (strict spec read) reclassified 5 builders away from the W20 canonical body (lessons-learned → quality, msa-gage-rr → quality, safety-gate-review → safety, safety-program-risk-register → safety, spc-chart → quality, triggering-conditions → safety). That was wrong — the journal explicitly deferred any same-day reclassification to "the W21 PLAN landing scripts/classify_skill.py". Reordering the dispatch (program-mgmt sub-prefixes before generic safety-*; sotif before safety to catch triggering-conditions-; quality list keeps 5-why/8d-/fishbone but excludes msa-/spc- which fall to "other") produced a STATUS body that's byte-identical to W20's body in every domain cell. Bumped header date and refreshed the summary tail to note the classifier behaviour explicitly. That STATUS body is now the W21 "golden" — when target #5 lands later this week, the golden file should match this exact body.
+
+**Follow-ups:**
+- Tue/Wed/Thu POLISH passes should service #6 → #7 → #8 (or #9) in that order: clear the carryover first, then rotate to the spread-gap clusters. Pick #10 (classifier freeze) for one of the Tue/Wed/Thu slots if cycle time permits — it's small enough to fit in a POLISH slot.
+- W22 PLAN should pull from calibration / mbse / sysml — three clusters still un-rotated through W21.
+- Issue #2 ("goodd", empty body) is still open and needs-triage; a human glance is overdue. Not touched this run because PLAN is the wrong venue.
+- If target #5 (classifier freeze) lands this week, RELEASE on Saturday should include a brief note in RELEASES.md that the STATUS classifier is now deterministic.
+- Watch for any commits this week that introduce a new `safety-` or `triggering-` prefix skill — the dispatch ordering above will need to be re-verified against new names.

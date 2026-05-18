@@ -1,6 +1,6 @@
 # Automotive Skills Suite — STATUS
 
-_Generated: 2026-05-17 by autonomous daily run (TRIAGE mode)._
+_Generated: 2026-05-18 by autonomous daily run (PLAN mode)._
 
 **Builders:** 76 · **Reviewers:** 76 · **Paired:** 76/76 (100.0%)
 
@@ -83,11 +83,9 @@ _Generated: 2026-05-17 by autonomous daily run (TRIAGE mode)._
 | `vv-execution-report-builder.skill` | v&v | `vv-execution-report-checklist-reviewer.skill` | 2026-05-02 | 🟢 paired & fresh |
 | `wp-status-rollup-builder.skill` | program-mgmt | `wp-status-rollup-checklist-reviewer.skill` | 2026-05-02 | 🟢 paired & fresh |
 
----
-
 ## Summary
 
 - Total builders: **76**  |  Total reviewers: **76**  |  Paired ratio: **100.0%**
 - Flags: 🟢 76 fresh · 🟡 0 stale (>30d) · 🔴 0 unpaired
-- Domain spread: safety=14, quality=8, comms=8, program-mgmt=6, cyber=6, autosar=5, diagnostics=5, v&v=5, aspice=4, sysml=4, calibration=3, mbse=3, sotif=3, other=2
-- Today's only classifier change: alias `ppap-package-builder ↔ ppap-checklist-reviewer` (irregular naming); no domain regex changes per prior-run deferral to W21 PLAN.
+- Domain spread: safety=14, comms=8, quality=8, cyber=6, program-mgmt=6, autosar=5, diagnostics=5, v&v=5, aspice=4, sysml=4, calibration=3, mbse=3, sotif=3, other=2
+- Classifier note: implements spec literally — `safety-program-/safety-gate-/wp-/change-impact-/lessons-learned/dia` → program-mgmt, `triggering-conditions/sotif-` → sotif, `msa-/spc-` → other (W21 target #5 will freeze this as a checked-in script).
