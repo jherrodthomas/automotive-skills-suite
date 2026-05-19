@@ -147,3 +147,24 @@ A classifier-honesty note while regenerating STATUS: my first pass (strict spec 
 - Issue #2 ("goodd", empty body) is still open and needs-triage; a human glance is overdue. Not touched this run because PLAN is the wrong venue.
 - If target #5 (classifier freeze) lands this week, RELEASE on Saturday should include a brief note in RELEASES.md that the STATUS classifier is now deterministic.
 - Watch for any commits this week that introduce a new `safety-` or `triggering-` prefix skill — the dispatch ordering above will need to be re-verified against new names.
+
+## 2026-05-19 (autonomous run, POLISH)
+
+**Mode:** POLISH (Tuesday)
+**Action:** Polished `8d-problem-solving-builder.skill` per W21 target #1 (issue #6 carryover from W20). Wrote `docs/skill-polish-log/8d-problem-solving-builder.md` (~10 KB). Regenerated STATUS.md byte-identically to the W20 canonical body (header date/mode only diff). No edits applied to the .skill archive itself.
+**Files touched:** STATUS.md, docs/skill-polish-log/8d-problem-solving-builder.md, docs/AUTONOMOUS_LOG.md
+**Tests:** N/A (no test suite in this repo yet)
+**Skill count:** 76 builders / 76 reviewers / 100.0% paired (alias map unchanged: `item-definition-builder ↔ item-def-checklist-reviewer`, `ppap-package-builder ↔ ppap-checklist-reviewer`)
+**Open issues:** 9 (#2 needs-triage + #3-#6 W20 targets + #7-#10 W21 targets created Monday)
+**Notes:** Strict DoD on the carryover passed cleanly on the existing description — all 8 disciplines D1–D8 named (Team/Description/Containment/RCA/PCA/Prevention/Recognition), and all three required trigger phrases ("warranty response," "customer complaint," "corrective action tracking") present verbatim. "customer complaint" lands at char ~50, inside the 400-char fast-trigger window — strongest possible position. This is the first POLISH target this month with zero open DoD items; the W20 pattern (one missing formal trigger phrase per skill) broke today.
+
+Findings are accuracy and casual-coverage polish, all severity-low:
+(1) `D5-D6` is hyphenated as one bucket in the description but the generator emits two distinct tabs (`05_D4`/`06_D5_Permanent_Corrective_Actions`/`07_D6_Implement_Corrective_Actions`/`08_D7`/`09_D8`/`10_References`); (2) the 11th tab (`10_References`) is absent from the description's enumeration (count is right at 11, enumeration only names 10); (3) D0 not mentioned (industry-acceptable, no action); (4) casual framings thin compared to peer skills like `hara-builder`. Drafted a proposed rewrite that fixes #1/#2/#4 in a single ~825-char description, well under the 1024-char cap, with all four DoD phrases preserved. Per the autonomous-edit allowlist (typo / over-length / missing-required-field only), the rewrite was NOT committed; it stays in the polish log for human review.
+
+Classifier regression caught and fixed during STATUS regen: my first pass had a startswith-with-trailing-dash bug (`"hsi".startswith("hsi-")` is False), which dropped `hsi-builder` and `dia-builder` out of safety/program-mgmt into `other`, and the alias-map keys were off-by-one (`item-definition-builder` vs `item-definition`) which broke pairing for both alias entries. Fix is local to the throwaway regen script (a `has_prefix` helper that accepts both bare and dashed forms, and an alias dict keyed on bbase rather than full filename) — the output is now byte-identical to the W20 canonical body in every cell except the header date and mode. This is exactly the kind of bug W21 target #5 ("freeze the STATUS classifier into `scripts/classify_skill.py` with a golden-file test") is supposed to make impossible. Worth landing target #5 sooner rather than later.
+
+**Follow-ups:**
+- Wed POLISH should service issue #7 (dbc-builder) — comms cluster, untouched in W20. Expect the W20 pattern (one missing formal trigger phrase) to resume.
+- Thu POLISH: pick between #8 (autosar-swc) and #9 (uds-services). Recommend #9 uds-services — it's the diagnostics anchor and the spec's strict-trigger demand list (canonical service IDs 0x10/0x11/...) is the longest of any W21 target, so the description is the most likely to drift.
+- W21 target #5 (classifier freeze) still unserviced. If Wed/Thu cycle time permits, slot it in as a fourth POLISH; otherwise it carries to W22. Three consecutive runs have now hit classifier bugs that would have been caught by the golden-file test.
+- Issue #2 ("goodd", empty body) still open and needs-triage; un-actioned again — POLISH is the wrong venue. Flag this for the human if it's still open by Saturday's RELEASE.
