@@ -1,6 +1,6 @@
 # Automotive Skills Suite — STATUS
 
-_Generated: 2026-05-20 by autonomous daily run (POLISH mode)._
+_Generated: 2026-05-21 by autonomous daily run (POLISH mode)._
 
 **Builders:** 76 · **Reviewers:** 76 · **Paired:** 76/76 (100.0%)
 
@@ -20,7 +20,7 @@ _Generated: 2026-05-20 by autonomous daily run (POLISH mode)._
 | `autosar-bsw-config-builder.skill` | autosar | `autosar-bsw-config-checklist-reviewer.skill` | 2026-05-02 | 🟢 paired & fresh |
 | `autosar-composition-builder.skill` | autosar | `autosar-composition-checklist-reviewer.skill` | 2026-05-02 | 🟢 paired & fresh |
 | `autosar-rte-mapping-builder.skill` | autosar | `autosar-rte-mapping-checklist-reviewer.skill` | 2026-05-02 | 🟢 paired & fresh |
-| `autosar-swc-builder.skill` | autosar | `autosar-swc-checklist-reviewer.skill` | 2026-05-02 | 🟢 paired & fresh |
+| `autosar-swc-builder.skill` | autosar | `autosar-swc-checklist-reviewer.skill` | 2026-05-21 | 🟢 paired & fresh |
 | `bus-load-analysis-builder.skill` | comms | `bus-load-analysis-checklist-reviewer.skill` | 2026-05-02 | 🟢 paired & fresh |
 | `calibration-data-exchange-builder.skill` | calibration | `calibration-data-exchange-checklist-reviewer.skill` | 2026-05-02 | 🟢 paired & fresh |
 | `cdd-builder.skill` | diagnostics | `cdd-checklist-reviewer.skill` | 2026-05-02 | 🟢 paired & fresh |
@@ -87,5 +87,5 @@ _Generated: 2026-05-20 by autonomous daily run (POLISH mode)._
 
 - Total builders: **76**  |  Total reviewers: **76**  |  Paired ratio: **100.0%**
 - Flags: 🟢 76 fresh · 🟡 0 stale (>30d) · 🔴 0 unpaired
-- Domain spread: safety=14, quality=8, comms=8, program-mgmt=6, cyber=6, autosar=5, diagnostics=5, v&v=5, aspice=4, sysml=4, calibration=3, mbse=3, sotif=3, other=2
+- Domain spread: safety=14, comms=8, quality=8, cyber=6, program-mgmt=6, autosar=5, diagnostics=5, v&v=5, aspice=4, sysml=4, calibration=3, mbse=3, sotif=3, other=2
 - Classifier note: domain map preserved from W20 canonical STATUS; W21 target #10 (`scripts/classify_skill.py`) will freeze this as a checked-in deterministic script.
