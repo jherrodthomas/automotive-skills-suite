@@ -201,3 +201,19 @@ Standout finding is non-DoD and more impactful than the trigger gaps: the SKILL.
 - W21 target #5/#10 (classifier freeze, `scripts/classify_skill.py` + golden-file test) STILL unserviced after the full Tue/Wed/Thu POLISH cycle — four+ consecutive runs have now flagged classifier/regen drift this would prevent. Strongly recommend W22 PLAN promote it to the Monday slot or have Saturday's RELEASE call it out.
 - Consider a symmetry pass on `autosar-adaptive-app-builder` so its description cross-references autosar-swc-builder the same way (Classic↔Adaptive redirect now only points one direction).
 - Issue #2 ("goodd", empty body) still open and needs-triage — un-actioned by POLISH again. Flag for the human at Saturday's RELEASE if still open.
+
+## 2026-05-22 (autonomous run, DOCS)
+
+**Mode:** DOCS (Friday)
+**Action:** Introduced CHANGELOG.md, created three `examples/<skill>/README.md` stubs for the W21-touched skills, regenerated STATUS.md.
+**Files touched:** CHANGELOG.md, examples/autosar-swc-builder/README.md, examples/dbc-builder/README.md, examples/8d-problem-solving-builder/README.md, STATUS.md, docs/AUTONOMOUS_LOG.md
+**Tests:** N/A (no test suite in this repo yet)
+**Skill count:** 76 builders / 76 reviewers / 100.0% paired
+**Open issues:** 10 (#2 needs-triage · #3-#6 W20 targets · #7-#10 W21 targets · #11 new, unlabeled)
+**Notes:** First DOCS run to create CHANGELOG.md — seeded with a `[Unreleased]` section grouping the four W21 commits. The repo's commit convention is `auto(<mode>):`, not the `feat/fix/polish/docs` the task spec names, so I mapped by intent: the three `auto(polish):` commits to a Polish group, the one `auto(plan):` commit to Docs. Judgement call on "skills touched this week": only `autosar-swc-builder.skill` was actually file-modified (the Thu fix); `dbc-builder` and `8d-problem-solving-builder` received POLISH analysis passes logged to skill-polish-log but no archive edit. I created example stubs for all three anyway — they are the W21 polish targets, the `examples/` directory was previously empty, and stub docs are purely additive. The `examples/dbc-builder/README.md` "Sample I/O" line cites `examples/sample_input_can.json` to match what dbc-builder's own SKILL.md advertises — but per the 2026-05-20 polish log, the dbc-builder `.skill` archive does NOT actually ship that file. The stub describes the documented contract, not the (drifted) archive contents; bundling the real example JSON remains a separate fix outside DOCS scope. No new skills were added this week, so the README skill table was left unchanged. Issue #11 ("Add a small packaging utility for Claude-compatible skill exports") is new since yesterday and carries no labels.
+**Follow-ups:**
+- Sat RELEASE: W21 has 4 commits (+today's docs commit) — a release IS due. Tag will be `v2026.05.W4` (W21 Mon 2026-05-18 falls in the 4th ISO-aligned week-span of May). RELEASE step computes/confirms the exact tag.
+- Sun TRIAGE: issue #11 is unlabeled — infer `{new-skill or ci}` + a domain; it reads as tooling, lean `ci`. Issue #2 ("goodd", empty body) still un-actioned and needs human triage.
+- W21 target #10 (classifier freeze, `scripts/classify_skill.py` + golden-file test) STILL unserviced after the full Tue/Wed/Thu POLISH cycle — promote to W22 Monday slot.
+- dbc-builder archive packaging gap (`examples/sample_input_can.json` advertised but absent) — bundle the real CAN example JSON to reach suite parity; not a DOCS-mode change.
+- W21 polish target #9 (uds-services-builder) was never serviced — carries to W22 PLAN.
