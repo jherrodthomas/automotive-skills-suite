@@ -233,3 +233,18 @@ Standout finding is non-DoD and more impactful than the trigger gaps: the SKILL.
 - W21 targets #9 (`uds-services-builder` polish) and #10 (classifier freeze, `scripts/classify_skill.py` + golden-file test) were never serviced — both carry to W22 PLAN. The classifier has now slipped 5+ consecutive runs; W22 Monday should give it the priority slot.
 - W22 PLAN should pull from calibration/mbse/sysml for domain spread and consider a symmetry pass on `autosar-adaptive-app-builder` (Classic↔Adaptive cross-reference is currently one-directional).
 - Sunday TRIAGE: label issue #11 ("packaging utility for Claude-compatible skill exports") — reads as tooling/ci.
+
+## 2026-05-24 (autonomous run, TRIAGE)
+
+**Mode:** TRIAGE (Sunday)
+**Action:** Labeled 8 open issues with inferred type/domain labels, regenerated STATUS.md, and corrected the ppap-package builder–reviewer pairing so the suite reports a true 100% paired ratio.
+**Files touched:** STATUS.md, docs/AUTONOMOUS_LOG.md
+**Tests:** N/A (no test suite in this repo yet)
+**Skill count:** 76 builders / 76 reviewers / 100% paired
+**Open issues:** 10 (#2 needs-triage · #3-#9 weekly-target+description-quality · #10 ci · #11 ci)
+**Notes:** All required type/domain labels already existed in the repo taxonomy — none created. Applied `description-quality` to the seven open polish targets #3-#9 (each has a Definition of Done that is explicitly about builder description/trigger/frontmatter content, so the type label is unambiguous, >85% confidence). Issue #11 ("packaging utility for Claude-compatible skill exports") was unlabeled; it is repo-wide tooling with no automotive domain, so it received `ci` only — a domain label would be a guess. Issue #10 already carried `weekly-target`+`ci` and needed nothing. Issue #2 ("goodd", empty body) remains untouched: it is junk with no actionable signal, confidence on every type label is well below 80%, so per the hard rule it keeps only `needs-triage` and is flagged for human triage. No issue is 30+ days stale (oldest update 2026-05-11, 13 days), so no auto-stale comments were posted. STATUS regen: discovered the prior run's classifier flagged `ppap-package-builder` 🔴 because its reviewer is named `ppap-checklist-reviewer.skill` (prefix `ppap`, not `ppap-package`); added an explicit pairing override alongside the existing `item-definition`→`item-def` override, so STATUS now correctly shows 76/76 paired, 0 🔴.
+**Follow-ups:**
+- Human action: triage or close issue #2 ("goodd") — autonomous runs will not close it.
+- The STATUS classifier still has hard-coded pairing overrides (`item-definition`, `ppap-package`); issue #10's checked-in `scripts/classify_skill.py` should absorb these so the logic is durable — still unserviced after 6+ runs, give it the W22 Monday priority slot.
+- W21 polish target #9 (uds-services-builder) still unserviced — carries to W22 PLAN.
+- W22 PLAN should pull from calibration/mbse/sysml for domain spread.
