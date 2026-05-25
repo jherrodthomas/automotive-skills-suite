@@ -248,3 +248,18 @@ Standout finding is non-DoD and more impactful than the trigger gaps: the SKILL.
 - The STATUS classifier still has hard-coded pairing overrides (`item-definition`, `ppap-package`); issue #10's checked-in `scripts/classify_skill.py` should absorb these so the logic is durable — still unserviced after 6+ runs, give it the W22 Monday priority slot.
 - W21 polish target #9 (uds-services-builder) still unserviced — carries to W22 PLAN.
 - W22 PLAN should pull from calibration/mbse/sysml for domain spread.
+
+## 2026-05-25 (autonomous run, PLAN)
+
+**Mode:** PLAN
+**Action:** Set W22 plan — 5 polish targets, 1 new issue (#12), STATUS regenerated.
+**Files touched:** STATUS.md, docs/weekly/WEEK-2026-W22.md, docs/AUTONOMOUS_LOG.md
+**Tests:** N/A (no test suite in this repo yet)
+**Skill count:** 76 builders / 76 reviewers / 100% paired
+**Open issues:** 11
+**Notes:** Suite is fully paired and every builder was last touched 2026-05-01/02, so least-recently-touched gave no signal — priority fell to open-issue references. W20/W21 left four polish issues open and unworked (#3 hara, #4 cs-concept, #5 aspice-assessment, #9 uds-services); W22 absorbs all four rather than letting them rot. Only the one genuinely new target (dfmea-builder) got a fresh issue (#12) — creating duplicate issues for the four carryovers would clutter the tracker, so they are referenced in place. Human should confirm this is the desired behavior. Issue #2 ("goodd", needs-triage) is junk and still needs human attention; #10 (classifier freeze) and #11 (packaging utility) are tooling items not folded into the polish plan.
+**Follow-ups:**
+- Tue/Wed/Thu: execute POLISH on uds-services, hara, cs-concept (top 3 by priority).
+- Consider closing stale polish issues #6/#7/#8 — their commits landed in W21 but issues stayed open.
+- Triage or close issue #2 ("goodd") — clearly junk.
+- Decide whether tooling issues #10/#11 belong in a weekly plan or a separate backlog.
