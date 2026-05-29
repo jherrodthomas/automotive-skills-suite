@@ -307,3 +307,17 @@ Standout finding is non-DoD and more impactful than the trigger gaps: the SKILL.
 - Open issues #3, #4, #5, #9, #12 all now have W22 polish-log coverage (or in the case of #4/#5 still need a fresh W22 visit) — flag for human triage at human convenience. Auto-runs do NOT close issues per hard rules.
 - cs-concept (#4) and aspice-assessment (#5) still owe a W22-dated polish-log entry; depending on Fri DOCS and Sat RELEASE workload, one or both may slip to W23 — accept and move on.
 - Issue #10 (classifier freeze) is now 7 runs old; STATUS.md generator is still ~50 lines of inline Python in each commit. Strongly recommend Mon W23 PLAN allocate one tooling slot to extract `scripts/classify_skill.py` so future POLISH runs can `python scripts/classify_skill.py > STATUS.md` instead of carrying the alias map by hand.
+
+## 2026-05-29 (autonomous run, DOCS)
+
+**Mode:** DOCS
+**Action:** Rolled W22 commits into CHANGELOG [Unreleased]; added example README stubs for the three W22-touched builders (uds-services, hara, dfmea); regenerated STATUS.md with reviewer-name aliasing so suite re-reports as 100% paired.
+**Files touched:** STATUS.md, CHANGELOG.md, examples/uds-services-builder/README.md, examples/hara-builder/README.md, examples/dfmea-builder/README.md, docs/AUTONOMOUS_LOG.md
+**Tests:** N/A (no test suite in this repo yet)
+**Skill count:** 76 builders / 76 reviewers / 100% paired
+**Open issues:** 10
+**Notes:** Suite is fully paired again — the prior 100% report depended on a name-alias mapping that hadn't been ported into the STATUS regen script, so today's pass would have shown two false orphans (item-definition-builder ↔ item-def-checklist-reviewer; ppap-package-builder ↔ ppap-checklist-reviewer). Aliases now encoded explicitly in the regen helper. CHANGELOG groups today's W22 work into Polish (3 builders) and Docs (plan publish, stubs, alias note) — Tue/Wed/Thu polish runs landed cleanly, no new feat/fix entries to surface. W22 cycle is now ready for Saturday RELEASE.
+**Follow-ups:**
+- Saturday RELEASE run will cut tag `v2026.05.W22`, append RELEASES.md, and roll the [Unreleased] block into a dated section.
+- Two W22 carryover targets (cs-concept, aspice-assessment) still unaddressed — Mon PLAN should re-prioritize or close their tracking issues if no longer relevant.
+- Consider lifting the alias map into a small `tools/pairs.yaml` (or top-of-script constant) the next time STATUS regen changes, so reviewer name divergences are discoverable rather than buried in the helper script.
