@@ -371,3 +371,19 @@ Standout finding is non-DoD and more impactful than the trigger gaps: the SKILL.
 **Velocity:** 23 commits, 24 distinct skills touched (skills + polish-log + examples), 3 weekly releases
 **Coverage:** 100% paired-reviewer (alias-aware), 7.9% examples (6/76 builders)
 **Notes:** First monthly KPI run — no prior snapshot for issue delta. SOTIF domain saw zero commits in May; flagged as a candidate for W24/W25 polish to avoid a two-month streak.
+
+## 2026-06-02 (autonomous run, POLISH)
+
+**Mode:** POLISH (Tuesday — first POLISH day of W23)
+**Action:** W23 target #1 cs-concept-builder polish pass — re-evaluated against the (still-unchanged) archive, appended a W23-dated section to the existing polish-log, no .skill edits applied per the autonomous-edit allowlist.
+**Files touched:** docs/skill-polish-log/cs-concept-builder.md (appended W23 section), STATUS.md (regenerated — flag column shifts only, no skill-data changes), docs/AUTONOMOUS_LOG.md (this entry)
+**Tests:** N/A (no test suite in this repo yet)
+**Skill count:** 76 builders / 76 reviewers / 100% paired
+**Open issues:** 12 (unchanged from W23 PLAN: #2 needs-triage · #3–#10 weekly targets · #11 ci · #15/#16 W23 polish targets)
+**Notes:** Picked cs-concept per the explicit W23 PLAN priority order — issue #4 is the longest-open polish issue in the repo (four-week carryover, originating in W20-T2). The archive is byte-identical to every prior inspection (inner mtimes 2026-05-01 07:55–07:58, top-level last touched in the 2026-05-01 seed commit f8d9799), so the W20 findings still stand exactly: description 784/1024 chars, frontmatter clean, AAICAN six-property list in canonical order inside the 400-char window, but the three formal trigger phrases `CSR derivation` (offset 607), `CAL allocation` (absent), and `CSI handoff` (only the parenthesized long-form at 497) all miss the strict W20 DoD. The W20-drafted rewrite (~970 chars, folds all three back into the first 400 chars plus two casual framings) would close the issue in one commit but it touches ~600 of the 784 description chars — same "editorial restructure, not surgical fix" judgement applied to hara-builder's W22 carryover. Per the standup's "typo / over-length / missing required field" allowlist, none of the three triggers fire here, so no archive edit was committed. STATUS regen: prior generator's domain map needed two tweaks (fmeda → safety, msa-gage-rr / spc-chart → quality, and the program-mgmt prefix rule had to fire BEFORE the broader safety- rule so safety-program-risk-register and safety-gate-review wouldn't false-match as safety). Domain spread now exactly matches the W22-RELEASE STATUS (safety=15, quality=10, comms=8, cyber=6, autosar=5, diagnostics=5, program-mgmt=5, v&v=5, aspice=4, sysml=4, calibration=3, mbse=3, sotif=3). Fresh/stale flags shifted today: as of 2026-06-02 the May-02-touched skills are now 31 days old, so only autosar-swc (2026-05-21) and uds-services (2026-05-26) remain 🟢 — 2 fresh / 74 stale on the headline.
+**Follow-ups:**
+- Wed POLISH should pick W23 target #2 aspice-assessment-builder (#5, also a four-week carryover, identical shape risk).
+- Issue #4 should be closed by the human one way or the other — accept the W20 rewrite (closes the file), or close as "won't fix (outside autonomous scope)" to break the loop. A fifth POLISH pass next month will produce the same log entry.
+- The classifier-extraction target (#10, W23 target #3) is still inline-Python; today's regen needed manual rule-order tweaks to match the prior STATUS exactly. A real `scripts/classify_skill.py` with a golden-file test would catch the ordering bug at PR time instead of after the fact.
+- W23 target #4 fmeda-builder (#15) and #5 tara-builder (#16) are the fresh stale-cohort picks; Thu POLISH slot or W24 carryover depending on aspice-assessment workload tomorrow.
+- Issue #2 ("goodd") still un-actioned; will continue to flag for human triage.

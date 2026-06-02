@@ -146,3 +146,108 @@ phrases in the first 400 chars) is now the second consecutive POLISH finding —
 `hara-builder` (W20-T1, Tue) and `cs-concept-builder` (W20-T2, today) both shipped
 this same shape. Worth flagging in the next PLAN as a suite-wide DoD audit
 candidate rather than per-skill chasing.
+
+---
+
+## 2026-06-02 — W23 POLISH pass (four-week carryover from W20)
+
+**Mode:** POLISH (Tuesday)
+**File reviewed:** `skills/cs-concept-builder.skill` (ZIP archive; inner SKILL.md is 9,760 bytes / 133 lines).
+**Tracking issue:** [#4](https://github.com/jherrodthomas/automotive-skills-suite/issues/4) (open, four-week carryover).
+**Plan reference:** target #1 in `docs/weekly/WEEK-2026-W23.md` (top of W23 priority list).
+
+### File-state check vs. previous passes
+
+The archive is unchanged since the W20 inspection — every inner-file mtime is
+`2026-05-01 07:55–07:58`, the SKILL.md is still 9,760 bytes / 133 lines, and the
+top-level `.skill` was last touched by the initial seed commit f8d97993 on
+2026-05-01. No drift, no regressions, nothing to undo.
+
+Re-ran the W20 trigger-coverage check fresh against the current bytes rather
+than trusting the prior log:
+
+| DoD check (W20) | This pass |
+|---|---|
+| Description ≤ 1024 chars | **PASS** — 784 chars (unchanged, ~240 headroom) |
+| Frontmatter has required fields (`name`, `description`) | **PASS** |
+| AAICAN list intact in canonical order | **PASS** — all six properties present at offsets 255 / 271 / 286 / 297 / 314 / 328 (all inside the 400-char window) |
+| `Cybersecurity Concept` in first 400 chars | **PASS** — offset 38 |
+| `ISO/SAE 21434` in first 400 chars | **PASS** — offset 24 |
+| `six security properties` in first 400 chars | **PASS** — offset 230 |
+| `CSR` in first 400 chars | **PASS** — offset 360 (verb form, not the noun phrase `CSR derivation`) |
+| `CAL` standalone | **MARGINAL** — offset 410, just outside the 400-char window |
+| `CSR derivation` (formal trigger) in first 400 chars | **FAIL** — offset 607 (same gap W20 found; the noun phrase only appears inside the "Use this skill whenever the user mentions…" trigger list) |
+| `CAL allocation` (formal trigger) anywhere in description | **FAIL** — literal noun phrase absent entirely. Closest is the verb form `allocates CAL per architectural element` at offset 400. |
+| `CSI handoff` (plain form) in description | **FAIL** — only the parenthesized form `CSI (Cybersecurity Implementation) hand-off` appears, at offset 497. |
+| Typo scan (`teh recieve seperate occured definately accomodate begining wether adress arguement existance reccommend reccomend`) | **PASS** — no hits. |
+
+Archive file-tree cross-check against `unzip -l` matches the "Files in this
+skill" block in the SKILL.md footer exactly — same nine entries
+(`SKILL.md`, `scripts/{generate_cs_concept.py, cs_goals_reader.py, recalc.py,
+office/{__init__.py, soffice.py}}`, `references/{methodology.md,
+csr_templates.md}`, `examples/sample_cs_concept_input_esc.json`). No
+dbc-builder-style packaging drift here.
+
+### Autonomous-edit allowlist decision
+
+The standup spec defines the autonomous-edit allowlist narrowly: **typo,
+description > 1024 chars, missing required frontmatter field**. None of the
+three triggers fire here:
+
+- Description is 784 chars — well under cap.
+- Both required frontmatter keys (`name`, `description`) are present.
+- Zero typos in the SKILL.md body or frontmatter.
+
+The three open DoD findings are all editorial trigger-coverage rewrites of the
+description, identical to the gaps caught in the W20 entry. Applying the
+W20-proposed rewrite (~970 chars, reshuffles `CSR derivation` / `CAL
+allocation` / `CSI handoff` into the first 400 chars and adds two casual
+framings) would touch roughly **600 of the 784 description chars** — the same
+"editorial restructure, not surgical fix" judgement the W22 hara-builder pass
+applied to its proposed rewrite, and outside the standup's "small and shipped
+beats big and broken" rule.
+
+**No edits committed this run.** Findings carry forward unchanged.
+
+### Why this is the fourth straight pass without a code edit
+
+W20 (2026-05-13) drafted the rewrite. W21 PLAN deprioritized cs-concept in
+favour of newer targets; no POLISH touch. W22 PLAN re-included cs-concept as
+target #4 but the actual W22 POLISH cycle (uds → dfmea → hara) consumed all
+three slots before reaching it — flagged in the W22 RELEASE journal as the
+explicit reason cs-concept must lead W23. W23 PLAN promoted it to target #1,
+which is why today's pass exists.
+
+The pattern is now clear and worth stating out loud: **the cs-concept-builder
+description is functionally fine** (84 chars over budget would change that;
+missing frontmatter would change that; typos would change that) **but it
+fails one specific DoD that the autonomous loop is not permitted to fix**.
+Either the human approves the W20 rewrite and this issue closes, or the DoD
+gets relaxed in a future PLAN, or the issue stays in carryover indefinitely.
+A fifth POLISH pass next month would produce the same log entry for the same
+reasons — diminishing returns are real here.
+
+### Severity roll-up (unchanged from W20)
+
+| Finding | Severity | Action |
+|---|---|---|
+| `CAL allocation` absent from description | low | W20-proposed rewrite drafted; await human review |
+| `CSR derivation` outside first 400 chars | low | folded into the same proposed rewrite |
+| `CSI handoff` plain form absent | low (optional) | folded into the same proposed rewrite |
+| Casual framings thin / not verbatim | low (optional) | folded into the same proposed rewrite |
+
+### Follow-ups for the human
+
+1. **Decide on the W20-proposed rewrite of the description** (block quote in
+   the 2026-05-13 entry above). If approved, it lands as a one-shot edit and
+   issue [#4](https://github.com/jherrodthomas/automotive-skills-suite/issues/4)
+   closes the same day. If rejected, the issue should be closed as `won't fix
+   (outside autonomous scope)` to break the four-week loop.
+2. **Suite-wide DoD audit** for the trigger-coverage gap is still recommended
+   (`hara-builder`, `cs-concept-builder`, and likely `tara-builder` /
+   `fmeda-builder` / `aspice-assessment-builder` carry the same shape). One
+   focused audit replaces five carryover loops. Captured in the W23 PLAN
+   notes; still not scheduled.
+3. **Optional:** fold the autonomous-edit allowlist into the standup spec
+   explicitly so future runs have a citeable rule for declining editorial
+   rewrites without re-deriving the decision each visit.
