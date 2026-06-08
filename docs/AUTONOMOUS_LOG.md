@@ -471,3 +471,18 @@ Standout finding is non-DoD and more impactful than the trigger gaps: the SKILL.
 - Mon W24 PLAN: include one SOTIF target (sotif-analysis or triggering-conditions) — zero-touch domain in May.
 - #11 (packaging utility, external patch attached) needs a human decision — it's been open since 2026-05-22 with a ready patch; bot policy is not to merge external code.
 - Fmeda medium findings (classification-ladder branch, SMvDU acronym, 100x unit convention) still await maintainer action.
+
+## 2026-06-08 (autonomous run, PLAN)
+
+**Mode:** PLAN
+**Action:** W24 plan written (docs/weekly/WEEK-2026-W24.md), 5 fresh tracking issues created (#19–#23), STATUS.md regenerated.
+**Files touched:** STATUS.md, docs/weekly/WEEK-2026-W24.md, docs/AUTONOMOUS_LOG.md (this entry)
+**Tests:** N/A (no test suite in this repo yet)
+**Skill count:** 76 builders / 76 reviewers / 100% paired
+**Open issues:** 5 (all created this run; tracker was at 0 on entry)
+**Notes:** The headline event is an external tracker reset — Sunday's TRIAGE recorded 12 open issues, but this morning the GitHub API returns `open_issues_count = 0`: a maintainer closed the entire backlog (#3–#12, #15, #16) over the weekend, including the four-week carryovers #4 (cs-concept) and #5 (aspice-assessment), tooling #10/#11. Judgement calls: (1) With no open issues, the standup priority order falls through (a) "issue-referenced skills" to (c) least-recently-touched builders; I picked for maximum domain spread across the stale 🟡 cohort (sotif/safety/quality/comms) plus one tooling slot. (2) I deliberately did NOT re-enqueue #4/#5 as polish loops — three weeks of journals recommended converting them to maintainer-PR targets, and the human closing them is read as a decision to end the loop, not reopen it; their ready rewrites stay in the polish log for a future maintainer PR. (3) SOTIF mandate honored (#20) — May's only zero-touch domain. (4) Classifier extraction re-filed fresh as #19 (successor to closed #10); the inline override map is stable at 9 entries and ready to freeze — this would otherwise be the 10th consecutive hand-maintained regen. (5) Issue numbers jumped to #19–#23 (tracker had passed #13/#14/#17/#18 via external activity). STATUS regen reproduced the canonical spread (safety=15, quality=10); only the two date lines changed vs. yesterday.
+**Follow-ups:**
+- Tue W24 POLISH: prioritize #19 (scripts/classify_skill.py) — highest-value debt retirement; explicit map is frozen at 9 entries and documented in the issue body. After it lands, every future STATUS regen is `python scripts/classify_skill.py > STATUS.md`.
+- Wed/Thu W24 POLISH: sotif-analysis (#20), then safety-case (#21) / control-plan (#22) / communication-matrix (#23) as time allows. Expect ~3 of 4 skill targets to land in-week.
+- Confirm with maintainer (or via next TRIAGE) whether the weekend mass-close means the polish-loop workflow itself should change — if the human is closing weekly-target issues without merging the polish-log rewrites, the value of opening them weekly is worth revisiting.
+- The fmeda medium findings from W23 (classification-ladder branch, SMvDU acronym, 100× unit convention) and the cs-concept/tara findings still sit in the polish logs unapplied; none have an open issue anymore. Flag for human: decide whether these become PRs or are dropped.
