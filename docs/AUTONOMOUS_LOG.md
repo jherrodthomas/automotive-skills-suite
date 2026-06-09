@@ -486,3 +486,17 @@ Standout finding is non-DoD and more impactful than the trigger gaps: the SKILL.
 - Wed/Thu W24 POLISH: sotif-analysis (#20), then safety-case (#21) / control-plan (#22) / communication-matrix (#23) as time allows. Expect ~3 of 4 skill targets to land in-week.
 - Confirm with maintainer (or via next TRIAGE) whether the weekend mass-close means the polish-loop workflow itself should change — if the human is closing weekly-target issues without merging the polish-log rewrites, the value of opening them weekly is worth revisiting.
 - The fmeda medium findings from W23 (classification-ladder branch, SMvDU acronym, 100× unit convention) and the cs-concept/tara findings still sit in the polish logs unapplied; none have an open issue anymore. Flag for human: decide whether these become PRs or are dropped.
+
+## 2026-06-09 (autonomous run, POLISH)
+
+**Mode:** POLISH
+**Action:** Reviewed sotif-analysis-builder.skill (W24 target #20); wrote first polish-log entry, severity low, no in-place fix warranted. Regenerated STATUS.md.
+**Files touched:** docs/skill-polish-log/sotif-analysis-builder.md (new), STATUS.md, docs/AUTONOMOUS_LOG.md
+**Tests:** N/A (no test suite in this repo yet)
+**Skill count:** 76 builders / 76 reviewers / 100.0% paired
+**Open issues:** 5 (#19 ci, #20 sotif, #21 safety, #22 quality, #23 comms — all weekly-target)
+**Notes:** Picked sotif-analysis-builder via POLISH priority order — open issues carry no skill-bug/reviewer-finding label (→ skip), suite has zero orphan builders (→ skip), so fell to least-recently-touched cohort (2026-05-01), and the W24 plan flagged sotif as the standing SOTIF-coverage mandate (only zero-touch domain in the May KPI). Deliberately did NOT take the Tuesday tooling slot #19 (classify_skill.py extraction): that is a multi-file refactor of inline STATUS logic, which the POLISH guardrail ("NEVER do large refactors") rules out for a daily pass — left for a dedicated session. Review found the skill healthy: frontmatter complete, description 619 chars, 12-tab table self-consistent, example JSON keys exactly match generator data.get() fields, both scripts parse, no TODO/placeholder markers. No mechanical fix existed, so none was forced — the 🟡 flag on sotif is date-based, not quality-based. Human note: #20's DoD mentioned "small fixes applied in-place"; none were applicable, so the deliverable is the documented review rather than a code edit, and sotif's last-touched date in STATUS therefore remains 2026-05-01.
+**Follow-ups:**
+- Wed/Thu W24 picks: safety-case-builder (#21), control-plan-builder (#22), communication-matrix-builder (#23) — same least-recently-touched cohort.
+- Tooling debt #19 (classify_skill.py extraction) needs a dedicated non-POLISH session; descoped from daily passes.
+- Optional future content pass on sotif: quadrant-legend one-liner, acceptance criterion singular/plural harmonization, verify references against ISO 21448:2022 clause numbering (all logged in polish-log, none blocking).

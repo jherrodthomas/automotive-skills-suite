@@ -1,6 +1,6 @@
 # STATUS — automotive-skills-suite
 
-_Auto-generated 2026-06-08 by automotive-skills-daily-standup._
+_Auto-generated 2026-06-09 by automotive-skills-daily-standup._
 
 | Builder | Domain | Paired Reviewer | Last Touched | Flag |
 |---------|--------|-----------------|--------------|------|
@@ -86,5 +86,5 @@ _Auto-generated 2026-06-08 by automotive-skills-daily-standup._
 - Builders: **76**, Reviewers: **76**, Paired ratio: **100.0%**
 - 🟢 Paired & fresh (≤30d): **2**  ·  🟡 Stale (>30d): **74**  ·  🔴 Orphan builders: **0**
 - Domain spread: safety=15, quality=10, comms=8, cyber=6, autosar=5, diagnostics=5, program-mgmt=5, v&v=5, aspice=4, sysml=4, calibration=3, mbse=3, sotif=3
-- Date: 2026-06-08
+- Date: 2026-06-09
 - Source: scan of `skills/` directory + `git log -1` per file.
