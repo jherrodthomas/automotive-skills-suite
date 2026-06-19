@@ -1,6 +1,6 @@
 # STATUS — automotive-skills-suite
 
-_Auto-generated 2026-06-18 by automotive-skills-daily-standup (POLISH run)._
+_Auto-generated 2026-06-19 by automotive-skills-daily-standup (DOCS run)._
 
 | Builder | Domain | Paired Reviewer | Last Touched | Flag |
 |---|---|---|---|---|
@@ -44,7 +44,7 @@ _Auto-generated 2026-06-18 by automotive-skills-daily-standup (POLISH run)._
 | 5-why-builder | quality | 5-why-checklist-reviewer | 2026-05-01 | 🟡 not touched 30+ days |
 | 8d-problem-solving-builder | quality | 8d-problem-solving-checklist-reviewer | 2026-05-01 | 🟡 not touched 30+ days |
 | apqp-plan-builder | quality | apqp-plan-checklist-reviewer | 2026-05-01 | 🟡 not touched 30+ days |
-| control-plan-builder | quality | control-plan-checklist-reviewer | 2026-05-01 | 🟡 not touched 30+ days |
+| control-plan-builder | quality | control-plan-checklist-reviewer | 2026-06-18 | 🟢 paired & touched ≤30 days |
 | dfmea-builder | quality | dfmea-checklist-reviewer | 2026-05-01 | 🟡 not touched 30+ days |
 | fishbone-builder | quality | fishbone-checklist-reviewer | 2026-05-01 | 🟡 not touched 30+ days |
 | msa-gage-rr-builder | quality | msa-gage-rr-checklist-reviewer | 2026-05-01 | 🟡 not touched 30+ days |
@@ -85,6 +85,6 @@ _Auto-generated 2026-06-18 by automotive-skills-daily-standup (POLISH run)._
 
 - Total builders: 76
 - Total reviewers: 76
-- 🟢 Paired & fresh (≤30d): 2
-- 🟡 Paired but stale (30+d): 74
+- 🟢 Paired & fresh (≤30d): 3
+- 🟡 Paired but stale (30+d): 73
 - 🔴 Orphan builders (no paired reviewer): 0

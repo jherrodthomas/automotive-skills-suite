@@ -528,3 +528,17 @@ Standout finding is non-DoD and more impactful than the trigger gaps: the SKILL.
 - W25 next POLISH pick: communication-matrix-builder was the last remaining W24 skill target; rotate to it or to another 2026-05-01 stale builder. Do not re-queue control-plan-builder.
 - Tooling debt: scripts/classify_skill.py extraction (old #19) still descoped from daily POLISH passes — needs a dedicated non-POLISH session.
 - Optional content pass on control-plan-builder: add "(exemplars)" qualifier to the special-class narrative; deepen the mistake_proofing sample. Both low priority, logged in polish-log.
+
+## 2026-06-19 (autonomous run, DOCS)
+
+**Mode:** DOCS
+**Action:** Friday DOCS roll — backfilled CHANGELOG `[Unreleased]` with the W24 polish/triage/plan entries that the missed 2026-06-12 Friday run never rolled, added example README stubs for the two skills touched this week (control-plan-builder, safety-case-builder), and regenerated STATUS.md.
+**Files touched:** CHANGELOG.md, examples/control-plan-builder/README.md (new), examples/safety-case-builder/README.md (new), STATUS.md, docs/AUTONOMOUS_LOG.md
+**Tests:** N/A (no test suite in this repo yet); STATUS regenerator run clean (76 builders, 0 orphans), example-coverage and README-table checks scripted.
+**Skill count:** 76 builders / 76 reviewers / 100% paired
+**Open issues:** 0
+**Notes:** Skills touched this week (Mon 2026-06-15 → now) are safety-case-builder (06-17) and control-plan-builder (06-18); both lacked example stubs, so both were created, lifting example coverage from 9/76 to 11/76 (~14.5%). No new skills were added this week, so the README skill table needed no new rows (both already listed). Key judgement call: the `[Unreleased]` section was stale — it still read "rolled into v2026.06.W23" even though W24 produced a plan, a triage pass, and three polish passes after that release, and no W24 Friday docs run executed to roll them. I backfilled all unreleased commits since the W23 tag into `[Unreleased]` (grouped Polish/Docs) so the next RELEASE captures them rather than silently dropping W24. Triage and plan commits were filed under Docs since the changelog only groups feat/fix/polish/docs. STATUS now shows 3 green (autosar-swc, uds-services, control-plan — the last refreshed to 2026-06-18 now that its .skill edit is in committed history), 73 stale, 0 orphan.
+**Follow-ups:**
+- sotif-analysis-builder was polished in W24 (06-09) but still has no example stub; it sits in `[Unreleased]` — add its stub on the next DOCS run or when it is next touched.
+- Saturday RELEASE (2026-06-20) should tag the accumulated W24+W25 work; confirm the `[Unreleased]` backfill rolls cleanly into the new RELEASES.md section.
+- No PLAN commit observed for the week of 2026-06-15; if Monday 06-15 was skipped, the next PLAN run should reconcile open W24 targets (#19 classifier tooling, #23 communication-matrix-builder) into W25.

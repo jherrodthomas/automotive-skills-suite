@@ -6,7 +6,17 @@ from `[Unreleased]` into a dated section at each weekly release.
 
 ## [Unreleased]
 
-_(empty — rolled into v2026.06.W23 on 2026-06-06)_
+_Accumulating since v2026.06.W23 (2026-06-06). Note: the W24 Friday docs run (2026-06-12) did not execute, so the W24 polish/triage/plan entries below were backfilled into `[Unreleased]` during the 2026-06-19 DOCS run to keep them from being lost at the next release._
+
+### Polish
+- **sotif-analysis-builder** — W24 #20 review pass (Tue 2026-06-09); polish-log entry added; no `.skill` edits (`a6df28d`)
+- **safety-case-builder** — W24 #21 review pass (Wed 2026-06-17); polish-log entry added; no `.skill` edits (`2bd0c19`)
+- **control-plan-builder** — polish pass (Thu 2026-06-18); embedded fix: sample-count in JSON example corrected 18 → 15 to match the 15 controlled characteristics; polish-log entry added (`54e2559`)
+
+### Docs
+- W24 weekly plan published — targets: classifier extract, sotif, safety-case, control-plan, comm-matrix (`2623e14`)
+- W24 triage pass — label refresh, #12 typed, #17 delta confirmed, STATUS regen (`d8b19ef`)
+- W25 DOCS roll (Fri 2026-06-19): `[Unreleased]` backfilled with W24 entries; example README stubs added for control-plan-builder and safety-case-builder; STATUS regenerated (this commit)
 
 ## [v2026.06.W23] — 2026-06-06
 
