@@ -193,3 +193,50 @@ https://github.com/jherrodthomas/automotive-skills-suite/compare/v2026.05.W22...
 - The fmeda medium findings (Classification ladder unreachable branch; SMvDU acronym needing an ISO 26262-5 Annex B source-check; 100× `distribution_pct` unit suspicion) are the highest-leverage maintainer items from W23 — see `docs/skill-polish-log/fmeda-builder.md`.
 - Issue **#10** (classifier extraction to `scripts/classify_skill.py`) is now 8 consecutive runs of hand-maintained inline Python — the explicit map grew again this week (`item-definition` → safety).
 - Issue count dropped 13 → 12 between Thu and Fri without autonomous action; presumed human/spam-filter close of #17 — Sun TRIAGE will confirm.
+
+## v2026.06.W25 — 2026-06-20
+
+ISO week 25 (2026-06-15 → 2026-06-20). This snapshot consolidates two weeks of work: the **W24 Saturday release (2026-06-13) did not execute**, so everything committed since the last tag (`v2026.06.W23`, 2026-06-06) ships here — the W24 plan/triage/polish plus the W25 docs roll. Internal commit messages carry "W24" labels (a one-week drift between the human's week labels and ISO week numbers); the tag follows the established ISO-week-of-year convention.
+
+### Highlights
+
+- Three polish passes landed against `sotif-analysis-builder`, `safety-case-builder`, and `control-plan-builder`. Only `control-plan-builder` carried an embedded `.skill` fix (JSON example sample-count corrected 18 → 15 to match its 15 controlled characteristics); the other two are polish-log entries with no `.skill` edits.
+- The W24 plan opened the loop on five targets (classifier extraction, sotif, safety-case, control-plan, comm-matrix); a triage pass typed #12 and confirmed the #17 delta. All issues have since been serviced or closed — the tracker is at **0 open** at snapshot.
+- Suite holds at 76 builder + 76 reviewer pairs, 100% paired. No orphans, no new skills this period.
+
+### Changes this week
+
+**plan**
+- `2623e14` auto(plan): W24 targets — classifier extract, sotif, safety-case, control-plan, comm-matrix
+
+**polish**
+- `a6df28d` auto(polish): W24 #20 sotif-analysis-builder review pass, regen STATUS, journal
+- `2bd0c19` auto(polish): W24 #21 safety-case-builder review pass, regen STATUS, journal
+- `54e2559` auto(polish): control-plan-builder pass, fix sample count 18->15, regen STATUS, journal
+
+**triage**
+- `d8b19ef` auto(triage): label refresh, #12 typed, #17 delta confirmed, STATUS regen
+
+**docs**
+- `6051a5d` auto(docs): backfill W24 changelog, add 2 example stubs, regen STATUS
+
+**docs / release** _(this snapshot commit)_
+- STATUS.md refreshed (76/76 paired; no flag changes vs. Fri — only the generated-on date advanced)
+- RELEASES.md updated with this W25 section
+- CHANGELOG.md `[Unreleased]` rolled into a dated `[v2026.06.W25]` section
+- `docs/AUTONOMOUS_LOG.md` updated with the RELEASE-mode entry
+
+### Skills inventory
+
+- Builders: **76** · Reviewers: **76** · Paired ratio: **100.0%** (76/76)
+- Domain spread: safety 17, quality 10, comms 8, cyber 6, autosar 5, diagnostics 5, v&v 5, aspice 4, sysml 4, calibration 3, mbse 3, program-mgmt 3, sotif 3
+
+### Compare
+
+https://github.com/jherrodthomas/automotive-skills-suite/compare/v2026.06.W23...v2026.06.W25
+
+### Open items for the human
+
+- **Missed W24 release** — the 2026-06-13 Saturday run did not fire; W24 work is captured here rather than under its own tag. If a continuous tag history matters, a retroactive `v2026.06.W24` could be cut at `6051a5d`, but that is a manual call left to the maintainer.
+- **Week-label drift** — commit messages and weekly docs use "W24" for work done in ISO week 25. Worth deciding whether to align the human labels to ISO weeks or document the offset, so future tags don't look like they skip a number (W23 → W25).
+- **Issue #10** (classifier extraction to `scripts/classify_skill.py`) remains open conceptually — STATUS regen still relies on parsing the prior STATUS for the domain map rather than a committed classifier. No `feat:` work was scheduled this period.

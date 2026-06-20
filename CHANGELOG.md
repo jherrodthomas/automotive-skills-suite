@@ -6,7 +6,11 @@ from `[Unreleased]` into a dated section at each weekly release.
 
 ## [Unreleased]
 
-_Accumulating since v2026.06.W23 (2026-06-06). Note: the W24 Friday docs run (2026-06-12) did not execute, so the W24 polish/triage/plan entries below were backfilled into `[Unreleased]` during the 2026-06-19 DOCS run to keep them from being lost at the next release._
+_Nothing yet — accumulating since v2026.06.W25 (2026-06-20)._
+
+## [v2026.06.W25] — 2026-06-20
+
+_Consolidates the unreleased W24 + W25 work; the W24 Saturday release (2026-06-13) did not fire, so these entries ship under the W25 tag. Commit messages carry "W24" labels (one-week drift vs. ISO week 25)._
 
 ### Polish
 - **sotif-analysis-builder** — W24 #20 review pass (Tue 2026-06-09); polish-log entry added; no `.skill` edits (`a6df28d`)

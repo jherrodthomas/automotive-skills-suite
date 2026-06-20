@@ -1,6 +1,6 @@
 # STATUS — automotive-skills-suite
 
-_Auto-generated 2026-06-19 by automotive-skills-daily-standup (DOCS run)._
+_Auto-generated 2026-06-20 by automotive-skills-daily-standup (RELEASE run)._
 
 | Builder | Domain | Paired Reviewer | Last Touched | Flag |
 |---|---|---|---|---|

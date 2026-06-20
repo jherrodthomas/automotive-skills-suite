@@ -542,3 +542,17 @@ Standout finding is non-DoD and more impactful than the trigger gaps: the SKILL.
 - sotif-analysis-builder was polished in W24 (06-09) but still has no example stub; it sits in `[Unreleased]` — add its stub on the next DOCS run or when it is next touched.
 - Saturday RELEASE (2026-06-20) should tag the accumulated W24+W25 work; confirm the `[Unreleased]` backfill rolls cleanly into the new RELEASES.md section.
 - No PLAN commit observed for the week of 2026-06-15; if Monday 06-15 was skipped, the next PLAN run should reconcile open W24 targets (#19 classifier tooling, #23 communication-matrix-builder) into W25.
+
+## 2026-06-20 (autonomous run, RELEASE)
+
+**Mode:** RELEASE
+**Action:** Cut weekly snapshot `v2026.06.W25` consolidating all unreleased work since `v2026.06.W23` (the W24 Saturday release never fired); appended RELEASES.md section, rolled CHANGELOG `[Unreleased]` → `[v2026.06.W25]`, regenerated STATUS.md, pushed tag.
+**Files touched:** STATUS.md, RELEASES.md, CHANGELOG.md, docs/AUTONOMOUS_LOG.md; tag v2026.06.W25
+**Tests:** N/A (no test suite in this repo yet)
+**Skill count:** 76 builders / 76 reviewers / 100% paired
+**Open issues:** 0
+**Notes:** Two judgement calls this run. (1) Week numbering: `date +%V` puts today in ISO week 25, but the journal/plan/commits label the in-flight work "W24". The established tag convention is ISO-week-of-year (W20→W23 each matched the release commit's ISO week), so I tagged W25 to stay consistent rather than reusing "W24". (2) Missed W24 release: the last tag is W23 (2026-06-06) and no W24 tag exists, so the W24 plan/triage/polish commits plus this week's docs roll were all unreleased — I rolled them into the W25 release notes and Compare link (W23...W25) rather than leaving them stranded. STATUS.md changed only on its generated-on date line today (no skill files edited; flags stable at 3🟢/73🟡/0🔴). Tag pushed but NOT published as a GitHub Release object, per hard rules — human clicks Publish after reviewing RELEASES.md.
+**Follow-ups:**
+- Decide whether to cut a retroactive `v2026.06.W24` at `6051a5d` for continuous tag history, or accept the W23→W25 gap.
+- Resolve the week-label drift (align human "W#" labels to ISO weeks, or document the offset) so future tags don't appear to skip numbers.
+- Issue #10 (classifier extraction to `scripts/classify_skill.py`) still outstanding — STATUS regen continues to parse the prior STATUS for the domain map.
