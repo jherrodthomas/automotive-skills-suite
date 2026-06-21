@@ -556,3 +556,17 @@ Standout finding is non-DoD and more impactful than the trigger gaps: the SKILL.
 - Decide whether to cut a retroactive `v2026.06.W24` at `6051a5d` for continuous tag history, or accept the W23→W25 gap.
 - Resolve the week-label drift (align human "W#" labels to ISO weeks, or document the offset) so future tags don't appear to skip numbers.
 - Issue #10 (classifier extraction to `scripts/classify_skill.py`) still outstanding — STATUS regen continues to parse the prior STATUS for the domain map.
+
+## 2026-06-21 (autonomous run, TRIAGE)
+
+**Mode:** TRIAGE
+**Action:** Quiet triage day — issue tracker empty (0 open), so no labeling, commenting, or stale-issue nudges were needed; regenerated STATUS.md, which flipped `autosar-swc-builder` from 🟢 to 🟡 as it aged past the 30-day freshness window.
+**Files touched:** STATUS.md, docs/AUTONOMOUS_LOG.md
+**Tests:** N/A (no test suite in this repo yet); STATUS regenerator run clean (76 builders, 0 orphans).
+**Skill count:** 76 builders / 76 reviewers / 100% paired
+**Open issues:** 0
+**Notes:** No open issues exist, so STEP 5 TRIAGE work (infer/apply labels, comment on 30+ day stale issues) had nothing to operate on — this run is STATUS regen + journal only, which is the expected quiet-day commit. All 31 standard labels (type set {skill-bug, reviewer-finding, description-quality, new-skill, docs, ci, chain-break} plus domain labels) already exist on the remote, so no label creation was attempted. STATUS deltas vs the 2026-06-20 RELEASE run: `autosar-swc-builder` (last touched 2026-05-21) crossed from exactly 30 days to 31 days old and is now stale, dropping the fresh count from 3 to 2 (now only `uds-services-builder` 2026-05-26 and `control-plan-builder` 2026-06-18). Reviewer pairing remains 76/76 with 0 orphans; confirmed the two non-standard reviewer names (`item-def-checklist-reviewer` for item-definition-builder, `ppap-checklist-reviewer` for ppap-package-builder) still resolve correctly via the prior-mapping fallback in the regenerator so they were not falsely flagged 🔴.
+**Follow-ups:**
+- With the tracker empty, the next PLAN run (Mon 2026-06-22) has no open-issue signal — prioritize by orphan/least-recently-touched and re-file the still-open tooling debt (scripts/classify_skill.py extraction, ref'd in prior journals as #10/#19) as a fresh W26 target so it stops drifting.
+- 72 of 76 builders are now 2026-05-01/02-dated and stale; consider a domain-rotation POLISH cadence so freshness isn't concentrated in 2-3 skills.
+- Week-label drift (human "W#" vs ISO `date +%V`) noted in the W25 release journal is still unresolved; reconcile before the next Saturday RELEASE.

@@ -1,6 +1,6 @@
 # STATUS — automotive-skills-suite
 
-_Auto-generated 2026-06-20 by automotive-skills-daily-standup (RELEASE run)._
+_Auto-generated 2026-06-21 by automotive-skills-daily-standup (TRIAGE run)._
 
 | Builder | Domain | Paired Reviewer | Last Touched | Flag |
 |---|---|---|---|---|
@@ -12,7 +12,7 @@ _Auto-generated 2026-06-20 by automotive-skills-daily-standup (RELEASE run)._
 | autosar-bsw-config-builder | autosar | autosar-bsw-config-checklist-reviewer | 2026-05-02 | 🟡 not touched 30+ days |
 | autosar-composition-builder | autosar | autosar-composition-checklist-reviewer | 2026-05-02 | 🟡 not touched 30+ days |
 | autosar-rte-mapping-builder | autosar | autosar-rte-mapping-checklist-reviewer | 2026-05-02 | 🟡 not touched 30+ days |
-| autosar-swc-builder | autosar | autosar-swc-checklist-reviewer | 2026-05-21 | 🟢 paired & touched ≤30 days |
+| autosar-swc-builder | autosar | autosar-swc-checklist-reviewer | 2026-05-21 | 🟡 not touched 30+ days |
 | a2l-builder | calibration | a2l-checklist-reviewer | 2026-05-02 | 🟡 not touched 30+ days |
 | calibration-data-exchange-builder | calibration | calibration-data-exchange-checklist-reviewer | 2026-05-02 | 🟡 not touched 30+ days |
 | dcm-builder | calibration | dcm-checklist-reviewer | 2026-05-02 | 🟡 not touched 30+ days |
@@ -85,6 +85,6 @@ _Auto-generated 2026-06-20 by automotive-skills-daily-standup (RELEASE run)._
 
 - Total builders: 76
 - Total reviewers: 76
-- 🟢 Paired & fresh (≤30d): 3
-- 🟡 Paired but stale (30+d): 73
+- 🟢 Paired & fresh (≤30d): 2
+- 🟡 Paired but stale (30+d): 74
 - 🔴 Orphan builders (no paired reviewer): 0
