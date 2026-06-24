@@ -599,3 +599,18 @@ Standout finding is non-DoD and more impactful than the trigger gaps: the SKILL.
 - Remaining W26 targets to polish Wed/Thu: #28 aspice-assessment-builder, #29 cs-concept-builder, #30 dia-builder, #31 communication-matrix-builder.
 - Cosmetic: strip trailing '---' from 5-why-builder SKILL.md on a pass that already repackages the archive.
 - Consider whether STATUS staleness should also consider examples/ and polish-log mtime so doc-only polish reflects in the flag.
+
+## 2026-06-24 (autonomous run, POLISH)
+
+**Mode:** POLISH
+**Action:** Polished communication-matrix-builder (#31) — broadened the frontmatter description trigger clause for better skill matching; wrote its first polish log; regenerated STATUS.md.
+**Files touched:** skills/communication-matrix-builder.skill, docs/skill-polish-log/communication-matrix-builder.md, STATUS.md, docs/AUTONOMOUS_LOG.md
+**Tests:** N/A (no test suite in this repo yet)
+**Skill count:** 76 builders / 76 reviewers / 100% paired
+**Open issues:** 5
+**Notes:** No skill-bug or reviewer-finding issues open, and no true orphans, so I worked the active weekly-target queue (#27 was done yesterday). Learned/confirmed two things: (1) .skill files are ZIP archives (SKILL.md + scripts/references inside), so frontmatter edits require unzip → edit → zip-update in place. (2) The previous STATUS pairing logic false-flagged item-definition-builder and ppap-package-builder as orphans because their reviewers use abbreviated stems (item-def-checklist-reviewer, ppap-checklist-reviewer); I added an abbreviated-stem fallback to the pairing, so STATUS now correctly shows 0 orphans / 100% paired. The real signal worth a human's attention: 74 of 76 builders are 30+ days stale (most last touched ~54 days ago). A 1-skill/day polish cadence will not keep 76 builders fresh — worth deciding whether "stale at 30 days" is the right threshold or whether polish throughput should increase.
+**Follow-ups:**
+- Next POLISH targets from W26 queue: dia-builder (#30, no polish log yet), then aspice-assessment (#28) / cs-concept (#29) refresh.
+- Reconcile communication-matrix description vs body trigger lists ("vehicle network coordination").
+- Consider adding example input JSON for communication-matrix-builder so its reviewer has a sample.
+- Staleness: revisit the 30-day threshold or raise polish throughput given 74/76 stale.
