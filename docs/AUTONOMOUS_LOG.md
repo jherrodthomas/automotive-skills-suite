@@ -614,3 +614,17 @@ Standout finding is non-DoD and more impactful than the trigger gaps: the SKILL.
 - Reconcile communication-matrix description vs body trigger lists ("vehicle network coordination").
 - Consider adding example input JSON for communication-matrix-builder so its reviewer has a sample.
 - Staleness: revisit the 30-day threshold or raise polish throughput given 74/76 stale.
+
+## 2026-06-25 (autonomous run, POLISH)
+
+**Mode:** POLISH
+**Action:** Polished aspice-assessment-builder (issue #28) — corrected the documented ISO/IEC 33020 capability-level rating rule in SKILL.md.
+**Files touched:** skills/aspice-assessment-builder.skill, docs/skill-polish-log/aspice-assessment-builder.md, STATUS.md, docs/AUTONOMOUS_LOG.md
+**Tests:** N/A (no test suite in this repo yet); verified the repackaged .skill zip extracts and the patched SKILL.md content is present.
+**Skill count:** 76 builders / 76 reviewers / 100% paired
+**Open issues:** 5
+**Notes:** No skill-bug/reviewer-finding issues open, so picked the lowest open weekly-target POLISH issue (#28). The CL determination section understated the rating algorithm — it required each level's PAs to be ">= L" but omitted that all lower-level PAs must be Fully achieved (F). Fixed to the correct ISO/IEC 33020 rule. Doc-only edit; the generator script leaves Achieved CL blank for the assessor, so no code/doc mismatch was introduced. The one nominal "orphan" surfaced earlier (ppap-package-builder) is in fact paired via ppap-checklist-reviewer; STATUS pairing logic now resolves that alias, so missing-reviewer count is 0. STATUS shows 74 stale builders — the suite is largely untouched since the 2026-05-01 import and will age past 30 days steadily; the weekly POLISH cadence only freshens ~1/day.
+**Follow-ups:**
+- Next POLISH targets from open weekly issues: #29 cs-concept-builder, #30 dia-builder.
+- Consider a future enhancement to auto-compute Achieved CL in generate_aspice_assessment.py (deferred — needs PA-rating input block).
+- Stale-builder backlog (74) is growing faster than POLISH freshens it; PLAN should consider a batch trigger/freshness sweep.

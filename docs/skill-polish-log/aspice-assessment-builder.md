@@ -128,3 +128,21 @@ trigger list. `hara-builder` (#3, "safety goal"), `cs-concept-builder` (#4, "CSR
 derivation"/"CAL allocation"), and now `aspice-assessment-builder` (#5, "v3.1/v4.0") all
 shipped this pattern. The W21 PLAN should treat a suite-wide trigger-coverage DoD audit
 as a first-class target rather than continuing to catch one per POLISH day.
+## 2026-06-25 (autonomous POLISH, issue #28)
+
+**What's good**
+- Frontmatter is well-formed (name + description), description is a healthy length and trigger-rich.
+- Clear 5-step workflow, 13-tab output table, and an N/P/L/F indicator scheme that matches ASPICE practice.
+- Generator leaves Achieved CL blank for the assessor rather than guessing — appropriate, since CL is a judgement call.
+
+**What to fix**
+- The documented CL determination algorithm understated the ISO/IEC 33020 rule. It said each level only requires its own PAs to be ">= L", omitting that all *lower* PAs must be **Fully** achieved (F). As written, a process with PA1.1=L and PA2.1/PA2.2=L would read as CL2, which is incorrect — PA1.1 must be F for CL2.
+
+**Applied this run**
+- Rewrote the "ASPICE rating algorithm (CL determination)" section to state the correct ISO/IEC 33020 rule: attributes *at* the target level L-or-F, every attribute *below* it Fully achieved (F). Added an explicit note that a Largely-achieved lower attribute does not satisfy a higher-level claim. Doc-only change; the generator script is untouched (it does not auto-compute CL, so no code mismatch is introduced).
+
+**Severity:** medium (correctness of stated rating rule; could mislead an assessor reading the skill as authority).
+
+**Follow-ups / not done this run**
+- Consider having generate_aspice_assessment.py optionally auto-compute Achieved CL from PA ratings using this rule (would need a PA-rating input block). Larger change — deferred.
+- recalc.py contains no CL logic; if auto-compute is added, that's where it belongs.
