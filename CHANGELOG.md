@@ -6,7 +6,16 @@ from `[Unreleased]` into a dated section at each weekly release.
 
 ## [Unreleased]
 
-_Nothing yet — accumulating since v2026.06.W25 (2026-06-20)._
+_Accumulating since v2026.06.W25 (2026-06-20). Covers W26 (Mon 2026-06-22 → present)._
+
+### Polish
+- **5-why-builder** — W26 polish pass (Tue 2026-06-23); example README stub added and polish-log entry appended; no `.skill` edits (`107d490`)
+- **communication-matrix-builder** — W26 polish pass (Wed 2026-06-24); trigger phrasing broadened in description, polish-log entry added, STATUS regenerated (`9389a13`)
+- **aspice-assessment-builder** — W26 polish pass (Thu 2026-06-25); embedded fix: capability-level rating rule corrected to ISO/IEC 33020; polish-log entry added, STATUS regenerated (`fd66c47`)
+
+### Docs
+- W26 weekly plan published (Mon 2026-06-22) — targets: 5-why, aspice-assessment, cs-concept, dia, communication-matrix (`e2162f8`)
+- W26 DOCS roll (Fri 2026-06-26): `[Unreleased]` updated with W26 polish entries; example README stubs added for aspice-assessment-builder and communication-matrix-builder; STATUS regenerated (this commit)
 
 ## [v2026.06.W25] — 2026-06-20
 

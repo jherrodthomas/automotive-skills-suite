@@ -1,6 +1,6 @@
 # STATUS — Automotive Skills Suite
 
-_Auto-generated 2026-06-25 by the daily standup (POLISH mode)._
+_Auto-generated 2026-06-26 by the daily standup (DOCS mode)._
 
 Total skill files: 152 (76 builders / 76 reviewers).
 
@@ -11,7 +11,7 @@ Total skill files: 152 (76 builders / 76 reviewers).
 | a2l-builder | calibration | a2l-checklist-reviewer | 2026-05-02 | 🟡 not touched in 30+ days |
 | apqp-plan-builder | quality | apqp-plan-checklist-reviewer | 2026-05-01 | 🟡 not touched in 30+ days |
 | arxml-system-builder | comms | arxml-system-checklist-reviewer | 2026-05-02 | 🟡 not touched in 30+ days |
-| aspice-assessment-builder | aspice | aspice-assessment-checklist-reviewer | 2026-05-01 | 🟡 not touched in 30+ days |
+| aspice-assessment-builder | aspice | aspice-assessment-checklist-reviewer | 2026-06-25 | 🟢 paired & touched ≤30 days |
 | aspice-gap-analysis-builder | aspice | aspice-gap-analysis-checklist-reviewer | 2026-05-01 | 🟡 not touched in 30+ days |
 | aspice-improvement-plan-builder | aspice | aspice-improvement-plan-checklist-reviewer | 2026-05-01 | 🟡 not touched in 30+ days |
 | aspice-process-evidence-builder | aspice | aspice-process-evidence-checklist-reviewer | 2026-05-01 | 🟡 not touched in 30+ days |
@@ -25,8 +25,8 @@ Total skill files: 152 (76 builders / 76 reviewers).
 | calibration-data-exchange-builder | calibration | calibration-data-exchange-checklist-reviewer | 2026-05-02 | 🟡 not touched in 30+ days |
 | cdd-builder | diagnostics | cdd-checklist-reviewer | 2026-05-02 | 🟡 not touched in 30+ days |
 | change-impact-analysis-builder | program-mgmt | change-impact-analysis-checklist-reviewer | 2026-05-02 | 🟡 not touched in 30+ days |
-| communication-matrix-builder | comms | communication-matrix-checklist-reviewer | 2026-06-24 | 🟢 paired & touched ≤30d |
-| control-plan-builder | quality | control-plan-checklist-reviewer | 2026-06-18 | 🟢 paired & touched ≤30d |
+| communication-matrix-builder | comms | communication-matrix-checklist-reviewer | 2026-06-24 | 🟢 paired & touched ≤30 days |
+| control-plan-builder | quality | control-plan-checklist-reviewer | 2026-06-18 | 🟢 paired & touched ≤30 days |
 | cs-architecture-builder | cyber | cs-architecture-checklist-reviewer | 2026-05-01 | 🟡 not touched in 30+ days |
 | cs-concept-builder | cyber | cs-concept-checklist-reviewer | 2026-05-01 | 🟡 not touched in 30+ days |
 | cs-goals-builder | cyber | cs-goals-checklist-reviewer | 2026-05-01 | 🟡 not touched in 30+ days |
@@ -88,5 +88,5 @@ Total skill files: 152 (76 builders / 76 reviewers).
 - Builders: 76
 - Paired (reviewer present): 76 / 76 (100%)
 - 🔴 Missing paired reviewer: 0
-- 🟡 Stale (30+ days untouched): 74
-- 🟢 Paired & fresh (≤30 days): 2
+- 🟡 Stale (30+ days untouched): 73
+- 🟢 Paired & fresh (≤30 days): 3

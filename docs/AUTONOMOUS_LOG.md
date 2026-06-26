@@ -628,3 +628,17 @@ Standout finding is non-DoD and more impactful than the trigger gaps: the SKILL.
 - Next POLISH targets from open weekly issues: #29 cs-concept-builder, #30 dia-builder.
 - Consider a future enhancement to auto-compute Achieved CL in generate_aspice_assessment.py (deferred — needs PA-rating input block).
 - Stale-builder backlog (74) is growing faster than POLISH freshens it; PLAN should consider a batch trigger/freshness sweep.
+
+## 2026-06-26 (autonomous run, DOCS)
+
+**Mode:** DOCS
+**Action:** Rolled the W26 commits into CHANGELOG `[Unreleased]`, added example README stubs for the two skills whose `.skill` files changed this week, and regenerated STATUS.
+**Files touched:** CHANGELOG.md, examples/aspice-assessment-builder/README.md, examples/communication-matrix-builder/README.md, STATUS.md, docs/AUTONOMOUS_LOG.md
+**Tests:** N/A (no test suite in this repo yet); verified STATUS regenerates from live `git log` dates and the two new stubs render.
+**Skill count:** 76 builders / 76 reviewers / 100% paired
+**Open issues:** 0
+**Notes:** Friday DOCS pass. Three commits landed this week (5-why, communication-matrix, aspice-assessment polishes) plus Monday's W26 plan — all grouped under `[Unreleased]` as Polish/Docs. Example coverage rose from 12 to 14 of 76 builders (18%): aspice-assessment-builder and communication-matrix-builder both had `.skill` edits this week but lacked example stubs, so they were created from each skill's unzipped SKILL.md description. 5-why-builder already got its stub Tuesday. No new skills were added this week, so the README skill table needed no new rows. Open-issue count dropped 5 → 0 since yesterday's run — the W26 weekly-target issues appear to have been closed externally; nothing for DOCS to act on. STATUS still shows 73 stale builders (control-plan-builder, comm-matrix, aspice now fresh); the staleness backlog noted in prior runs persists.
+**Follow-ups:**
+- Saturday RELEASE: 4 commits this week so a release should fire — tag candidate v2026.06.W4 (ISO week-in-month); confirm against existing tags first.
+- Example coverage at 18% (14/76) — POLISH passes that touch a `.skill` should keep pairing a stub each time to grow this.
+- Open-issue tracker is empty; Monday PLAN will need to seed fresh W27 targets from orphan/least-recently-touched builders rather than carryovers.
