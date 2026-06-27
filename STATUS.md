@@ -1,6 +1,6 @@
 # STATUS — Automotive Skills Suite
 
-_Auto-generated 2026-06-26 by the daily standup (DOCS mode)._
+_Auto-generated 2026-06-27 by the daily standup (RELEASE mode)._
 
 Total skill files: 152 (76 builders / 76 reviewers).
 

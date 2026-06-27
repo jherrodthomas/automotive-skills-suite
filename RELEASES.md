@@ -240,3 +240,42 @@ https://github.com/jherrodthomas/automotive-skills-suite/compare/v2026.06.W23...
 - **Missed W24 release** — the 2026-06-13 Saturday run did not fire; W24 work is captured here rather than under its own tag. If a continuous tag history matters, a retroactive `v2026.06.W24` could be cut at `6051a5d`, but that is a manual call left to the maintainer.
 - **Week-label drift** — commit messages and weekly docs use "W24" for work done in ISO week 25. Worth deciding whether to align the human labels to ISO weeks or document the offset, so future tags don't look like they skip a number (W23 → W25).
 - **Issue #10** (classifier extraction to `scripts/classify_skill.py`) remains open conceptually — STATUS regen still relies on parsing the prior STATUS for the domain map rather than a committed classifier. No `feat:` work was scheduled this period.
+
+
+## v2026.06.W26 — 2026-06-27
+
+ISO week 26 (2026-06-22 → 2026-06-27). Saturday RELEASE run; W25 release fired last week, so this is a normal single-week snapshot with no backfill drift.
+
+### Highlights
+
+- A full W26 polish rotation landed: `5-why-builder`, `communication-matrix-builder`, and `aspice-assessment-builder` each took a review pass. Only `aspice-assessment-builder` carried an embedded `.skill` fix (capability-level rating rule corrected to ISO/IEC 33020); the other two are description/log touches.
+- Week cadence is back in sync — commit labels, weekly docs, and the ISO week all read "W26" this period, closing the W23→W25 numbering drift called out in the W25 release notes.
+- Suite holds at 76 builder + 76 reviewer pairs, 100% paired. No orphans and no new skills this period; the tracker is at **0 open** at snapshot.
+
+### Changes this week
+
+**plan**
+- `e2162f8` auto(plan): W26 targets — 5-why, aspice-assessment, cs-concept, dia, comm-matrix
+
+**polish**
+- `107d490` auto(polish): 5-why-builder pass — add example stub, polish log, regen STATUS
+- `9389a13` auto(polish): broaden communication-matrix-builder trigger, log, regen STATUS
+- `fd66c47` auto(polish): fix aspice-assessment-builder CL rating rule to ISO/IEC 33020
+
+**docs**
+- `57dd9ba` auto(docs): W26 changelog roll, 2 example stubs, STATUS regen
+
+**docs / release** _(this snapshot commit)_
+- STATUS.md refreshed (76/76 paired; no flag changes vs. Fri — only the generated-on date advanced)
+- RELEASES.md updated with this W26 section
+- CHANGELOG.md `[Unreleased]` rolled into a dated `[v2026.06.W26]` section
+- `docs/AUTONOMOUS_LOG.md` updated with the RELEASE-mode entry
+
+### Skills inventory
+
+- Builders: **76** · Reviewers: **76** · Paired ratio: **100.0%** (76/76)
+- Domain spread: safety 17, quality 10, comms 8, cyber 6, autosar 5, diagnostics 5, v&v 5, aspice 4, sysml 4, calibration 3, program-mgmt 3, mbse 3, sotif 3
+
+### Compare
+
+https://github.com/jherrodthomas/automotive-skills-suite/compare/v2026.06.W25...v2026.06.W26

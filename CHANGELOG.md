@@ -6,7 +6,11 @@ from `[Unreleased]` into a dated section at each weekly release.
 
 ## [Unreleased]
 
-_Accumulating since v2026.06.W25 (2026-06-20). Covers W26 (Mon 2026-06-22 → present)._
+_Nothing yet; accumulating since v2026.06.W26 (2026-06-27)._
+
+## [v2026.06.W26] — 2026-06-27
+
+_W26 (Mon 2026-06-22 → Sat 2026-06-27, ISO week 26). Shipped by the Saturday RELEASE run._
 
 ### Polish
 - **5-why-builder** — W26 polish pass (Tue 2026-06-23); example README stub added and polish-log entry appended; no `.skill` edits (`107d490`)
@@ -15,7 +19,13 @@ _Accumulating since v2026.06.W25 (2026-06-20). Covers W26 (Mon 2026-06-22 → pr
 
 ### Docs
 - W26 weekly plan published (Mon 2026-06-22) — targets: 5-why, aspice-assessment, cs-concept, dia, communication-matrix (`e2162f8`)
-- W26 DOCS roll (Fri 2026-06-26): `[Unreleased]` updated with W26 polish entries; example README stubs added for aspice-assessment-builder and communication-matrix-builder; STATUS regenerated (this commit)
+- W26 DOCS roll (Fri 2026-06-26): `[Unreleased]` updated with W26 polish entries; example README stubs added for aspice-assessment-builder and communication-matrix-builder; STATUS regenerated (`57dd9ba`)
+
+### Release _(this snapshot commit)_
+- STATUS.md regenerated (76/76 paired, 3 fresh / 73 stale; generated-on date advanced to 2026-06-27)
+- RELEASES.md appended with the v2026.06.W26 section
+- CHANGELOG `[Unreleased]` rolled into this dated section
+- `docs/AUTONOMOUS_LOG.md` updated with the RELEASE-mode entry
 
 ## [v2026.06.W25] — 2026-06-20
 

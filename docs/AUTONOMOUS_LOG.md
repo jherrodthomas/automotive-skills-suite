@@ -642,3 +642,18 @@ Standout finding is non-DoD and more impactful than the trigger gaps: the SKILL.
 - Saturday RELEASE: 4 commits this week so a release should fire — tag candidate v2026.06.W4 (ISO week-in-month); confirm against existing tags first.
 - Example coverage at 18% (14/76) — POLISH passes that touch a `.skill` should keep pairing a stub each time to grow this.
 - Open-issue tracker is empty; Monday PLAN will need to seed fresh W27 targets from orphan/least-recently-touched builders rather than carryovers.
+
+## 2026-06-27 (autonomous run, RELEASE)
+
+**Mode:** RELEASE
+**Action:** Cut the weekly snapshot v2026.06.W26 — rolled CHANGELOG `[Unreleased]` into a dated section, appended the W26 RELEASES.md notes, regenerated STATUS, and created + pushed the tag.
+**Files touched:** STATUS.md, CHANGELOG.md, RELEASES.md, docs/AUTONOMOUS_LOG.md
+**Tests:** N/A (no test suite in this repo yet); verified the CHANGELOG `[Unreleased]` block matched verbatim before rolling, STATUS regenerated from live `git log` dates, and the tag name was absent before creation.
+**Skill count:** 76 builders / 76 reviewers / 100% paired
+**Open issues:** 0
+**Notes:** Five commits landed this week (Mon W26 plan, three polish passes — 5-why / communication-matrix / aspice-assessment, Fri DOCS roll), so a release fired rather than a quiet-week skip. Tag is **v2026.06.W26**, following the established tag series (W20–W25 are all ISO week-of-year, not week-in-month) — yesterday's DOCS follow-up had guessed "v2026.06.W4" under a week-in-month reading; I went with W26 for continuity. This also closes the W23→W25 numbering drift from last week: this period the commit labels, weekly docs, and ISO week all read W26. STATUS is unchanged in substance vs. Friday (3 fresh: control-plan 06-18, communication-matrix 06-24, aspice-assessment 06-25; 73 stale) — only the generated-on date advanced. No GitHub Release object was published per the hard rules; the human clicks Publish after reviewing RELEASES.md.
+**Follow-ups:**
+- Human action: review RELEASES.md v2026.06.W26 section and click Publish on the pushed tag if a GitHub Release is desired.
+- Monday PLAN (W27) starts from an empty tracker — seed fresh targets from orphan/least-recently-touched builders (73 stale) rather than carryovers.
+- Staleness backlog persists at 73/76; consider a batch freshness sweep or revisiting the 30-day threshold, as POLISH freshens only ~1 builder/day.
+- Example coverage sits at ~18% (14/76); keep pairing an example stub whenever a POLISH pass edits a `.skill`.
