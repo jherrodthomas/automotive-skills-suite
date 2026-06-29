@@ -672,3 +672,18 @@ Standout finding is non-DoD and more impactful than the trigger gaps: the SKILL.
 - Staleness backlog persists at 73/76; POLISH freshens ~1 builder/day so the 30-day window will keep most builders amber — consider a batch freshness sweep or revisiting the threshold.
 - Example coverage ~18% (14/76); keep pairing an example stub whenever a POLISH pass edits a `.skill`.
 - Sandbox hygiene: prior-run leftovers under /tmp are root-owned and un-removable; the clone step should keep using unique timestamped paths.
+
+## 2026-06-29 (autonomous run, PLAN)
+
+**Mode:** PLAN
+**Action:** Seeded W27 plan — picked 5 least-recently-touched builders across 5 previously-untouched domains, wrote docs/weekly/WEEK-2026-W27.md, opened issues #33–#37 (one per target), and regenerated STATUS.
+**Files touched:** STATUS.md, docs/weekly/WEEK-2026-W27.md, docs/AUTONOMOUS_LOG.md (+ 5 GitHub issues via API)
+**Tests:** N/A (no test suite in this repo yet); verified STATUS regenerated from live `git log` dates (76/76 paired, 0 orphans), confirmed all 5 target skills + their reviewers exist on disk, and each issue returned a 200 with a captured number before linking it in the WEEK file.
+**Skill count:** 76 builders / 76 reviewers / 100% paired
+**Open issues:** 5 (newly opened weekly targets #33–#37; tracker was empty at start of run)
+**Notes:** Empty tracker and no orphans, so targets fall to least-recently-touched builders. W26's plan explicitly flagged diagnostics, autosar, mbse, sysml, v&v, calibration, sotif, program-mgmt as untouched; W27 deliberately pulls 5 from that set — odx (diagnostics), autosar-bsw-config (autosar), mbse-system-context (mbse), sysml-state-machine (sysml), traceability-matrix (v&v) — leaving calibration, sotif, program-mgmt for W28. Quality/aspice/cyber/safety/comms were all worked in W26 and are rested. One label-naming judgement call: the v&v domain label cannot contain `&` in GitHub, so issue #37 uses `v-and-v` as the canonical v&v label (noted in the WEEK file). Issue numbering jumped from last week's #27–#31 to #33–#37 (#32 unused/closed elsewhere) — cosmetic only. STATUS substance unchanged vs. yesterday (3 fresh, 73 stale) — only the generated-on date advanced.
+**Follow-ups:**
+- Tue/Wed/Thu POLISH: pull #33 → #34 → #35 in order (then #36, #37) via the standard priority chain; keep each change small (validate + example stub).
+- W28 PLAN should target the remaining un-polished domains: calibration, sotif, program-mgmt.
+- Staleness backlog still 73/76; POLISH freshens ~1/day, so the amber count will persist — a batch freshness sweep or a threshold revisit remains worth a human decision.
+- Example coverage ~18% (14/76); keep adding a stub whenever a POLISH pass edits a `.skill`.
