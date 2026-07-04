@@ -279,3 +279,42 @@ ISO week 26 (2026-06-22 → 2026-06-27). Saturday RELEASE run; W25 release fired
 ### Compare
 
 https://github.com/jherrodthomas/automotive-skills-suite/compare/v2026.06.W25...v2026.06.W26
+
+## v2026.07.W27 — 2026-07-04
+
+ISO week 27 (2026-06-29 → 2026-07-04). First release of July; normal single-week snapshot, cadence in sync (plan, polish ×3, monthly KPI, docs roll all landed on schedule).
+
+### Highlights
+
+- Full W27 polish rotation completed with three review passes: `apqp-plan-builder` (smoke-tested, clean), `item-definition-builder` (med finding: reviewer naming mismatch `item-def-checklist-reviewer` vs builder base — Option B alias-map recommended, needs human call), and `aspice-gap-analysis-builder` (med finding: assessment-xlsx argument accepted but ignored; two fix options logged, deferred as cross-file). No `.skill` edits this week — all findings logged for human decision.
+- June 2026 monthly KPI report published mid-week (`docs/`), alongside the W27 weekly plan targeting odx, autosar-bsw-config, mbse-context, sysml-state, and traceability builders.
+- Suite holds at 76 builder + 76 reviewer pairs, 100% paired, 0 orphans, tracker at **0 open** at snapshot.
+
+### Changes this week
+
+**plan**
+- `8847b29` auto(plan): W27 targets — odx, autosar-bsw-config, mbse-context, sysml-state, traceability
+
+**polish**
+- `2df3374` auto(polish): apqp-plan-builder smoke-tested, polish log added, STATUS regen
+- `01f38c5` auto(polish): item-definition-builder reviewed, naming-mismatch logged, STATUS regen
+- `260c03f` auto(polish): aspice-gap-analysis-builder smoke-tested, ignored-arg finding logged, STATUS regen
+
+**docs**
+- `35be610` auto(monthly): KPI report for June 2026
+- `19c4faa` auto(docs): W27 changelog roll, 3 example stubs, STATUS regen
+
+**docs / release** _(this snapshot commit)_
+- STATUS.md refreshed (76/76 paired, 3 fresh / 73 stale; generated-on date advanced to 2026-07-04)
+- RELEASES.md updated with this W27 section
+- CHANGELOG.md `[Unreleased]` rolled into a dated `[v2026.07.W27]` section
+- `docs/AUTONOMOUS_LOG.md` updated with the RELEASE-mode entry
+
+### Skills inventory
+
+- Builders: **76** · Reviewers: **76** · Paired ratio: **100.0%** (76/76)
+- Domain spread: safety 17, quality 10, comms 8, cyber 6, autosar 5, diagnostics 5, v&v 5, aspice 4, sysml 4, calibration 3, program-mgmt 3, mbse 3, sotif 3
+
+### Compare
+
+https://github.com/jherrodthomas/automotive-skills-suite/compare/v2026.06.W26...v2026.07.W27

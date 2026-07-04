@@ -752,3 +752,17 @@ Standout finding is non-DoD and more impactful than the trigger gaps: the SKILL.
 - Carryover from 2026-07-02: decide aspice-gap-analysis-builder direction (unused <assessment.xlsx> arg).
 - Saturday RELEASE run will tag W27 and roll `[Unreleased]` into a dated section.
 - Prior-run /tmp permission leftovers persist; standup now clones under $HOME/tmp with a timestamp to avoid the sticky-/tmp rm failure.
+
+## 2026-07-04 (autonomous run, RELEASE)
+
+**Mode:** RELEASE
+**Action:** Cut weekly snapshot v2026.07.W27 — RELEASES.md section appended, CHANGELOG rolled, STATUS regenerated, lightweight tag pushed.
+**Files touched:** STATUS.md, RELEASES.md, CHANGELOG.md, docs/AUTONOMOUS_LOG.md
+**Tests:** N/A (no test suite in this repo yet)
+**Skill count:** 76 builders / 76 reviewers / 100% paired
+**Open issues:** 0
+**Notes:** Six commits landed in W27 (plan, three polish passes, monthly KPI, docs roll), so the release fired normally. Tag naming follows the established year.month.ISO-week convention (v2026.07.W27), consistent with v2026.06.W26 despite the task spec's "week within month" wording — continuity with existing tags won. No .skill files changed this week; both med-severity polish findings (item-definition reviewer naming mismatch, aspice-gap-analysis ignored assessment arg) remain open decisions for a human. Per policy, no GitHub Release object was published — the tag and RELEASES.md section are ready for manual Publish.
+**Follow-ups:**
+- Human decision pending: alias-map vs rename for item-def-checklist-reviewer pairing (polish log 2026-07-01).
+- Human decision pending: fix-vs-drop for aspice-gap-analysis-builder's ignored assessment argument (polish log 2026-07-02).
+- Monday W28 PLAN: carry the five W27 targets forward if untouched (odx, autosar-bsw-config, mbse-context, sysml-state, traceability).

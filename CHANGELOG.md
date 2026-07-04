@@ -6,7 +6,11 @@ from `[Unreleased]` into a dated section at each weekly release.
 
 ## [Unreleased]
 
-_W27 (Mon 2026-06-29 → now, ISO week 27). Accumulating since v2026.06.W26 (2026-06-27); ships at the next Saturday RELEASE run._
+_W28 (from Mon 2026-07-06). Accumulating since v2026.07.W27 (2026-07-04); ships at the next Saturday RELEASE run._
+
+## [v2026.07.W27] — 2026-07-04
+
+_W27 (Mon 2026-06-29 → Sat 2026-07-04, ISO week 27). Shipped by the Saturday RELEASE run._
 
 ### Polish
 - **apqp-plan-builder** — W27 polish pass (Tue 2026-06-30); smoke-tested, polish-log entry appended, STATUS regenerated; no `.skill` edits (`2df3374`)
@@ -17,6 +21,12 @@ _W27 (Mon 2026-06-29 → now, ISO week 27). Accumulating since v2026.06.W26 (202
 - W27 weekly plan published (Mon 2026-06-29) — targets: odx, autosar-bsw-config, mbse-context, sysml-state, traceability (`8847b29`)
 - June 2026 monthly KPI report published (Wed 2026-07-01) (`35be610`)
 - W27 DOCS roll (Fri 2026-07-03): `[Unreleased]` updated with W27 polish + docs entries; example README stubs added for apqp-plan-builder, item-definition-builder, and aspice-gap-analysis-builder; STATUS regenerated (this commit)
+
+### Release _(this snapshot commit)_
+- STATUS.md regenerated (76/76 paired, 3 fresh / 73 stale; generated-on date advanced to 2026-07-04)
+- RELEASES.md appended with the v2026.07.W27 section
+- CHANGELOG `[Unreleased]` rolled into this dated section
+- `docs/AUTONOMOUS_LOG.md` updated with the RELEASE-mode entry
 
 ## [v2026.06.W26] — 2026-06-27
 
