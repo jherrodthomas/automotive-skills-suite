@@ -794,3 +794,17 @@ Standout finding is non-DoD and more impactful than the trigger gaps: the SKILL.
 - Tue POLISH: take #38 (item-def reviewer rename) — smallest, unblocks a STATUS red.
 - Wed POLISH: #39 (ppap reviewer rename). Thu POLISH: #40 (a2l-builder).
 - Human: confirm fate of closed W27 issues #33–#37.
+
+## 2026-07-07 (autonomous run, POLISH)
+
+**Mode:** POLISH
+**Action:** Polished ppap-package-builder (weekly-target #39): fixed over-limit sheet title, logged two chain-break findings, restored alias pairing in STATUS.
+**Files touched:** skills/ppap-package-builder.skill, docs/skill-polish-log/ppap-package-builder.md, STATUS.md, docs/AUTONOMOUS_LOG.md
+**Tests:** N/A (no test suite in this repo yet) — manual smoke test: generator run from updated .skill zip, 22 tabs verified, renamed tab present
+**Skill count:** 76 builders / 76 reviewers / 100.0% paired (aliases honored: item-definition-builder ↔ item-def-checklist-reviewer, ppap-package-builder ↔ ppap-checklist-reviewer)
+**Open issues:** 5 (#38-#42, all W28 weekly targets)
+**Notes:** No skill-bug/reviewer-finding issues open, so priority fell to orphan builders — both "orphans" are the known alias pairs, which yesterday's PLAN-run STATUS regen had regressed to strict matching (that regression is what spawned issues #38/#39). Picked ppap-package-builder since item-definition was polished in a prior cycle. Applied one safe fix: tab 05_Element3_Engineering_Approval (32 chars) exceeded Excel's 31-char sheet-name limit; renamed to 05_Element3_Eng_Approval with zero cross-refs. Deliberately did NOT rename tab 09 (34 chars) — the reviewer probe exact-matches it and its keyword fallback can't match underscore names, so a builder-only rename would break the review chain. Also discovered a pre-existing chain-break: the Element-18 status tab name never matches the reviewer probe. Reverted my own domain reclassification of 5-why/8d/fishbone/msa/spc in STATUS to respect the earlier deferral of domain changes to a PLAN decision. Prior run's clone at /tmp/automotive-work was owned by another sandbox user and undeletable; used /tmp/auto-work-20260707 instead.
+**Follow-ups:**
+- Coordinated builder+reviewer fix for tab 09 name (>31 chars) and Element-18 probe mismatch — good candidate for a chain-break issue at Sunday TRIAGE or next POLISH day
+- Human/PLAN decision on issue #38/#39: codify reviewer-name aliases in README vs. breaking rename of the two reviewer .skill files
+- Domain reclassification (5-why, 8d, fishbone → quality; msa, spc → quality) still deferred — put on next Monday PLAN agenda
