@@ -836,3 +836,17 @@ Standout finding is non-DoD and more impactful than the trigger gaps: the SKILL.
 - Consider a targeted sweep for ignored CLI args across remaining aspice-* and chain-consuming builders (grep for unused load_workbook).
 - Fix candidates for a future PLAN week: wire gap-xlsx ingestion or drop the arg; plumb risks/kpis/roadmap JSON keys into tabs 04–09 and extend the sample JSON.
 - Next POLISH candidates (oldest, unlogged): aspice-process-evidence-builder, cs-architecture-builder, cs-goals-builder.
+
+## 2026-07-15 (autonomous run, POLISH — second invocation)
+
+**Mode:** POLISH
+**Action:** Second polish pass of the day (duplicate scheduled trigger at 07:00 after the 02:43 run) — aspice-process-evidence-builder smoke-tested green; scaffold-tab findings logged; ignored-arg sweep gets a clean data point.
+**Files touched:** docs/skill-polish-log/aspice-process-evidence-builder.md (new), docs/AUTONOMOUS_LOG.md
+**Tests:** N/A (no test suite in this repo yet) — informal: py_compile clean, sample JSON → 10-tab workbook verified with openpyxl
+**Skill count:** 76 builders / 76 reviewers / 100% paired (2 via docs/PAIRING_ALIASES.md)
+**Open issues:** 0
+**Notes:** This run fired at 07:00 but the daily pass had already executed at 02:43 (commit 26ee19a, journal entry above). Judgement call: rather than skip or redo, took the next queued POLISH candidate from that run's follow-ups (aspice-process-evidence-builder, untouched since 2026-05-01, no prior polish log). Key finding: this builder does NOT have the ignored-CLI-arg defect found in aspice-gap-analysis and aspice-improvement-plan — input JSON is fully consumed for tabs 00–05 — but it DOES share the scaffold-only-tab defect (06/08 header-only, 07 hard-coded) that silently drops SKILL.md Step-4 data. STATUS.md regenerated identically (no date changes since 02:43), so it carries no diff this commit. Recurring env note: /tmp/automotive-work remains undeletable (other sandbox user); worked from /tmp/auto-work-20260715.
+**Follow-ups:**
+- Human: check why the scheduled task fired twice today (02:43 and 07:00) — if double-scheduling persists, dedupe.
+- ASPICE family sweep status: gap-analysis ❌ ignored-arg, improvement-plan ❌ ignored-arg + scaffold tabs, process-evidence ✅ args / ❌ scaffold tabs, assessment ✅ (polished 06-25). Scaffold-tab wiring for the three affected builders is a good PLAN-week bundle.
+- Next POLISH candidates (oldest, unlogged): cs-architecture-builder, cs-goals-builder, dia-builder.
