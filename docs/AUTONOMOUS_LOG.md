@@ -822,3 +822,17 @@ Standout finding is non-DoD and more impactful than the trigger gaps: the SKILL.
 - Remaining W28 targets for Thu POLISH: a2l-builder (#40) or sotif-analysis-builder (#41) or safety-program-risk-register-builder (#42) — all untouched since early May.
 - Human: review docs/PAIRING_ALIASES.md; if the alias decision stands, close #38 and #39.
 - Consider making the STATUS regen read the alias table from docs/PAIRING_ALIASES.md instead of a hard-coded dict (ties into the long-standing classify_skill.py extraction).
+
+## 2026-07-15 (autonomous run, POLISH)
+
+**Mode:** POLISH
+**Action:** Polish pass on aspice-improvement-plan-builder — smoke-tested, two findings logged (ignored gap-xlsx arg, scaffold-only tabs 04–09); STATUS regenerated honoring PAIRING_ALIASES.md.
+**Files touched:** STATUS.md, docs/skill-polish-log/aspice-improvement-plan-builder.md, docs/AUTONOMOUS_LOG.md
+**Tests:** N/A (no test suite in this repo yet)
+**Skill count:** 76 builders / 76 reviewers / 100% paired (2 via alias registry)
+**Open issues:** 0
+**Notes:** No open issues and no true orphans (item-definition + ppap-package pair via docs/PAIRING_ALIASES.md, honored in STATUS regen). Target chosen as least-recently-touched builder without a prior polish log: aspice-improvement-plan-builder (untouched since 2026-05-01). Scripts compile and the workbook generates all 11 tabs, but the required gap_analysis.xlsx CLI argument is never read — generation succeeds against a nonexistent path — so the gap-analysis → improvement-plan chain is broken; this is the same ignored-arg defect class found on aspice-gap-analysis-builder on 2026-07-01, suggesting a copy-paste pattern worth sweeping across the ASPICE family. Tabs 04–09 (roadmap, resources, risks, KPIs, comms, pilot) are header-only scaffolds that silently drop what SKILL.md tells users to provide. Both exceed small-fix scope, so logged only.
+**Follow-ups:**
+- Consider a targeted sweep for ignored CLI args across remaining aspice-* and chain-consuming builders (grep for unused load_workbook).
+- Fix candidates for a future PLAN week: wire gap-xlsx ingestion or drop the arg; plumb risks/kpis/roadmap JSON keys into tabs 04–09 and extend the sample JSON.
+- Next POLISH candidates (oldest, unlogged): aspice-process-evidence-builder, cs-architecture-builder, cs-goals-builder.

@@ -1,11 +1,11 @@
-# Skill Suite Status
+# Skills Suite Status
 
-_Regenerated 2026-07-08 by autonomous daily run (POLISH)._
+_Generated 2026-07-15 by autonomous daily run._
 
 | Builder | Domain | Paired Reviewer | Last Touched | Flag |
 |---|---|---|---|---|
-| 5-why-builder.skill | safety | 5-why-checklist-reviewer.skill | 2026-05-01 | 🟡 |
-| 8d-problem-solving-builder.skill | safety | 8d-problem-solving-checklist-reviewer.skill | 2026-05-01 | 🟡 |
+| 5-why-builder.skill | other | 5-why-checklist-reviewer.skill | 2026-05-01 | 🟡 |
+| 8d-problem-solving-builder.skill | other | 8d-problem-solving-checklist-reviewer.skill | 2026-05-01 | 🟡 |
 | a2l-builder.skill | calibration | a2l-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 | apqp-plan-builder.skill | quality | apqp-plan-checklist-reviewer.skill | 2026-05-01 | 🟡 |
 | arxml-system-builder.skill | comms | arxml-system-checklist-reviewer.skill | 2026-05-02 | 🟡 |
@@ -32,19 +32,19 @@ _Regenerated 2026-07-08 by autonomous daily run (POLISH)._
 | dcm-builder.skill | calibration | dcm-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 | dem-config-builder.skill | diagnostics | dem-config-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 | dfmea-builder.skill | quality | dfmea-checklist-reviewer.skill | 2026-05-01 | 🟡 |
-| dia-builder.skill | safety | dia-checklist-reviewer.skill | 2026-05-01 | 🟡 |
+| dia-builder.skill | other | dia-checklist-reviewer.skill | 2026-05-01 | 🟡 |
 | dtc-catalog-builder.skill | diagnostics | dtc-catalog-checklist-reviewer.skill | 2026-05-02 | 🟡 |
-| fishbone-builder.skill | safety | fishbone-checklist-reviewer.skill | 2026-05-01 | 🟡 |
+| fishbone-builder.skill | other | fishbone-checklist-reviewer.skill | 2026-05-01 | 🟡 |
 | flexray-config-builder.skill | comms | flexray-config-checklist-reviewer.skill | 2026-05-02 | 🟡 |
-| fmeda-builder.skill | safety | fmeda-checklist-reviewer.skill | 2026-05-01 | 🟡 |
+| fmeda-builder.skill | other | fmeda-checklist-reviewer.skill | 2026-05-01 | 🟡 |
 | fsc-builder.skill | safety | fsc-checklist-reviewer.skill | 2026-05-01 | 🟡 |
 | gateway-routing-builder.skill | comms | gateway-routing-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 | hara-builder.skill | safety | hara-checklist-reviewer.skill | 2026-05-01 | 🟡 |
-| hsi-builder.skill | safety | hsi-checklist-reviewer.skill | 2026-05-01 | 🟡 |
+| hsi-builder.skill | other | hsi-checklist-reviewer.skill | 2026-05-01 | 🟡 |
 | hw-architecture-builder.skill | safety | hw-architecture-checklist-reviewer.skill | 2026-05-01 | 🟡 |
 | hw-safety-reqs-builder.skill | safety | hw-safety-reqs-checklist-reviewer.skill | 2026-05-01 | 🟡 |
 | incident-response-plan-builder.skill | cyber | incident-response-plan-checklist-reviewer.skill | 2026-05-01 | 🟡 |
-| item-definition-builder.skill | safety | item-def-checklist-reviewer.skill | 2026-05-01 | 🟡 |
+| item-definition-builder.skill | other | item-def-checklist-reviewer.skill (alias) | 2026-05-01 | 🟡 |
 | ldf-builder.skill | comms | ldf-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 | lessons-learned-builder.skill | program-mgmt | lessons-learned-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 | mbse-model-architecture-builder.skill | mbse | mbse-model-architecture-checklist-reviewer.skill | 2026-05-02 | 🟡 |
@@ -53,7 +53,7 @@ _Regenerated 2026-07-08 by autonomous daily run (POLISH)._
 | msa-gage-rr-builder.skill | other | msa-gage-rr-checklist-reviewer.skill | 2026-05-01 | 🟡 |
 | odx-builder.skill | diagnostics | odx-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 | pfmea-builder.skill | quality | pfmea-checklist-reviewer.skill | 2026-05-01 | 🟡 |
-| ppap-package-builder.skill | quality | ppap-checklist-reviewer.skill | 2026-07-07 | 🟢 |
+| ppap-package-builder.skill | quality | ppap-checklist-reviewer.skill (alias) | 2026-07-07 | 🟢 |
 | safety-case-builder.skill | safety | safety-case-checklist-reviewer.skill | 2026-05-01 | 🟡 |
 | safety-gate-review-builder.skill | program-mgmt | safety-gate-review-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 | safety-plan-builder.skill | safety | safety-plan-checklist-reviewer.skill | 2026-05-01 | 🟡 |
@@ -83,8 +83,9 @@ _Regenerated 2026-07-08 by autonomous daily run (POLISH)._
 
 ## Summary
 
-- Builders: 76 · Reviewers: 76 · Paired: 76/76 (100.0%)
-- 🔴 missing paired reviewer: 0 (alias pairs honored per docs/PAIRING_ALIASES.md: item-definition→item-def-checklist-reviewer, ppap-package→ppap-checklist-reviewer)
-- 🟡 not touched in 30+ days: 72
-- 🟢 paired & touched ≤30 days: 4
-- Freshest today: item-definition-builder polish-reviewed (no file change needed); alias registry landed (POLISH 2026-07-08)
+- Builders: 76 · Reviewers: 76
+- 🟢 Paired & fresh (≤30 days): 4
+- 🟡 Paired but stale (>30 days): 72
+- 🔴 Missing paired reviewer: 0
+- Paired ratio: 100%
+- Alias pairings per docs/PAIRING_ALIASES.md: 2 (item-definition, ppap-package)
