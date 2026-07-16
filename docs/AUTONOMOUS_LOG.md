@@ -850,3 +850,18 @@ Standout finding is non-DoD and more impactful than the trigger gaps: the SKILL.
 - Human: check why the scheduled task fired twice today (02:43 and 07:00) — if double-scheduling persists, dedupe.
 - ASPICE family sweep status: gap-analysis ❌ ignored-arg, improvement-plan ❌ ignored-arg + scaffold tabs, process-evidence ✅ args / ❌ scaffold tabs, assessment ✅ (polished 06-25). Scaffold-tab wiring for the three affected builders is a good PLAN-week bundle.
 - Next POLISH candidates (oldest, unlogged): cs-architecture-builder, cs-goals-builder, dia-builder.
+
+## 2026-07-16 (autonomous run, POLISH)
+
+**Mode:** POLISH
+**Action:** Polished cs-architecture-builder — smoke-tested clean, but found a high-severity silent chain-break: cs-concept-builder output tabs/headers don't match cs-architecture-builder's reader.
+**Files touched:** STATUS.md, docs/skill-polish-log/cs-architecture-builder.md, docs/AUTONOMOUS_LOG.md
+**Tests:** N/A (no test suite in this repo yet); ad-hoc smoke test of generate_cs_architecture.py passed (12 tabs, 14 CSR allocations, titles ≤31 chars)
+**Skill count:** 76 builders / 76 reviewers / 100% paired (2 via PAIRING_ALIASES.md)
+**Open issues:** 0
+**Notes:** Issue tracker is empty and both former orphans are alias-paired, so selection fell to the least-recently-touched tier; picked cs-architecture-builder (no prior polish log). The builder works in isolation and its forward chain to cs-architecture-checklist-reviewer is exact (10/10 tab-name matches). However, its cs_concept_reader.py expects tabs 02_CSRs_Catalog/03_CAL_Allocations/04_Threat_Mapping while cs-concept-builder emits 05_CSR_Catalog/06_CAL_Allocation and no threat tab — plus header ("CSR_ID" vs "CSR ID") and column-semantics mismatches. A real concept workbook yields zero CSRs, silently. Fix needs a coordinated reader rewrite, deliberately not attempted today. Also found generate_cs_concept.py (in cs-concept-builder) carries 3,361 trailing NUL bytes — harmless at runtime but corrupt; trivial truncate deferred since it's a different skill. STATUS.md regenerated honoring PAIRING_ALIASES.md (0 red / 72 yellow / 4 green).
+
+**Follow-ups:**
+- Open/plan a target for the cs-concept → cs-architecture chain repair (reader rewrite + SKILL.md Step 1 tab list) — good Monday PLAN candidate.
+- Quick POLISH pick: strip trailing NULs from cs-concept-builder generate_cs_concept.py and re-zip.
+- Consider a repo-wide chain-contract audit (grep emitted vs expected sheet names across all builder→builder readers); ppap and cs chains have both now shown silent breaks.

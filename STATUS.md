@@ -1,6 +1,6 @@
-# Skills Suite Status
+# Skill Suite Status
 
-_Generated 2026-07-15 by autonomous daily run._
+_Auto-generated 2026-07-16 by the autonomous daily maintainer. Pairing honors docs/PAIRING_ALIASES.md._
 
 | Builder | Domain | Paired Reviewer | Last Touched | Flag |
 |---|---|---|---|---|
@@ -37,7 +37,7 @@ _Generated 2026-07-15 by autonomous daily run._
 | fishbone-builder.skill | other | fishbone-checklist-reviewer.skill | 2026-05-01 | 🟡 |
 | flexray-config-builder.skill | comms | flexray-config-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 | fmeda-builder.skill | other | fmeda-checklist-reviewer.skill | 2026-05-01 | 🟡 |
-| fsc-builder.skill | safety | fsc-checklist-reviewer.skill | 2026-05-01 | 🟡 |
+| fsc-builder.skill | other | fsc-checklist-reviewer.skill | 2026-05-01 | 🟡 |
 | gateway-routing-builder.skill | comms | gateway-routing-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 | hara-builder.skill | safety | hara-checklist-reviewer.skill | 2026-05-01 | 🟡 |
 | hsi-builder.skill | other | hsi-checklist-reviewer.skill | 2026-05-01 | 🟡 |
@@ -74,18 +74,17 @@ _Generated 2026-07-15 by autonomous daily run._
 | test-case-catalog-builder.skill | v&v | test-case-catalog-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 | traceability-matrix-builder.skill | v&v | traceability-matrix-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 | triggering-conditions-builder.skill | sotif | triggering-conditions-checklist-reviewer.skill | 2026-05-01 | 🟡 |
-| tsc-builder.skill | safety | tsc-checklist-reviewer.skill | 2026-05-01 | 🟡 |
+| tsc-builder.skill | other | tsc-checklist-reviewer.skill | 2026-05-01 | 🟡 |
 | uds-services-builder.skill | diagnostics | uds-services-checklist-reviewer.skill | 2026-05-26 | 🟡 |
 | validation-plan-builder.skill | v&v | validation-plan-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 | verification-plan-builder.skill | v&v | verification-plan-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 | vv-execution-report-builder.skill | v&v | vv-execution-report-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 | wp-status-rollup-builder.skill | program-mgmt | wp-status-rollup-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 
-## Summary
+---
 
-- Builders: 76 · Reviewers: 76
-- 🟢 Paired & fresh (≤30 days): 4
-- 🟡 Paired but stale (>30 days): 72
+- **Builders:** 76 · **Reviewers:** 76 · **Paired:** 76/76 (100%)
 - 🔴 Missing paired reviewer: 0
-- Paired ratio: 100%
-- Alias pairings per docs/PAIRING_ALIASES.md: 2 (item-definition, ppap-package)
+- 🟡 Paired but not touched in 30+ days: 72
+- 🟢 Paired & fresh (≤30 days): 4
+- Total .skill files: 152
