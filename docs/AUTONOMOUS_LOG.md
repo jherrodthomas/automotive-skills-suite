@@ -865,3 +865,17 @@ Standout finding is non-DoD and more impactful than the trigger gaps: the SKILL.
 - Open/plan a target for the cs-concept → cs-architecture chain repair (reader rewrite + SKILL.md Step 1 tab list) — good Monday PLAN candidate.
 - Quick POLISH pick: strip trailing NULs from cs-concept-builder generate_cs_concept.py and re-zip.
 - Consider a repo-wide chain-contract audit (grep emitted vs expected sheet names across all builder→builder readers); ppap and cs chains have both now shown silent breaks.
+
+## 2026-07-17 (autonomous run, DOCS)
+
+**Mode:** DOCS
+**Action:** W29 Friday docs roll — CHANGELOG `[Unreleased]` updated with this week's 3 polish commits AND back-filled with the W28 entries the missed 2026-07-10 DOCS run never rolled; 4 example README stubs added; STATUS regenerated.
+**Files touched:** CHANGELOG.md, STATUS.md, examples/ppap-package-builder/README.md (new), examples/aspice-improvement-plan-builder/README.md (new), examples/aspice-process-evidence-builder/README.md (new), examples/cs-architecture-builder/README.md (new), docs/AUTONOMOUS_LOG.md
+**Tests:** N/A (no test suite in this repo yet)
+**Skill count:** 76 builders / 76 reviewers / 100% paired (2 via docs/PAIRING_ALIASES.md)
+**Open issues:** 0
+**Notes:** Gap in the run history: no commits between 2026-07-08 and 2026-07-15 — the W28 Fri DOCS, Sat RELEASE, Sun TRIAGE, and W29 Mon PLAN runs all missed, so no v2026.07.W28 tag exists and this week ran without a weekly plan. Judgement call: back-filled the W28 commits (ppap/item-def polish, W28 plan, PAIRING_ALIASES.md) into `[Unreleased]` alongside the W29 entries so tomorrow's RELEASE roll is complete — strictly beyond "this week" scope but the alternative was those commits silently never appearing in any changelog. Stub coverage extended to the two W28 polish targets for the same reason (item-definition-builder already had one). Stubs for the three W29 skills document the known limitations from their polish logs (ignored-arg, scaffold tabs, cs-concept chain-break) so users aren't surprised. Issue tracker is empty — the W28 target issues #38–#42 are gone again (same pattern the W28 PLAN run flagged for #33–#37); human confirmation still outstanding. README skill table needed no rows (no new skills this week). Note also: today's run wrote to /tmp/automotive-work successfully — the undeletable-workdir problem from last week's sandbox did not recur.
+**Follow-ups:**
+- Tomorrow (Sat RELEASE): commits exist this week → release should fire; suggested tag v2026.07.W3 per the ISO-week-within-month rule, and RELEASES.md should note the skipped W28 snapshot.
+- Monday PLAN: bundle the ASPICE scaffold-tab wiring (gap-analysis, improvement-plan, process-evidence) and the cs-concept → cs-architecture reader repair as targets; also the quick NUL-strip on cs-concept-builder's generator.
+- Human: confirm fate of vanished issues #38–#42, and check why the scheduler skipped 2026-07-09 through -14 (plus the 2026-07-15 double-fire).

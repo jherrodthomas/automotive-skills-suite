@@ -6,7 +6,19 @@ from `[Unreleased]` into a dated section at each weekly release.
 
 ## [Unreleased]
 
-_W28 (from Mon 2026-07-06). Accumulating since v2026.07.W27 (2026-07-04); ships at the next Saturday RELEASE run._
+_W28–W29 (from Mon 2026-07-06). Accumulating since v2026.07.W27 (2026-07-04). The W28 Fri DOCS (2026-07-10) and Sat RELEASE (2026-07-11) runs did not fire, so this section spans two weeks; W28 entries were back-filled by the W29 Fri DOCS roll (2026-07-17). Ships at the next Saturday RELEASE run._
+
+### Polish
+- **ppap-package-builder** — W28 weekly-target pass (Tue 2026-07-07, #39); embedded fix: over-limit sheet title `05_Element3_Engineering_Approval` (32 chars) renamed to `05_Element3_Eng_Approval`; two chain-break findings logged (tab-09 name >31 chars vs reviewer probe; Element-18 status-tab probe mismatch) (`90288f8`)
+- **item-definition-builder** — W28 weekly-target pass (Wed 2026-07-08, #38); resolved via the alias-documentation path — `docs/PAIRING_ALIASES.md` created as the canonical builder↔reviewer alias registry; smoke test green, no `.skill` edits (`26bb385`)
+- **aspice-improvement-plan-builder** — W29 polish pass (Wed 2026-07-15); smoke test green (11 tabs), findings logged: required `gap_analysis.xlsx` CLI arg never read (ignored-arg chain-break, same class as aspice-gap-analysis 2026-07-01) and tabs 04–09 are header-only scaffolds; no `.skill` edits (`26ee19a`)
+- **aspice-process-evidence-builder** — W29 polish pass (Wed 2026-07-15); clean data point for the ASPICE ignored-arg sweep (input JSON genuinely consumed, tabs 00–05 populated); scaffold-only tabs 06–08 finding logged; no `.skill` edits (`696e912`)
+- **cs-architecture-builder** — W29 polish pass (Thu 2026-07-16); smoke test green (12 tabs, 14 CSR allocations), forward chain to reviewer exact (10/10 tab names), but high-severity silent upstream chain-break found: cs-concept-builder output tabs/headers don't match this builder's `cs_concept_reader.py` (a real concept workbook reads back zero CSRs); coordinated fix deferred, no `.skill` edits (`8304e58`)
+
+### Docs
+- W28 weekly plan published (Mon 2026-07-06) — targets: item-def pairing (#38), ppap pairing (#39), a2l (#40), sotif (#41), risk-register (#42) (`a431b86`)
+- `docs/PAIRING_ALIASES.md` — canonical alias registry for the two name-mismatched pairs: item-definition-builder ↔ item-def-checklist-reviewer, ppap-package-builder ↔ ppap-checklist-reviewer (`26bb385`)
+- W29 DOCS roll (Fri 2026-07-17): `[Unreleased]` back-filled with W28 entries (missed 2026-07-10 DOCS run) and updated with W29 polish entries; example README stubs added for ppap-package-builder, aspice-improvement-plan-builder, aspice-process-evidence-builder, and cs-architecture-builder; STATUS regenerated (this commit)
 
 ## [v2026.07.W27] — 2026-07-04
 
