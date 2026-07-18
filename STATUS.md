@@ -1,6 +1,6 @@
 # Skill Suite Status
 
-_Auto-generated 2026-07-17 by the autonomous daily maintainer. Pairing honors docs/PAIRING_ALIASES.md._
+_Auto-generated 2026-07-18 by the autonomous daily maintainer. Pairing honors docs/PAIRING_ALIASES.md._
 
 | Builder | Domain | Paired Reviewer | Last Touched | Flag |
 |---|---|---|---|---|
@@ -32,19 +32,19 @@ _Auto-generated 2026-07-17 by the autonomous daily maintainer. Pairing honors do
 | dcm-builder.skill | calibration | dcm-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 | dem-config-builder.skill | diagnostics | dem-config-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 | dfmea-builder.skill | quality | dfmea-checklist-reviewer.skill | 2026-05-01 | 🟡 |
-| dia-builder.skill | other | dia-checklist-reviewer.skill | 2026-05-01 | 🟡 |
+| dia-builder.skill | safety | dia-checklist-reviewer.skill | 2026-05-01 | 🟡 |
 | dtc-catalog-builder.skill | diagnostics | dtc-catalog-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 | fishbone-builder.skill | other | fishbone-checklist-reviewer.skill | 2026-05-01 | 🟡 |
 | flexray-config-builder.skill | comms | flexray-config-checklist-reviewer.skill | 2026-05-02 | 🟡 |
-| fmeda-builder.skill | other | fmeda-checklist-reviewer.skill | 2026-05-01 | 🟡 |
-| fsc-builder.skill | other | fsc-checklist-reviewer.skill | 2026-05-01 | 🟡 |
+| fmeda-builder.skill | safety | fmeda-checklist-reviewer.skill | 2026-05-01 | 🟡 |
+| fsc-builder.skill | safety | fsc-checklist-reviewer.skill | 2026-05-01 | 🟡 |
 | gateway-routing-builder.skill | comms | gateway-routing-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 | hara-builder.skill | safety | hara-checklist-reviewer.skill | 2026-05-01 | 🟡 |
-| hsi-builder.skill | other | hsi-checklist-reviewer.skill | 2026-05-01 | 🟡 |
+| hsi-builder.skill | safety | hsi-checklist-reviewer.skill | 2026-05-01 | 🟡 |
 | hw-architecture-builder.skill | safety | hw-architecture-checklist-reviewer.skill | 2026-05-01 | 🟡 |
 | hw-safety-reqs-builder.skill | safety | hw-safety-reqs-checklist-reviewer.skill | 2026-05-01 | 🟡 |
 | incident-response-plan-builder.skill | cyber | incident-response-plan-checklist-reviewer.skill | 2026-05-01 | 🟡 |
-| item-definition-builder.skill | other | item-def-checklist-reviewer.skill (alias) | 2026-05-01 | 🟡 |
+| item-definition-builder.skill | safety | item-def-checklist-reviewer.skill (alias) | 2026-05-01 | 🟡 |
 | ldf-builder.skill | comms | ldf-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 | lessons-learned-builder.skill | program-mgmt | lessons-learned-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 | mbse-model-architecture-builder.skill | mbse | mbse-model-architecture-checklist-reviewer.skill | 2026-05-02 | 🟡 |
@@ -74,7 +74,7 @@ _Auto-generated 2026-07-17 by the autonomous daily maintainer. Pairing honors do
 | test-case-catalog-builder.skill | v&v | test-case-catalog-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 | traceability-matrix-builder.skill | v&v | traceability-matrix-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 | triggering-conditions-builder.skill | sotif | triggering-conditions-checklist-reviewer.skill | 2026-05-01 | 🟡 |
-| tsc-builder.skill | other | tsc-checklist-reviewer.skill | 2026-05-01 | 🟡 |
+| tsc-builder.skill | safety | tsc-checklist-reviewer.skill | 2026-05-01 | 🟡 |
 | uds-services-builder.skill | diagnostics | uds-services-checklist-reviewer.skill | 2026-05-26 | 🟡 |
 | validation-plan-builder.skill | v&v | validation-plan-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 | verification-plan-builder.skill | v&v | verification-plan-checklist-reviewer.skill | 2026-05-02 | 🟡 |

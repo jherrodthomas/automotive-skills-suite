@@ -318,3 +318,38 @@ ISO week 27 (2026-06-29 → 2026-07-04). First release of July; normal single-we
 ### Compare
 
 https://github.com/jherrodthomas/automotive-skills-suite/compare/v2026.06.W26...v2026.07.W27
+
+## v2026.07.W29 — 2026-07-18
+
+ISO week 29 (2026-07-13 → 2026-07-18). **Two-week snapshot**: the W28 Sat RELEASE run (2026-07-11) never fired — no `v2026.07.W28` tag exists — so this release also carries the back-filled W28 work (see CHANGELOG note). Scheduler gap 2026-07-09 → 2026-07-14 flagged for human review.
+
+### Highlights
+
+- Three polish passes this week: `aspice-improvement-plan-builder` (ignored-arg chain-break logged — required `gap_analysis.xlsx` CLI arg never read), `aspice-process-evidence-builder` (clean input-consumption data point; scaffold-only tabs 06–08 logged), and `cs-architecture-builder` (smoke-tested clean, but a **high-severity silent chain-break** found upstream: cs-concept-builder's output tabs/headers don't match cs-architecture-builder's reader — a real concept workbook reads back zero CSRs). All findings logged; no `.skill` edits.
+- Friday DOCS roll back-filled the missed W28 changelog entries (ppap/item-def polish, W28 plan, `docs/PAIRING_ALIASES.md` canonical alias registry) and added 4 example README stubs.
+- Suite holds at 76 builder + 76 reviewer pairs, 100% paired (2 via alias registry), tracker at **0 open** at snapshot.
+
+### Changes this week
+
+**polish**
+- `26ee19a` auto(polish): aspice-improvement-plan-builder ignored-arg chain-break logged, STATUS regen
+- `696e912` auto(polish): aspice-process-evidence-builder scaffold-tab findings logged, args clean
+- `8304e58` auto(polish): cs-architecture-builder verified; cs-concept chain-break found and logged
+
+**docs**
+- `78cfb27` auto(docs): W29 changelog roll with W28 back-fill, 4 example stubs, STATUS regen
+
+**docs / release** _(this snapshot commit)_
+- STATUS.md regenerated (76/76 paired, 4 fresh / 72 stale; ISO 26262 core builders dia/fmeda/fsc/hsi/item-definition reclassified `other` → `safety` per domain rules)
+- RELEASES.md updated with this W29 section
+- CHANGELOG.md `[Unreleased]` rolled into a dated `[v2026.07.W29]` section
+- `docs/AUTONOMOUS_LOG.md` updated with the RELEASE-mode entry
+
+### Skills inventory
+
+- Builders: **76** · Reviewers: **76** · Paired ratio: **100.0%** (76/76, 2 via docs/PAIRING_ALIASES.md)
+- Domain spread: safety 15, comms 8, cyber 6, autosar 5, diagnostics 5, other 5, program-mgmt 5, quality 5, v&v 5, aspice 4, sysml 4, calibration 3, mbse 3, sotif 3
+
+### Compare
+
+https://github.com/jherrodthomas/automotive-skills-suite/compare/v2026.07.W27...v2026.07.W29

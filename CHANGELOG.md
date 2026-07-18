@@ -6,7 +6,11 @@ from `[Unreleased]` into a dated section at each weekly release.
 
 ## [Unreleased]
 
-_W28–W29 (from Mon 2026-07-06). Accumulating since v2026.07.W27 (2026-07-04). The W28 Fri DOCS (2026-07-10) and Sat RELEASE (2026-07-11) runs did not fire, so this section spans two weeks; W28 entries were back-filled by the W29 Fri DOCS roll (2026-07-17). Ships at the next Saturday RELEASE run._
+_Accumulating since v2026.07.W29 (2026-07-18). Ships at the next Saturday RELEASE run._
+
+## [v2026.07.W29] — 2026-07-18
+
+_W28–W29 (from Mon 2026-07-06). Accumulating since v2026.07.W27 (2026-07-04). The W28 Fri DOCS (2026-07-10) and Sat RELEASE (2026-07-11) runs did not fire, so this section spans two weeks; W28 entries were back-filled by the W29 Fri DOCS roll (2026-07-17). Shipped by the Saturday RELEASE run (2026-07-18)._
 
 ### Polish
 - **ppap-package-builder** — W28 weekly-target pass (Tue 2026-07-07, #39); embedded fix: over-limit sheet title `05_Element3_Engineering_Approval` (32 chars) renamed to `05_Element3_Eng_Approval`; two chain-break findings logged (tab-09 name >31 chars vs reviewer probe; Element-18 status-tab probe mismatch) (`90288f8`)
@@ -19,6 +23,12 @@ _W28–W29 (from Mon 2026-07-06). Accumulating since v2026.07.W27 (2026-07-04). 
 - W28 weekly plan published (Mon 2026-07-06) — targets: item-def pairing (#38), ppap pairing (#39), a2l (#40), sotif (#41), risk-register (#42) (`a431b86`)
 - `docs/PAIRING_ALIASES.md` — canonical alias registry for the two name-mismatched pairs: item-definition-builder ↔ item-def-checklist-reviewer, ppap-package-builder ↔ ppap-checklist-reviewer (`26bb385`)
 - W29 DOCS roll (Fri 2026-07-17): `[Unreleased]` back-filled with W28 entries (missed 2026-07-10 DOCS run) and updated with W29 polish entries; example README stubs added for ppap-package-builder, aspice-improvement-plan-builder, aspice-process-evidence-builder, and cs-architecture-builder; STATUS regenerated (this commit)
+
+### Release _(this snapshot commit)_
+- STATUS.md regenerated (76/76 paired, 4 fresh / 72 stale; dia/fmeda/fsc/hsi/item-definition reclassified other → safety)
+- RELEASES.md appended with the v2026.07.W29 section
+- CHANGELOG `[Unreleased]` rolled into this dated section
+- `docs/AUTONOMOUS_LOG.md` updated with the RELEASE-mode entry
 
 ## [v2026.07.W27] — 2026-07-04
 

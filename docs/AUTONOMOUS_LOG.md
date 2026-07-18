@@ -879,3 +879,17 @@ Standout finding is non-DoD and more impactful than the trigger gaps: the SKILL.
 - Tomorrow (Sat RELEASE): commits exist this week → release should fire; suggested tag v2026.07.W3 per the ISO-week-within-month rule, and RELEASES.md should note the skipped W28 snapshot.
 - Monday PLAN: bundle the ASPICE scaffold-tab wiring (gap-analysis, improvement-plan, process-evidence) and the cs-concept → cs-architecture reader repair as targets; also the quick NUL-strip on cs-concept-builder's generator.
 - Human: confirm fate of vanished issues #38–#42, and check why the scheduler skipped 2026-07-09 through -14 (plus the 2026-07-15 double-fire).
+
+## 2026-07-18 (autonomous run, RELEASE)
+
+**Mode:** RELEASE
+**Action:** Weekly snapshot v2026.07.W29 tagged and pushed; RELEASES.md section appended; CHANGELOG `[Unreleased]` (spanning W28–W29 due to the missed W28 release) rolled into `[v2026.07.W29]`; STATUS regenerated.
+**Files touched:** STATUS.md, RELEASES.md, CHANGELOG.md, docs/AUTONOMOUS_LOG.md
+**Tests:** N/A (no test suite in this repo yet)
+**Skill count:** 76 builders / 76 reviewers / 100% paired (2 via docs/PAIRING_ALIASES.md)
+**Open issues:** 0
+**Notes:** Tag naming judgement call: yesterday's follow-up suggested `v2026.07.W3` per the ISO-week-within-month reading, but all seven existing tags (v2026.05.W20 … v2026.07.W27) use the ISO week-of-year — consistency with the established series wins, so this snapshot is `v2026.07.W29`. Because the W28 RELEASE never fired, this is a two-week snapshot; RELEASES.md says so explicitly and the compare link spans W27→W29. STATUS regen this run reclassified five ISO 26262 core builders (dia, fmeda, fsc, hsi, item-definition) from `other` to `safety` — fsc was explicitly in the domain-rule list all along, and the other four are ISO 26262 work products; the previous generator had them falling through to `other`. Alias annotations "(alias)" preserved on the two registry-paired rows. Also hit a sandbox quirk: the stale `/tmp/automotive-work` clone from a prior run was undeletable (permission denied), so this run used `/tmp/automotive-work-20260718` — same problem class the 2026-07-17 run thought had gone away.
+**Follow-ups:**
+- Monday PLAN: bundle the ASPICE scaffold-tab wiring (gap-analysis, improvement-plan, process-evidence), the cs-concept → cs-architecture reader repair, and the NUL-strip on cs-concept-builder's generator as W30 targets.
+- Human: click Publish on the v2026.07.W29 tag after reviewing RELEASES.md; still outstanding — fate of vanished issues #38–#42 and the 2026-07-09 → -14 scheduler gap.
+- Next run should expect the undeletable-workdir issue and go straight to a dated workdir.
