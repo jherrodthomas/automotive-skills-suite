@@ -1,6 +1,6 @@
 # Skill Suite Status
 
-_Auto-generated 2026-07-18 by the autonomous daily maintainer. Pairing honors docs/PAIRING_ALIASES.md._
+_Auto-generated 2026-07-19 by the autonomous daily maintainer. Pairing honors docs/PAIRING_ALIASES.md._
 
 | Builder | Domain | Paired Reviewer | Last Touched | Flag |
 |---|---|---|---|---|
@@ -24,7 +24,7 @@ _Auto-generated 2026-07-18 by the autonomous daily maintainer. Pairing honors do
 | cdd-builder.skill | diagnostics | cdd-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 | change-impact-analysis-builder.skill | program-mgmt | change-impact-analysis-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 | communication-matrix-builder.skill | comms | communication-matrix-checklist-reviewer.skill | 2026-06-24 | 🟢 |
-| control-plan-builder.skill | quality | control-plan-checklist-reviewer.skill | 2026-06-18 | 🟢 |
+| control-plan-builder.skill | quality | control-plan-checklist-reviewer.skill | 2026-06-18 | 🟡 |
 | cs-architecture-builder.skill | cyber | cs-architecture-checklist-reviewer.skill | 2026-05-01 | 🟡 |
 | cs-concept-builder.skill | cyber | cs-concept-checklist-reviewer.skill | 2026-05-01 | 🟡 |
 | cs-goals-builder.skill | cyber | cs-goals-checklist-reviewer.skill | 2026-05-01 | 🟡 |
@@ -85,6 +85,6 @@ _Auto-generated 2026-07-18 by the autonomous daily maintainer. Pairing honors do
 
 - **Builders:** 76 · **Reviewers:** 76 · **Paired:** 76/76 (100%)
 - 🔴 Missing paired reviewer: 0
-- 🟡 Paired but not touched in 30+ days: 72
-- 🟢 Paired & fresh (≤30 days): 4
+- 🟡 Paired but not touched in 30+ days: 73
+- 🟢 Paired & fresh (≤30 days): 3
 - Total .skill files: 152

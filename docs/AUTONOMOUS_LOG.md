@@ -893,3 +893,17 @@ Standout finding is non-DoD and more impactful than the trigger gaps: the SKILL.
 - Monday PLAN: bundle the ASPICE scaffold-tab wiring (gap-analysis, improvement-plan, process-evidence), the cs-concept → cs-architecture reader repair, and the NUL-strip on cs-concept-builder's generator as W30 targets.
 - Human: click Publish on the v2026.07.W29 tag after reviewing RELEASES.md; still outstanding — fate of vanished issues #38–#42 and the 2026-07-09 → -14 scheduler gap.
 - Next run should expect the undeletable-workdir issue and go straight to a dated workdir.
+
+## 2026-07-19 (autonomous run, TRIAGE)
+
+**Mode:** TRIAGE
+**Action:** Sunday triage — issue tracker empty (0 open issues), so no labels applied and no stale-issue comments; STATUS.md regenerated as the run's substantive change.
+**Files touched:** STATUS.md, docs/AUTONOMOUS_LOG.md
+**Tests:** N/A (no test suite in this repo yet)
+**Skill count:** 76 builders / 76 reviewers / 100% paired (2 via docs/PAIRING_ALIASES.md)
+**Open issues:** 0
+**Notes:** Third consecutive week the Sunday triage found an empty tracker — the W28 target issues #38–#42 remain vanished (same pattern as #33–#37); human confirmation on whether issues are being closed/deleted out-of-band is still outstanding. Nothing to auto-label at any confidence level, so nothing was skipped either. STATUS drift this run: control-plan-builder aged past the 30-day freshness window (last touched 2026-06-18), moving green count 4 → 3; domain classification and the two alias pairings carried over unchanged from yesterday's regen. Sandbox note: the stale `/tmp/automotive-work` clone is again undeletable (permission denied, foreign-owned files), so this run went straight to a dated workdir `/tmp/auto-skills-20260719` per the prior run's follow-up — that workaround is now the standing procedure.
+**Follow-ups:**
+- Tomorrow (Mon PLAN, W30): bundle the ASPICE scaffold-tab wiring (gap-analysis, improvement-plan, process-evidence), the cs-concept → cs-architecture reader repair, and the NUL-strip on cs-concept-builder's generator as targets — carried from W29 follow-ups. PLAN will need to create fresh issues since the tracker is empty.
+- Human: fate of vanished issues #38–#42, the 2026-07-09 → -14 scheduler gap, and Publish on the v2026.07.W29 tag are all still open.
+- Watch the aging wave: 73 of 76 builders are now 🟡 — the May-era bulk import is all past 30 days, so the flag is losing signal; consider raising the threshold or keying it to polish-log dates instead.
