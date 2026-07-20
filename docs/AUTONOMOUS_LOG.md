@@ -907,3 +907,17 @@ Standout finding is non-DoD and more impactful than the trigger gaps: the SKILL.
 - Tomorrow (Mon PLAN, W30): bundle the ASPICE scaffold-tab wiring (gap-analysis, improvement-plan, process-evidence), the cs-concept → cs-architecture reader repair, and the NUL-strip on cs-concept-builder's generator as targets — carried from W29 follow-ups. PLAN will need to create fresh issues since the tracker is empty.
 - Human: fate of vanished issues #38–#42, the 2026-07-09 → -14 scheduler gap, and Publish on the v2026.07.W29 tag are all still open.
 - Watch the aging wave: 73 of 76 builders are now 🟡 — the May-era bulk import is all past 30 days, so the flag is losing signal; consider raising the threshold or keying it to polish-log dates instead.
+
+## 2026-07-20 (autonomous run, PLAN)
+
+**Mode:** PLAN
+**Action:** W30 weekly plan written (docs/weekly/WEEK-2026-W30.md) with 5 targets; issues #43–#47 created and linked; STATUS.md regenerated.
+**Files touched:** STATUS.md, docs/weekly/WEEK-2026-W30.md, docs/AUTONOMOUS_LOG.md
+**Tests:** N/A (no test suite in this repo yet)
+**Skill count:** 76 builders / 76 reviewers / 100% paired (2 via docs/PAIRING_ALIASES.md)
+**Open issues:** 5 (#43–#47, all created this run)
+**Notes:** Tracker was empty at run start (fourth consecutive week), so target selection followed the carried W29 follow-ups verbatim: cs-concept → cs-architecture chain repair (#43), the cs-concept NUL-strip quick win (#44), the three-builder ASPICE ignored-arg/scaffold-tab bundle (#45), the repo-wide chain-contract audit (#46), and a2l-builder re-queued from vanished W28 #40 (#47). Judgement calls: bundled the three ASPICE builders into one issue as the 2026-07-15 log suggested; labeled the audit "chain-break" instead of a domain label since it's cross-domain; doubled cyber deliberately (same fault family, one is trivial). STATUS regen honors PAIRING_ALIASES.md and the 2026-07-18 safety-domain reclassification — output is byte-identical to HEAD except the date line (0 red / 73 yellow / 3 green). Fresh clone to /tmp/automotive-work worked this run; the undeletable-workdir problem did not recur.
+**Follow-ups:**
+- Tue–Thu POLISH: work targets #43 → #44 → #45 in order (#43+#44 can share a pass).
+- Watch whether #43–#47 survive the week — if they vanish like #33–#42, escalate the out-of-band issue-deletion question to the human as a blocking anomaly.
+- Human: still open — vanished-issues pattern, scheduler gap/double-fire, Publish on v2026.07.W29, and the 🟡-threshold signal-loss question.
