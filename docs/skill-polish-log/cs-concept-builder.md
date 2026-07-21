@@ -251,3 +251,63 @@ reasons — diminishing returns are real here.
 3. **Optional:** fold the autonomous-edit allowlist into the standup spec
    explicitly so future runs have a citeable rule for declining editorial
    rewrites without re-deriving the decision each visit.
+
+---
+
+## 2026-07-21 — W30 POLISH pass (issue #44: NUL-strip — FIXED)
+
+**Mode:** POLISH (Tuesday)
+**File reviewed:** `skills/cs-concept-builder.skill`
+**Tracking issue:** [#44](https://github.com/jherrodthomas/automotive-skills-suite/issues/44) (W30 target: strip 3,361 trailing NUL bytes from the generator). Related: [#43](https://github.com/jherrodthomas/automotive-skills-suite/issues/43) (chain repair — NOT attempted this pass, see below).
+
+### What was found
+
+- `scripts/generate_cs_concept.py` was 19,114 bytes with **exactly 3,361 NUL bytes, all trailing** (content ends cleanly at `if __name__ == "__main__":\n    main()\n`; zero interior NULs).
+- The NULs were not cosmetic: `python3 -m py_compile` **failed** with `ValueError: source code string cannot contain null bytes`. The generator was un-runnable as shipped — anyone invoking the skill got a hard error at Step 3.
+
+### Fix applied (small, mechanical, verified)
+
+1. Extracted archive; stripped trailing NULs only (`data.rstrip(b'\x00')`) → 15,753 bytes.
+2. `py_compile` passes post-strip; the other three scripts (`cs_goals_reader.py`, `recalc.py`, `office/soffice.py`) also verified clean.
+3. Repacked with `zip -X -D` — same 9 entries, no directory-entry drift, byte-identical content for the 8 untouched files.
+4. Re-extracted the committed archive and re-verified compile + zero NULs.
+
+Judgement call: this sits inside the "small obvious fix" allowlist (single-file mechanical corruption repair, no logic touched) and is the explicit DoD of #44, so it was applied rather than merely logged.
+
+### NOT done: #43 reader rewrite
+
+The cs-concept → cs-architecture chain repair is a logic rewrite of `cs_goals_reader.py` / downstream reader expectations — an editorial/structural change, not a surgical fix. Left for a dedicated pass per "small and shipped beats big and broken." Findings from the 2026-07-16 pass stand.
+
+### NEW systemic finding: 13 more archives carry the same trailing-NUL corruption
+
+Suite-wide scan (all 152 archives, all `.py/.md/.json` members) found the identical defect class — in every case 100% of NULs are trailing:
+
+| Archive | Member | Trailing NULs |
+|---|---|---|
+| autosar-composition-checklist-reviewer.skill | scripts/dashboard.py | 14,048 |
+| autosar-swc-checklist-reviewer.skill | scripts/dashboard.py | 14,064 |
+| fsc-builder.skill | SKILL.md | 235 |
+| fsc-checklist-reviewer.skill | SKILL.md | 167 |
+| hara-builder.skill | SKILL.md | 266 |
+| hara-builder.skill | scripts/generate_hara.py | 24 |
+| hara-checklist-reviewer.skill | SKILL.md | 229 |
+| hara-checklist-reviewer.skill | scripts/generate_checklist.py | 3,398 |
+| pfmea-builder.skill | scripts/generate_pfmea.py | 617 |
+| ppap-package-builder.skill | scripts/generate_ppap_package.py | 112 |
+| safety-program-risk-register-checklist-reviewer.skill | scripts/build_dashboard.py | 36 |
+| safety-program-risk-register-checklist-reviewer.skill | scripts/generate_checklist.py | 9,792 |
+| secure-coding-guidelines-checklist-reviewer.skill | scripts/generate_checklist.py | 305 |
+| sw-fmea-builder.skill | scripts/generate_sw_fmea.py | 97 |
+| tsc-builder.skill | SKILL.md | 363 |
+| tsc-checklist-reviewer.skill | SKILL.md | 165 |
+
+Every `.py` member above fails `py_compile` today — i.e., **8 more skills ship broken generators/dashboards** (hara-builder among them, a flagship). The `.md` cases are lower-severity (renderers tolerate trailing NULs) but same root cause — likely the May-01/02 bulk-import tooling padded files to block boundaries. Severity: **high** for the .py cases.
+
+### Severity roll-up
+
+| Finding | Severity | Action |
+|---|---|---|
+| cs-concept generator trailing NULs | high | **FIXED this run** (issue #44 DoD met) |
+| 13 more archives with trailing-NUL members (8 with broken .py) | high | logged; scan script reproducible; recommend Wed/Thu POLISH batch-fix under #46's audit umbrella or a dedicated issue at next PLAN |
+| #43 chain break | med | untouched, carries |
+| W20 description-rewrite proposal | low | still awaiting human decision |

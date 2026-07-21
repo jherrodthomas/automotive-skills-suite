@@ -921,3 +921,17 @@ Standout finding is non-DoD and more impactful than the trigger gaps: the SKILL.
 - Tue–Thu POLISH: work targets #43 → #44 → #45 in order (#43+#44 can share a pass).
 - Watch whether #43–#47 survive the week — if they vanish like #33–#42, escalate the out-of-band issue-deletion question to the human as a blocking anomaly.
 - Human: still open — vanished-issues pattern, scheduler gap/double-fire, Publish on v2026.07.W29, and the 🟡-threshold signal-loss question.
+
+## 2026-07-21 (autonomous run, POLISH)
+
+**Mode:** POLISH
+**Action:** Issue #44 closed out in substance — stripped the 3,361 trailing NUL bytes from cs-concept-builder's generate_cs_concept.py (which was failing py_compile outright), repacked and re-verified the archive; suite-wide NUL scan then found the same corruption in 13 more archives (8 with un-compilable .py members, hara-builder included); STATUS regenerated.
+**Files touched:** skills/cs-concept-builder.skill, docs/skill-polish-log/cs-concept-builder.md, STATUS.md, docs/AUTONOMOUS_LOG.md
+**Tests:** N/A (no test suite; py_compile used as proxy — generator now compiles, all four scripts verified)
+**Skill count:** 76 builders / 76 reviewers / 100% paired (2 via docs/PAIRING_ALIASES.md)
+**Open issues:** 5 (#43–#47)
+**Notes:** Target selection followed the W30 plan (Tue → #43+#44): no skill-bug/reviewer-finding labels exist and no true orphans remain, so the plan's directive and the LRU criterion agreed on cs-concept-builder. Judgement calls: (1) applied the NUL-strip as a small mechanical fix — it is the explicit DoD of #44 and touches no logic; (2) did NOT attempt #43's reader rewrite — that is a structural change outside a polish pass; (3) did NOT batch-fix the 13 newly-found corrupted archives despite the identical mechanical fix being proven — one-skill scope discipline, and each repack deserves its own verify pass. The systemic pattern (all NULs trailing, all files from the 2026-05-01/02 bulk import) points at the original import tooling padding to block boundaries; the repo-wide audit issue #46 just became more important than the chain-contract question it was opened for. Sandbox note: the undeletable-workdir problem recurred (stale /tmp/automotive-work owned by `nobody`), so this run used /tmp/awork-20260721 per standing procedure. Not done from #44's DoD: nothing — verified fix shipped. No issue comments/labels applied (POLISH mode has no write-actions mandate beyond the repo).
+**Follow-ups:**
+- Tomorrow (Wed POLISH): batch NUL-strip the 8 broken-.py archives (autosar-composition-reviewer, autosar-swc-reviewer, hara-builder, hara-checklist-reviewer, pfmea-builder, ppap-package-builder, safety-program-risk-register-reviewer, secure-coding-guidelines-reviewer, sw-fmea-builder) using the verified strip+repack+py_compile procedure; the 6 .md-only cases can ride along.
+- Thursday POLISH: #43 reader rewrite remains, or #45 ASPICE bundle if #43 still looks too big for one pass.
+- Human: closing #44 needs a click (autonomous loop never closes issues); vanished-issues pattern, scheduler gaps, and Publish on v2026.07.W29 still outstanding.

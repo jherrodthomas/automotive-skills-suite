@@ -1,6 +1,6 @@
 # Skill Suite Status
 
-_Regenerated 2026-07-20 by automotive-skills-daily-standup (autonomous). Pairing honors docs/PAIRING_ALIASES.md._
+_Regenerated 2026-07-21 by automotive-skills-daily-standup (autonomous). Pairing honors docs/PAIRING_ALIASES.md._
 
 | Builder | Domain | Paired Reviewer | Last Touched | Flag |
 |---|---|---|---|---|
@@ -26,7 +26,7 @@ _Regenerated 2026-07-20 by automotive-skills-daily-standup (autonomous). Pairing
 | communication-matrix-builder.skill | comms | communication-matrix-checklist-reviewer.skill | 2026-06-24 | 🟢 |
 | control-plan-builder.skill | quality | control-plan-checklist-reviewer.skill | 2026-06-18 | 🟡 |
 | cs-architecture-builder.skill | cyber | cs-architecture-checklist-reviewer.skill | 2026-05-01 | 🟡 |
-| cs-concept-builder.skill | cyber | cs-concept-checklist-reviewer.skill | 2026-05-01 | 🟡 |
+| cs-concept-builder.skill | cyber | cs-concept-checklist-reviewer.skill | 2026-07-21 | 🟢 |
 | cs-goals-builder.skill | cyber | cs-goals-checklist-reviewer.skill | 2026-05-01 | 🟡 |
 | dbc-builder.skill | comms | dbc-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 | dcm-builder.skill | calibration | dcm-checklist-reviewer.skill | 2026-05-02 | 🟡 |
@@ -85,6 +85,6 @@ _Regenerated 2026-07-20 by automotive-skills-daily-standup (autonomous). Pairing
 
 - **Builders:** 76 · **Reviewers:** 76 · **Paired:** 76/76 (100%)
 - 🔴 Missing paired reviewer: 0
-- 🟡 Paired but not touched in 30+ days: 73
-- 🟢 Paired & fresh (≤30 days): 3
+- 🟡 Paired but not touched in 30+ days: 72
+- 🟢 Paired & fresh (≤30 days): 4
 - Total .skill files: 152
