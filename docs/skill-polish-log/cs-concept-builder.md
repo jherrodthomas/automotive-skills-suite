@@ -311,3 +311,49 @@ Every `.py` member above fails `py_compile` today — i.e., **8 more skills ship
 | 13 more archives with trailing-NUL members (8 with broken .py) | high | logged; scan script reproducible; recommend Wed/Thu POLISH batch-fix under #46's audit umbrella or a dedicated issue at next PLAN |
 | #43 chain break | med | untouched, carries |
 | W20 description-rewrite proposal | low | still awaiting human decision |
+
+## 2026-07-22 — Batch NUL-strip resolution (follow-through on 2026-07-21 findings)
+
+Executed the Wed POLISH follow-up: batch-applied the verified strip+repack+py_compile
+procedure to all 13 archives flagged in yesterday's suite-wide scan.
+
+**What's good:** the fix generalized perfectly — every `.py` member that failed
+`py_compile` before the strip compiles cleanly after (9 members across 8 archives,
+including hara-builder's flagship generator and the two 14 KB autosar dashboard cases).
+All `.md` members retain intact frontmatter. Suite-wide `.py`/`.md` NUL rescan: **CLEAN**.
+
+**Correction to yesterday's findings:** the three `examples/*.xlsx` entries
+(fsc-checklist-reviewer, hara-checklist-reviewer ×2, tsc-checklist-reviewer) were
+**false positives**. Their "4 trailing NULs" are the zip EOCD record's own zero bytes
+(comment_len=0 + offset high bytes) — legitimate structure, EOCD flush with EOF, zero
+trailing garbage. Stripping them corrupts the file. They were left untouched; the count
+of genuinely corrupted archives is 13, corrupted *text/script* members 19.
+
+**Scan methodology fix:** any future NUL scan must exclude (or EOCD-verify) formats
+that legitimately end in NUL bytes (zip-based: .xlsx, .docx, .pptx). Naive
+`rstrip(b'\x00')` comparison over-flags them.
+
+**Fixed members (all verified post-repack):**
+
+| Archive | Member | NULs removed | Verification |
+|---|---|---|---|
+| autosar-composition-checklist-reviewer.skill | scripts/dashboard.py | 14,048 | py_compile FAIL→OK |
+| autosar-swc-checklist-reviewer.skill | scripts/dashboard.py | 14,064 | py_compile FAIL→OK |
+| fsc-builder.skill | SKILL.md | 235 | frontmatter intact |
+| fsc-checklist-reviewer.skill | SKILL.md | 167 | frontmatter intact |
+| hara-builder.skill | SKILL.md | 266 | frontmatter intact |
+| hara-builder.skill | scripts/generate_hara.py | 24 | py_compile FAIL→OK |
+| hara-checklist-reviewer.skill | SKILL.md | 229 | frontmatter intact |
+| hara-checklist-reviewer.skill | scripts/generate_checklist.py | 3,398 | py_compile FAIL→OK |
+| pfmea-builder.skill | scripts/generate_pfmea.py | 617 | py_compile FAIL→OK |
+| ppap-package-builder.skill | scripts/generate_ppap_package.py | 112 | py_compile FAIL→OK |
+| safety-program-risk-register-checklist-reviewer.skill | scripts/build_dashboard.py | 36 | py_compile FAIL→OK |
+| safety-program-risk-register-checklist-reviewer.skill | scripts/generate_checklist.py | 9,792 | py_compile FAIL→OK |
+| secure-coding-guidelines-checklist-reviewer.skill | scripts/generate_checklist.py | 305 | py_compile FAIL→OK |
+| sw-fmea-builder.skill | scripts/generate_sw_fmea.py | 97 | py_compile FAIL→OK |
+| tsc-builder.skill | SKILL.md | 363 | frontmatter intact |
+| tsc-checklist-reviewer.skill | SKILL.md | 165 | frontmatter intact |
+
+Severity: was **high** (8 skills shipped un-compilable generators/dashboards) → **resolved**.
+The May-01/02 bulk-import padding fault family is now fully remediated across the suite;
+#46's audit can drop the NUL question and focus on its original chain-contract scope.

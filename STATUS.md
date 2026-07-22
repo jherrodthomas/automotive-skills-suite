@@ -1,6 +1,6 @@
 # Skill Suite Status
 
-_Regenerated 2026-07-21 by automotive-skills-daily-standup (autonomous). Pairing honors docs/PAIRING_ALIASES.md._
+_Regenerated 2026-07-22 by automotive-skills-daily-standup (autonomous). Pairing honors docs/PAIRING_ALIASES.md._
 
 | Builder | Domain | Paired Reviewer | Last Touched | Flag |
 |---|---|---|---|---|
@@ -37,14 +37,14 @@ _Regenerated 2026-07-21 by automotive-skills-daily-standup (autonomous). Pairing
 | fishbone-builder.skill | other | fishbone-checklist-reviewer.skill | 2026-05-01 | 🟡 |
 | flexray-config-builder.skill | comms | flexray-config-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 | fmeda-builder.skill | safety | fmeda-checklist-reviewer.skill | 2026-05-01 | 🟡 |
-| fsc-builder.skill | safety | fsc-checklist-reviewer.skill | 2026-05-01 | 🟡 |
+| fsc-builder.skill | safety | fsc-checklist-reviewer.skill | 2026-07-22 | 🟢 |
 | gateway-routing-builder.skill | comms | gateway-routing-checklist-reviewer.skill | 2026-05-02 | 🟡 |
-| hara-builder.skill | safety | hara-checklist-reviewer.skill | 2026-05-01 | 🟡 |
+| hara-builder.skill | safety | hara-checklist-reviewer.skill | 2026-07-22 | 🟢 |
 | hsi-builder.skill | safety | hsi-checklist-reviewer.skill | 2026-05-01 | 🟡 |
 | hw-architecture-builder.skill | safety | hw-architecture-checklist-reviewer.skill | 2026-05-01 | 🟡 |
 | hw-safety-reqs-builder.skill | safety | hw-safety-reqs-checklist-reviewer.skill | 2026-05-01 | 🟡 |
 | incident-response-plan-builder.skill | cyber | incident-response-plan-checklist-reviewer.skill | 2026-05-01 | 🟡 |
-| item-definition-builder.skill | safety | item-def-checklist-reviewer.skill (alias) | 2026-05-01 | 🟡 |
+| item-definition-builder.skill | safety | item-def-checklist-reviewer.skill | 2026-05-01 | 🟡 |
 | ldf-builder.skill | comms | ldf-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 | lessons-learned-builder.skill | program-mgmt | lessons-learned-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 | mbse-model-architecture-builder.skill | mbse | mbse-model-architecture-checklist-reviewer.skill | 2026-05-02 | 🟡 |
@@ -52,8 +52,8 @@ _Regenerated 2026-07-21 by automotive-skills-daily-standup (autonomous). Pairing
 | mbse-system-context-builder.skill | mbse | mbse-system-context-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 | msa-gage-rr-builder.skill | other | msa-gage-rr-checklist-reviewer.skill | 2026-05-01 | 🟡 |
 | odx-builder.skill | diagnostics | odx-checklist-reviewer.skill | 2026-05-02 | 🟡 |
-| pfmea-builder.skill | quality | pfmea-checklist-reviewer.skill | 2026-05-01 | 🟡 |
-| ppap-package-builder.skill | quality | ppap-checklist-reviewer.skill (alias) | 2026-07-07 | 🟢 |
+| pfmea-builder.skill | quality | pfmea-checklist-reviewer.skill | 2026-07-22 | 🟢 |
+| ppap-package-builder.skill | quality | ppap-checklist-reviewer.skill | 2026-07-22 | 🟢 |
 | safety-case-builder.skill | safety | safety-case-checklist-reviewer.skill | 2026-05-01 | 🟡 |
 | safety-gate-review-builder.skill | program-mgmt | safety-gate-review-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 | safety-plan-builder.skill | safety | safety-plan-checklist-reviewer.skill | 2026-05-01 | 🟡 |
@@ -63,7 +63,7 @@ _Regenerated 2026-07-21 by automotive-skills-daily-standup (autonomous). Pairing
 | sotif-validation-strategy-builder.skill | sotif | sotif-validation-strategy-checklist-reviewer.skill | 2026-05-01 | 🟡 |
 | spc-chart-builder.skill | other | spc-chart-checklist-reviewer.skill | 2026-05-01 | 🟡 |
 | sw-arch-builder.skill | safety | sw-arch-checklist-reviewer.skill | 2026-05-01 | 🟡 |
-| sw-fmea-builder.skill | safety | sw-fmea-checklist-reviewer.skill | 2026-05-01 | 🟡 |
+| sw-fmea-builder.skill | safety | sw-fmea-checklist-reviewer.skill | 2026-07-22 | 🟢 |
 | sw-hsis-builder.skill | safety | sw-hsis-checklist-reviewer.skill | 2026-05-01 | 🟡 |
 | sw-sr-builder.skill | safety | sw-sr-checklist-reviewer.skill | 2026-05-01 | 🟡 |
 | sysml-activity-diagram-builder.skill | sysml | sysml-activity-diagram-checklist-reviewer.skill | 2026-05-02 | 🟡 |
@@ -74,7 +74,7 @@ _Regenerated 2026-07-21 by automotive-skills-daily-standup (autonomous). Pairing
 | test-case-catalog-builder.skill | v&v | test-case-catalog-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 | traceability-matrix-builder.skill | v&v | traceability-matrix-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 | triggering-conditions-builder.skill | sotif | triggering-conditions-checklist-reviewer.skill | 2026-05-01 | 🟡 |
-| tsc-builder.skill | safety | tsc-checklist-reviewer.skill | 2026-05-01 | 🟡 |
+| tsc-builder.skill | safety | tsc-checklist-reviewer.skill | 2026-07-22 | 🟢 |
 | uds-services-builder.skill | diagnostics | uds-services-checklist-reviewer.skill | 2026-05-26 | 🟡 |
 | validation-plan-builder.skill | v&v | validation-plan-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 | verification-plan-builder.skill | v&v | verification-plan-checklist-reviewer.skill | 2026-05-02 | 🟡 |
@@ -85,6 +85,6 @@ _Regenerated 2026-07-21 by automotive-skills-daily-standup (autonomous). Pairing
 
 - **Builders:** 76 · **Reviewers:** 76 · **Paired:** 76/76 (100%)
 - 🔴 Missing paired reviewer: 0
-- 🟡 Paired but not touched in 30+ days: 72
-- 🟢 Paired & fresh (≤30 days): 4
+- 🟡 Paired but not touched in 30+ days: 67
+- 🟢 Paired & fresh (≤30 days): 9
 - Total .skill files: 152

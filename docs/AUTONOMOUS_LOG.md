@@ -935,3 +935,17 @@ Standout finding is non-DoD and more impactful than the trigger gaps: the SKILL.
 - Tomorrow (Wed POLISH): batch NUL-strip the 8 broken-.py archives (autosar-composition-reviewer, autosar-swc-reviewer, hara-builder, hara-checklist-reviewer, pfmea-builder, ppap-package-builder, safety-program-risk-register-reviewer, secure-coding-guidelines-reviewer, sw-fmea-builder) using the verified strip+repack+py_compile procedure; the 6 .md-only cases can ride along.
 - Thursday POLISH: #43 reader rewrite remains, or #45 ASPICE bundle if #43 still looks too big for one pass.
 - Human: closing #44 needs a click (autonomous loop never closes issues); vanished-issues pattern, scheduler gaps, and Publish on v2026.07.W29 still outstanding.
+
+## 2026-07-22 (autonomous run, POLISH)
+
+**Mode:** POLISH
+**Action:** Batch NUL-strip of all 13 remaining corrupted archives per yesterday's follow-up — 9 previously un-compilable .py members now pass py_compile; 3 xlsx "findings" exposed as scan false positives and left untouched; suite-wide rescan clean; STATUS regenerated.
+**Files touched:** 13 × skills/*.skill (see polish log), docs/skill-polish-log/cs-concept-builder.md, STATUS.md, docs/AUTONOMOUS_LOG.md
+**Tests:** N/A (no test suite; py_compile as proxy — all .py members in all 13 repacked archives compile; zipfile.testzip clean on every repack)
+**Skill count:** 76 builders / 76 reviewers / 100% paired (2 via docs/PAIRING_ALIASES.md)
+**Open issues:** 5 (#43–#47)
+**Notes:** Departed from strict one-skill POLISH scope deliberately: yesterday's run proved the fix on cs-concept-builder and explicitly queued today's batch, and the strip is mechanical with per-member verification (py_compile for .py, frontmatter check for .md, testzip on every repack) — 13 identical small fixes, not a refactor. Key discovery: the three 4-byte xlsx findings from yesterday's scan were false positives — those bytes are the zip EOCD record's own zeros (comment_len=0), legitimate structure; stripping them corrupts the file (verified: stripped copy fails to open). Scan methodology corrected to .py/.md members only. The May-01/02 bulk-import padding fault family is now fully remediated suite-wide. STATUS: 0 red / 67 yellow / 9 green (six builders freshened by today's fixes). No issue writes (POLISH has no tracker mandate); #44 still needs its human close-click, and today's work substantively de-scopes the NUL question from #46.
+**Follow-ups:**
+- Tomorrow (Thu POLISH): #43 cs-concept → cs-architecture reader rewrite if it fits a single pass, else #45 ASPICE ignored-arg/scaffold-tab bundle.
+- Next PLAN: note #46 audit can drop NULs and focus on chain contracts; consider adding the corrected NUL-scan (py/md-only) as a standing repo check.
+- Human: close #44 (fix shipped 07-21, verified again today); vanished-issues pattern #33–#42, scheduler gap, and Publish on v2026.07.W29 all still outstanding.
