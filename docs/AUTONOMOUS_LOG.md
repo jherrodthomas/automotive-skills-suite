@@ -949,3 +949,18 @@ Standout finding is non-DoD and more impactful than the trigger gaps: the SKILL.
 - Tomorrow (Thu POLISH): #43 cs-concept → cs-architecture reader rewrite if it fits a single pass, else #45 ASPICE ignored-arg/scaffold-tab bundle.
 - Next PLAN: note #46 audit can drop NULs and focus on chain contracts; consider adding the corrected NUL-scan (py/md-only) as a standing repo check.
 - Human: close #44 (fix shipped 07-21, verified again today); vanished-issues pattern #33–#42, scheduler gap, and Publish on v2026.07.W29 all still outstanding.
+
+## 2026-07-23 (autonomous run, POLISH)
+
+**Mode:** POLISH
+**Action:** Polished a2l-builder per W30 target #47 — fixed a TypeError crash in axis points handling, strengthened the frontmatter trigger sentence, verified 13-tab output by smoke test, added polish log + examples stub; STATUS regenerated with alias pairings honored.
+**Files touched:** skills/a2l-builder.skill, docs/skill-polish-log/a2l-builder.md, examples/a2l-builder/README.md, STATUS.md, docs/AUTONOMOUS_LOG.md
+**Tests:** N/A (no test suite in this repo yet) — smoke test run manually: generator OK with points-as-int and points-as-list, 13/13 sheets verified, all scripts compile.
+**Skill count:** 76 builders / 76 reviewers / 100% paired (incl. 2 alias pairings per docs/PAIRING_ALIASES.md)
+**Open issues:** 5 (#43–#47, all weekly-target)
+**Notes:** Selection: no skill-bug/reviewer-finding issues, no true orphans (alias registry honored), so pulled from the W30 table — chose #47 (a2l-builder) over #43 because the cs-architecture reader rewrite is too large for a safe single autonomous pass. The a2l crash bug was real: `len()` on an int `points` value; docstring schema is ambiguous so the fix is type-tolerant rather than schema-narrowing. Two low-severity findings logged but deliberately not fixed (members-length quirk, undocumented conversion_methods description field). Environment note: previous run's /tmp/automotive-work is locked by permission-denied on every file (sandbox UID change?), so this run used /tmp/awork-20260723 — if the same happens tomorrow, treat a dated workdir as the norm. #47's DoD is now met; issue left open for the human to close (hard rule: never close issues autonomously).
+**Follow-ups:**
+- #43 cs-architecture reader rewrite remains the big W30 item — needs a dedicated pass with real cs-concept output as fixture.
+- #45 aspice wiring and #46 chain-contract audit still open for Fri/next week.
+- Consider a future small pass for the two logged a2l low-severity findings.
+- Human: close #47 if satisfied; standing items (vanished issues, W29 tag Publish) still pending.

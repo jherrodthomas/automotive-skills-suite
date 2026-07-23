@@ -1,6 +1,6 @@
-# Skill Suite Status
+# STATUS
 
-_Regenerated 2026-07-22 by automotive-skills-daily-standup (autonomous). Pairing honors docs/PAIRING_ALIASES.md._
+_Regenerated 2026-07-23 by autonomous daily run (POLISH). Alias pairings per docs/PAIRING_ALIASES.md._
 
 | Builder | Domain | Paired Reviewer | Last Touched | Flag |
 |---|---|---|---|---|
@@ -32,19 +32,19 @@ _Regenerated 2026-07-22 by automotive-skills-daily-standup (autonomous). Pairing
 | dcm-builder.skill | calibration | dcm-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 | dem-config-builder.skill | diagnostics | dem-config-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 | dfmea-builder.skill | quality | dfmea-checklist-reviewer.skill | 2026-05-01 | 🟡 |
-| dia-builder.skill | safety | dia-checklist-reviewer.skill | 2026-05-01 | 🟡 |
+| dia-builder.skill | other | dia-checklist-reviewer.skill | 2026-05-01 | 🟡 |
 | dtc-catalog-builder.skill | diagnostics | dtc-catalog-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 | fishbone-builder.skill | other | fishbone-checklist-reviewer.skill | 2026-05-01 | 🟡 |
 | flexray-config-builder.skill | comms | flexray-config-checklist-reviewer.skill | 2026-05-02 | 🟡 |
-| fmeda-builder.skill | safety | fmeda-checklist-reviewer.skill | 2026-05-01 | 🟡 |
+| fmeda-builder.skill | other | fmeda-checklist-reviewer.skill | 2026-05-01 | 🟡 |
 | fsc-builder.skill | safety | fsc-checklist-reviewer.skill | 2026-07-22 | 🟢 |
 | gateway-routing-builder.skill | comms | gateway-routing-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 | hara-builder.skill | safety | hara-checklist-reviewer.skill | 2026-07-22 | 🟢 |
-| hsi-builder.skill | safety | hsi-checklist-reviewer.skill | 2026-05-01 | 🟡 |
+| hsi-builder.skill | other | hsi-checklist-reviewer.skill | 2026-05-01 | 🟡 |
 | hw-architecture-builder.skill | safety | hw-architecture-checklist-reviewer.skill | 2026-05-01 | 🟡 |
 | hw-safety-reqs-builder.skill | safety | hw-safety-reqs-checklist-reviewer.skill | 2026-05-01 | 🟡 |
 | incident-response-plan-builder.skill | cyber | incident-response-plan-checklist-reviewer.skill | 2026-05-01 | 🟡 |
-| item-definition-builder.skill | safety | item-def-checklist-reviewer.skill | 2026-05-01 | 🟡 |
+| item-definition-builder.skill | other | item-def-checklist-reviewer.skill (alias) | 2026-05-01 | 🟡 |
 | ldf-builder.skill | comms | ldf-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 | lessons-learned-builder.skill | program-mgmt | lessons-learned-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 | mbse-model-architecture-builder.skill | mbse | mbse-model-architecture-checklist-reviewer.skill | 2026-05-02 | 🟡 |
@@ -53,7 +53,7 @@ _Regenerated 2026-07-22 by automotive-skills-daily-standup (autonomous). Pairing
 | msa-gage-rr-builder.skill | other | msa-gage-rr-checklist-reviewer.skill | 2026-05-01 | 🟡 |
 | odx-builder.skill | diagnostics | odx-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 | pfmea-builder.skill | quality | pfmea-checklist-reviewer.skill | 2026-07-22 | 🟢 |
-| ppap-package-builder.skill | quality | ppap-checklist-reviewer.skill | 2026-07-22 | 🟢 |
+| ppap-package-builder.skill | quality | ppap-checklist-reviewer.skill (alias) | 2026-07-22 | 🟢 |
 | safety-case-builder.skill | safety | safety-case-checklist-reviewer.skill | 2026-05-01 | 🟡 |
 | safety-gate-review-builder.skill | program-mgmt | safety-gate-review-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 | safety-plan-builder.skill | safety | safety-plan-checklist-reviewer.skill | 2026-05-01 | 🟡 |
@@ -81,10 +81,10 @@ _Regenerated 2026-07-22 by automotive-skills-daily-standup (autonomous). Pairing
 | vv-execution-report-builder.skill | v&v | vv-execution-report-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 | wp-status-rollup-builder.skill | program-mgmt | wp-status-rollup-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 
----
+## Summary
 
-- **Builders:** 76 · **Reviewers:** 76 · **Paired:** 76/76 (100%)
-- 🔴 Missing paired reviewer: 0
-- 🟡 Paired but not touched in 30+ days: 67
-- 🟢 Paired & fresh (≤30 days): 9
-- Total .skill files: 152
+- Builders: 76 · Reviewers: 76 · Paired: 76 (100%, incl. 2 alias pairings)
+- 🟢 Healthy (paired, touched ≤30d): 9
+- 🟡 Stale (30+ days): 67
+- 🔴 Orphan (no reviewer): 0
+- Note: 🟡 wave reflects May bulk import; freshness-by-polish-log rule change still awaiting human sign-off (see W30 plan).
