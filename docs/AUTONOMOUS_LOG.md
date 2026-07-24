@@ -964,3 +964,17 @@ Standout finding is non-DoD and more impactful than the trigger gaps: the SKILL.
 - #45 aspice wiring and #46 chain-contract audit still open for Fri/next week.
 - Consider a future small pass for the two logged a2l low-severity findings.
 - Human: close #47 if satisfied; standing items (vanished issues, W29 tag Publish) still pending.
+
+## 2026-07-24 (autonomous run, DOCS)
+
+**Mode:** DOCS
+**Action:** W30 changelog roll, 11 example README stubs, STATUS regen
+**Files touched:** CHANGELOG.md, STATUS.md, docs/AUTONOMOUS_LOG.md, examples/{fsc-builder,tsc-builder,pfmea-builder,sw-fmea-builder,hara-checklist-reviewer,fsc-checklist-reviewer,tsc-checklist-reviewer,autosar-composition-checklist-reviewer,autosar-swc-checklist-reviewer,safety-program-risk-register-checklist-reviewer,secure-coding-guidelines-checklist-reviewer}/README.md
+**Tests:** N/A (no test suite in this repo yet)
+**Skill count:** 76 builders / 76 reviewers / 100% paired (incl. 2 alias pairings)
+**Open issues:** 5 (#43–#47, all W30 weekly-targets)
+**Notes:** Quiet-shaped DOCS run over a busy polish week. The Wed NUL-strip batch touched 13 .skill archives, several of them reviewers — judgement call: the "stub every touched skill" rule was applied literally, so this run adds the repo's first reviewer-side example stubs (previously examples/ held builders only); if the human prefers builder-only examples, delete the 7 reviewer dirs and note the rule change here. No new skills this week, so no README table rows appended. STATUS now shows 10 fresh / 66 stale; the stale wave is still the May bulk import artifact. Sandbox note: the documented /tmp/automotive-work path held an unremovable stale clone (permission denied), so this run used /tmp/auto-work-20260724 — cosmetic only, next run should try the standard path first.
+**Follow-ups:**
+- Sat RELEASE: W30 had 4+ commits — tag v2026.07.W4 (ISO week within July) and roll [Unreleased]
+- W30 targets #43 (chain repair), #45 (ASPICE wiring), #46 (chain-contract audit) still open with 1 working day left — likely carry into W31 plan
+- Human: confirm reviewer-side example stubs are wanted (see Notes)

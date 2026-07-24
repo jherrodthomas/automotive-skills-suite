@@ -8,6 +8,15 @@ from `[Unreleased]` into a dated section at each weekly release.
 
 _Accumulating since v2026.07.W29 (2026-07-18). Ships at the next Saturday RELEASE run._
 
+### Polish
+- **cs-concept-builder** — W30 target (Tue 2026-07-21, #44): 3,361 trailing NUL bytes stripped from the generator; same pass surfaced 13 more corrupt archives repo-wide (`691f614`)
+- **batch NUL-strip, 13 archives** — (Wed 2026-07-22): the 13 corrupt archives found Tuesday cleaned in one batch; 9 generators compile again; xlsx false-positive findings corrected (`8a855cf`)
+- **a2l-builder** — W30 target (Thu 2026-07-23, #47): axis-points crash fixed, trigger description strengthened, 13-tab output verified (`661c4bb`)
+
+### Docs
+- W30 weekly plan published (Mon 2026-07-20) — targets: cs-concept→cs-architecture chain repair (#43), cs-concept NUL-strip (#44), ASPICE bundle wiring (#45), repo-wide chain-contract audit (#46), a2l polish (#47) (`a0c3d91`)
+- W30 DOCS roll (Fri 2026-07-24): `[Unreleased]` updated with W30 entries; 11 example README stubs added for skills touched this week — first reviewer-side stubs, per the touched-this-week rule; STATUS regenerated (this commit)
+
 ## [v2026.07.W29] — 2026-07-18
 
 _W28–W29 (from Mon 2026-07-06). Accumulating since v2026.07.W27 (2026-07-04). The W28 Fri DOCS (2026-07-10) and Sat RELEASE (2026-07-11) runs did not fire, so this section spans two weeks; W28 entries were back-filled by the W29 Fri DOCS roll (2026-07-17). Shipped by the Saturday RELEASE run (2026-07-18)._
