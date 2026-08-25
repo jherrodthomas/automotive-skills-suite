@@ -1,6 +1,6 @@
 # Chain-contract audit — builder-to-builder xlsx handoffs
 
-_Generated 2026-08-20 by `scripts/chain_contract_audit.py` (read-only; modifies no `.skill` file)._
+_Generated 2026-08-25 by `scripts/chain_contract_audit.py` (read-only; modifies no `.skill` file)._
 
 Scope is builder-to-builder reads only, per the W34 descope of [#46](https://github.com/jherrodthomas/automotive-skills-suite/issues/46). Builder-to-reviewer pairs are excluded: a reviewer ships with the builder it reviews, so the two cannot drift apart the way #43 did.
 

@@ -130,3 +130,76 @@ C005/C006, so it deserves its own pass with its own verification rather than a d
 - Fix #55 for the remaining five files of the mis-generated batch.
 - `bus_interfaces` has no tab to land in. Either add one or drop it from the documented schema —
   a schema that documents a field nothing consumes is worse than no schema.
+
+---
+
+## 2026-08-25 — POLISH pass (fix #54)
+
+**Severity of what was fixed: HIGH.** Second pass on this skill. The W34 pass found the defects and
+filed them; this pass fixes them. Builder and reviewer landed in one commit, as
+[#54](https://github.com/jherrodthomas/automotive-skills-suite/issues/54) required.
+
+### Baseline reproduced before touching anything
+
+Ran the shipped `examples/sample_input.json` through the unmodified archives first, so the fix has a
+measured before and after rather than an asserted one:
+
+```
+C005 [Mandatory] NA  | No memory regions defined      <- input supplied 4 regions
+C006 [Mandatory] NA  | No NvM parameters found        <- input supplied NvMDatasetSelectionBits
+cell scan for RAM_BSW / CAN1: 0 hits across all 14 tabs
+```
+
+This is exactly the shape #54 described. C005 is the dangerous one: a **Mandatory** check rating the
+analyst's own input `NA — not applicable` is worse than an error, because it scores as benign.
+
+### What was fixed
+
+1. **`build_memory_map(wb, memory_layout)`** now takes the data argument it never had and writes
+   region / start address / size / purpose, plus optional `module_owner` and `access` if supplied.
+2. **`build_post_build_variants(wb, params, module_names)`** aggregates the distinct
+   `post_build_variant` values already carried by `module_parameters` — the data was always there,
+   it was just never rolled up. Module IDs resolve to module names so "BSW Modules Affected" reads
+   `Com, NvM, Wdg` rather than `SL001, SL005, M006`.
+3. **`check_nvm_alignment` (C006) keys on module name, not `module_id`.** A new
+   `_module_name_index(probed)` builds an ID→name map from all four inventory tabs, which the probe
+   already collected — so this needed no probe change and no column-layout change. The parameter
+   name is a documented fallback for workbooks whose inventories do not declare the owning module.
+4. **`bus_interfaces` decided: it gets a tab.** New `Bus Interfaces` tab at index 3 (Interface /
+   Type / Baudrate / Channels / Notes). DoD item 5 allowed removing it from the schema instead;
+   giving it a tab was chosen because the data is real, structured, and already in the sample. All
+   downstream sheet indices shifted +1; SKILL.md updated 14-tab → 15-tab.
+
+### Verification performed
+
+- Before/after run on `examples/sample_input.json`, both from the **repacked archives**, not loose
+  working copies.
+- **All 7 Mandatory checks now FC** (was 5 of 7; C005 and C006 were NA):
+  `C005 FC | 4 memory regions allocated` · `C006 FC | 1 NvM parameters present (NvM)`.
+- Cell scan now hits `Bus Interfaces!A3 = CAN1` and `Memory Map!A3 = RAM_BSW` — the exact assertion
+  #54's DoD named.
+- `Post-Build Variants` yields `PBV001 VAR_BASE → Com, NvM, Wdg` and `PBV002 VAR_HIGH → CanIf`.
+- Full reviewer `generate_checklist.py` end-to-end: 13 sheets written, no exceptions.
+- Builder no-argument path (built-in default input) still runs.
+- Regression on the new C006 branches: empty inventory + NvM parameter name → FC via the documented
+  fallback; populated inventory with no NvM module → NA. Neither raises.
+- `scripts/chain_contract_audit.py` re-run repo-wide after the tab insert: **46 assertions,
+  16 chains, 0 BREAK.** Adding a tab did not break the probe, which resolves by name not index.
+- Both archives repacked and re-verified; `__pycache__` from test runs caught and stripped before
+  the final pack.
+
+### Not done, deliberately
+
+- `Inter-Module Dependencies` and `Validation Rules` remain header-only. They were listed in #54 as
+  MED but excluded from its DoD, and unlike the other two they have **no input field to source
+  from** — wiring them means designing new schema, which is not a polish-pass change.
+- No check was added for the new `Bus Interfaces` tab. The tab is written but unaudited; C001-C009
+  are unchanged in count. Worth a small follow-up issue rather than a silent expansion here.
+- Cosmetic styling (borders, column widths, unfilled header columns) still open from the W34 pass.
+
+### Follow-ups
+
+- New: add a reviewer check over `Bus Interfaces` so the new tab is not write-only.
+- `#55` still open — the remaining 5 autosar archives with stub `recalc.py`. This reviewer archive is
+  one of them; its `recalc.py` is still 39 bytes and was left alone here to keep #54's diff honest.
+- `Inter-Module Dependencies` / `Validation Rules` need a schema decision before they can populate.
