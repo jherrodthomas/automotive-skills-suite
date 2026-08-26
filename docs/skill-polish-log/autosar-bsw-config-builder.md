@@ -203,3 +203,12 @@ analyst's own input `NA — not applicable` is worse than an error, because it s
 - `#55` still open — the remaining 5 autosar archives with stub `recalc.py`. This reviewer archive is
   one of them; its `recalc.py` is still 39 bytes and was left alone here to keep #54's diff honest.
 - `Inter-Module Dependencies` / `Validation Rules` need a schema decision before they can populate.
+
+---
+
+## 2026-08-26 — pointer
+
+The paired reviewer archive `autosar-bsw-config-checklist-reviewer.skill` had its 39-byte stub
+`recalc.py` and `## Skills inventory` heading fixed today as part of the #55 batch pass. That work is
+recorded in `docs/skill-polish-log/autosar-template-batch-55.md`, not here, because it was one fix
+applied identically to 5 archives across 3 pairs. This builder itself was unchanged today.

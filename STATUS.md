@@ -1,6 +1,6 @@
 # Skill Suite Status
 
-_Regenerated 2026-08-25 by autonomous daily run (`scripts/regen_status.py`)._
+_Regenerated 2026-08-26 by autonomous daily run (`scripts/regen_status.py`)._
 
 | Builder | Domain | Paired Reviewer | Last Touched | Flag |
 |---|---|---|---|---|
@@ -15,7 +15,7 @@ _Regenerated 2026-08-25 by autonomous daily run (`scripts/regen_status.py`)._
 | aspice-process-evidence-builder.skill | aspice | aspice-process-evidence-checklist-reviewer.skill | 2026-08-04 | 🟢 |
 | automotive-ethernet-builder.skill | comms | automotive-ethernet-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 | autosar-adaptive-app-builder.skill | autosar | autosar-adaptive-app-checklist-reviewer.skill | 2026-05-02 | 🟡 |
-| autosar-bsw-config-builder.skill | autosar | autosar-bsw-config-checklist-reviewer.skill | 2026-08-20 | 🟢 |
+| autosar-bsw-config-builder.skill | autosar | autosar-bsw-config-checklist-reviewer.skill | 2026-08-25 | 🟢 |
 | autosar-composition-builder.skill | autosar | autosar-composition-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 | autosar-rte-mapping-builder.skill | autosar | autosar-rte-mapping-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 | autosar-swc-builder.skill | autosar | autosar-swc-checklist-reviewer.skill | 2026-05-21 | 🟡 |
