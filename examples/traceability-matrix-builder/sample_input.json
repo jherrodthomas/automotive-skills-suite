@@ -1,0 +1,24 @@
+{
+  "item": {"name": "Brake-by-Wire System", "doc_id": "TM-BBW-001", "revision": "1.0"},
+  "stakeholder_needs": [
+    {"id": "SN-001", "title": "Driver can decelerate the vehicle on demand"},
+    {"id": "SN-002", "title": "System degrades safely on single-channel loss"}
+  ],
+  "system_requirements": [
+    {"id": "SYS-REQ-001", "title": "Deceleration on pedal input", "traces_to": ["SN-001"]},
+    {"id": "SYS-REQ-002", "title": "Fallback braking mode", "traces_to": ["SN-002"]}
+  ],
+  "subsystem_requirements": [
+    {"id": "SUB-REQ-001", "title": "Pedal sensor plausibility", "traces_to": ["SYS-REQ-001"]}
+  ],
+  "component_requirements": [
+    {"id": "CMP-REQ-001", "title": "Dual-channel pedal ADC", "traces_to": ["SUB-REQ-001"]}
+  ],
+  "design_elements": [
+    {"id": "DES-001", "title": "PedalPlausibility module", "traces_to": ["CMP-REQ-001"]}
+  ],
+  "test_cases": [
+    {"id": "TC-001", "title": "Pedal plausibility fault injection", "verifies": ["CMP-REQ-001"]},
+    {"id": "TC-900", "title": "Legacy smoke test", "verifies": []}
+  ]
+}
