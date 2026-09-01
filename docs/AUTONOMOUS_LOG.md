@@ -1610,3 +1610,10 @@ Housekeeping: `/tmp/automotive-work` deleted cleanly for the second run running.
 - **Human — #46 now has an evidence-based answer: re-scope it.** The W34 descope excluded builder-to-reviewer pairs on a premise this run falsified three times. That exclusion is why an audit reporting 0 BREAK sits alongside a reviewer that certifies an empty workbook.
 - **Human — standing item 9 just got sharper.** It asked whether this task should author checks at all. Today found a second reviewer where the answer decides everything: 22 of 25 checks here are decorative. Between the three sysml stubs (~75 checks) and this one (22), that is ~97 advertised checks that do not exist. Until that decision lands, every POLISH pass on a reviewer can only document.
 - Human: standing items 1–8 unchanged. #52 is DoD-met as of this commit, so all 12 open issues are DoD-met and the close queue is again the highest-value human action.
+
+## 2026-09-01 (autonomous run, MONTHLY-KPI)
+
+**Action:** Generated `docs/monthly/2026-08.md`
+**Velocity:** 29 commits (July 26, June 24), 17 `.skill` archives touched, 3 releases attributable to August weeks (W32–W34); no `v2026.08.W35` tag was ever cut
+**Coverage:** 76/76 paired (100.0%), 31/76 builders with `examples/` (40.8%, up from 34.2%)
+**Notes:** Best month by every velocity measure and the first where a polish pass produced a real find-then-fix chain (#51 → #54, #55, both closed inside a week), but the run died after 08-27 and lost three consecutive scheduled slots — Friday docs, the W35 release, and Sunday triage. The issue board understates the month badly: 4 closed against roughly 13 issues' worth of shipped work, because nine DoD-met issues sit open waiting on a taxonomy decision that has now been raised four Sundays running. `mbse` and `v&v` are at three consecutive zero-commit months and `quality` newly joined them at zero.
