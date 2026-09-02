@@ -165,3 +165,63 @@ tempdirs outside the archive tree (per the `__pycache__` contamination lesson fr
 - `testzip()` clean on all **152** archives; `__pycache__` contamination **0 of 152**
 - `scripts/chain_contract_audit.py`: 46 assertions, 16 chains, **0 BREAK** (unchanged)
 - `scripts/regen_status.py`: 76 builders / 76 reviewers / 100% paired
+
+## 2026-09-02 (POLISH pass 2, issue #57) — severity: **high → resolved for this builder**, changes applied
+
+Wednesday slot from `WEEK-2026-W36.md`. Target is the reference implementation for the sysml
+input schema; the other three sysml builders are deliberately untouched and follow in W37.
+
+### DoD from #57, item by item
+
+- **`--input <path.json>` accepted and loaded; dead `import json` is live.** `load_input()`
+  rejects a non-object top level with a clear error. `-i` short flag added.
+- **Schema documented in `SKILL.md`** — one table, key → shape → tab. `--title` / `--author`
+  still work and now *override* `system_name` / `author` from the JSON (verified with a third
+  run: JSON says "Brake-by-Wire System" / "J. Herrod", flags say "Override Title" / "Someone
+  Else", cover and Document Control show the flags). `version` and `model_header` are new
+  metadata keys reaching tabs 1 and 2; `Model Element Count (est.)` is now computed
+  (`5 blocks, 7 ports, 3 connectors`) rather than blank.
+- **Placeholder literals removed from the generator.** `grep` for `Subsystem_A`,
+  `Component_A1`, `ExternalActor`, `conn_1`, `DataPacket` in `generate_sysml_block.py` → 0
+  hits. The only fixture is `examples/sysml-block-diagram-builder/sample_input.json` — and it
+  is a brake-by-wire model, not the old placeholders, so a grep cannot confuse the two.
+  Without `--input` the seven catalog tabs are emitted **headers-only** with a stderr warning.
+  That is a behaviour change for anyone who was running the bare command: they used to get
+  five fake blocks, now they get an empty template. Chosen over shipping a default fixture
+  inside the archive because the DoD says placeholders survive only in `examples/`, and an
+  honest empty tab beats a confident wrong one.
+- **Verified end-to-end from the repacked archives** (fresh extraction, outside the archive
+  tree). Reviewer over the sample-input build: **10 FC / 1 PC / 4 auto-suggest / 0 NO**,
+  15 of 15 checks executed. The PC is `BDD-07` on `BrakeByWireSystem` — the composition root
+  has parts but no connector of its own, which is a legitimate BDD shape; the check is
+  arguably over-strict for roots but that is a reviewer question, left as is. Cell scan for
+  `WheelBrakeActuator` (present only in the sample input) hits `3_Block_Catalog!A7`,
+  `5_Part_Reference_Properties!C6`, `6_Port_Catalog!A9`, `7_Connector_Catalog!C6`; the
+  generator contains the string 0 times.
+- **This log entry.**
+- **BDD-12 decision: symmetry fixed.** The 2026-08-27 pass declined this because the fix made
+  the builder's own placeholder output fail its own reviewer. That objection no longer exists:
+  the placeholder is gone and the sample input has no dangling ports. So the check now
+  validates both `source_port` and `target_port` (and the shadowed `p` in the comprehension is
+  renamed `pt` while the block was open — finding 6 from pass 1 closed as a side effect).
+  Negative test: sample input with one connector target changed to `PedalUnit.doesNotExist`
+  → `BDD-12 NO, "Ports referenced in connectors do not exist: ['PedalUnit.doesNotExist']"`,
+  9 FC / 1 PC / 1 NO. Before the fix this same input returned FC at High confidence.
+
+### Also measured
+
+- Headers-only build (no `--input`) through the reviewer: 9 FC / 1 NO (`BDD-02` "No blocks
+  found") / 2 NA / 3 auto-suggest. It fails honestly instead of passing on fake data.
+- Frontmatter unchanged: builder description 378 chars, reviewer 276, `name:` present on both.
+- Repo-wide after repack: 152 archives, `testzip()` 0 corrupt, `__pycache__` 0, `recalc.py`
+  1 distinct hash. `chain_contract_audit.py` 46 assertions / 0 BREAK (unchanged; this pair
+  is builder-to-reviewer and outside its scope). `regen_status.py` 76/76 paired.
+
+### Still open on this pair (unchanged from pass 1)
+
+- Finding 2/3: SKILL.md advertises 28 checks / 7 tabs, reality 15 checks / 3 tabs. Untouched
+  pending standing item 9 (whether this task authors checks).
+- Finding 5: `build_dashboard` imported, never called.
+- W37: apply this schema pattern to `sysml-activity-diagram`, `sysml-requirement-diagram`,
+  `sysml-state-machine`. The `_g()` alias helper and `write_rows()` are the reusable pieces;
+  each of those builders needs its own key set, which is the part that needs a human eye.

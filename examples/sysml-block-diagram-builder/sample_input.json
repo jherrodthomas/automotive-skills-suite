@@ -1,0 +1,59 @@
+{
+  "system_name": "Brake-by-Wire System",
+  "author": "J. Herrod",
+  "version": "1.0",
+  "model_header": {
+    "purpose": "Structural definition of the brake-by-wire item for FSC/TSC allocation",
+    "viewpoint": "Structural/Compositional",
+    "scope": "Pedal unit through wheel-end actuators; excludes vehicle power network",
+    "environment": "Driver, 12V/48V supply, chassis CAN",
+    "assumptions": "Dual-channel pedal sensing; single actuator ECU per axle",
+    "tool": "Cameo Systems Modeler"
+  },
+  "blocks": [
+    {"name": "BrakeByWireSystem", "stereotype": "<<block>>", "description": "Top-level brake-by-wire item", "parent": "", "multiplicity": "1"},
+    {"name": "PedalUnit", "stereotype": "<<block>>", "description": "Pedal travel and force sensing", "parent": "BrakeByWireSystem", "multiplicity": "1"},
+    {"name": "BrakeActuatorECU", "stereotype": "<<block>>", "description": "Brake demand arbitration and actuator control", "parent": "BrakeByWireSystem", "multiplicity": "1..2"},
+    {"name": "WheelBrakeActuator", "stereotype": "<<block>>", "description": "Electro-mechanical caliper actuator", "parent": "BrakeActuatorECU", "multiplicity": "4"},
+    {"name": "Driver", "stereotype": "<<actor>>", "description": "Human operator applying the pedal", "parent": "", "multiplicity": "1"}
+  ],
+  "properties": [
+    {"block": "BrakeByWireSystem", "name": "operatingMode", "type": "BrakeMode", "multiplicity": "1", "description": "Normal / Degraded / Fallback"},
+    {"block": "PedalUnit", "name": "pedalTravel", "type": "Real", "multiplicity": "1", "description": "Pedal travel in mm"},
+    {"block": "BrakeActuatorECU", "name": "clampForceDemand", "type": "Real", "multiplicity": "4", "description": "Per-wheel clamp force demand in N"}
+  ],
+  "parts": [
+    {"owner": "BrakeByWireSystem", "name": "pedalUnit", "type": "PedalUnit", "multiplicity": "1", "description": "Pedal sensing assembly"},
+    {"owner": "BrakeByWireSystem", "name": "actuatorEcu", "type": "BrakeActuatorECU", "multiplicity": "1..2", "description": "Front / rear axle controllers"},
+    {"owner": "BrakeActuatorECU", "name": "wheelActuator", "type": "WheelBrakeActuator", "multiplicity": "2", "description": "Left / right actuators on the axle"}
+  ],
+  "ports": [
+    {"owner": "Driver", "name": "pedalForce", "port_type": "FlowPort", "flow_type": "continuous", "direction": "out", "description": "Applied pedal force"},
+    {"owner": "PedalUnit", "name": "pedalForceIn", "port_type": "FlowPort", "flow_type": "continuous", "direction": "in", "description": "Pedal force from driver"},
+    {"owner": "PedalUnit", "name": "brakeDemandOut", "port_type": "FlowPort", "flow_type": "discrete", "direction": "out", "description": "Brake demand message"},
+    {"owner": "BrakeActuatorECU", "name": "brakeDemandIn", "port_type": "FlowPort", "flow_type": "discrete", "direction": "in", "description": "Brake demand from pedal unit"},
+    {"owner": "BrakeActuatorECU", "name": "actuatorCmdOut", "port_type": "FlowPort", "flow_type": "discrete", "direction": "out", "description": "Clamp force command"},
+    {"owner": "WheelBrakeActuator", "name": "actuatorCmdIn", "port_type": "FlowPort", "flow_type": "discrete", "direction": "in", "description": "Clamp force command"},
+    {"owner": "BrakeActuatorECU", "name": "diagService", "port_type": "FullPort", "flow_type": "", "direction": "provides", "description": "UDS diagnostic service interface"}
+  ],
+  "connectors": [
+    {"name": "conn_pedal_force", "source": "Driver.pedalForce", "target": "PedalUnit.pedalForceIn", "type": "ItemFlow", "description": "Driver applies pedal"},
+    {"name": "conn_brake_demand", "source": "PedalUnit.brakeDemandOut", "target": "BrakeActuatorECU.brakeDemandIn", "type": "ItemFlow", "description": "Brake demand to ECU"},
+    {"name": "conn_actuator_cmd", "source": "BrakeActuatorECU.actuatorCmdOut", "target": "WheelBrakeActuator.actuatorCmdIn", "type": "ItemFlow", "description": "Clamp force command to actuator"}
+  ],
+  "item_flows": [
+    {"connector": "conn_pedal_force", "item_type": "PedalForce", "multiplicity": "1", "direction": "unidirectional", "description": "Pedal force in N"},
+    {"connector": "conn_brake_demand", "item_type": "BrakeDemand", "multiplicity": "1", "direction": "unidirectional", "description": "Deceleration demand message"},
+    {"connector": "conn_actuator_cmd", "item_type": "ClampForceCmd", "multiplicity": "1..4", "direction": "unidirectional", "description": "Per-wheel clamp force command"}
+  ],
+  "value_types": [
+    {"name": "PedalForce", "base_type": "Real", "description": "Force applied to pedal", "unit": "N"},
+    {"name": "BrakeDemand", "base_type": "Structure", "description": "Deceleration demand with plausibility flag", "unit": "m/s^2"},
+    {"name": "ClampForceCmd", "base_type": "Real", "description": "Commanded clamp force", "unit": "N"},
+    {"name": "BrakeMode", "base_type": "Enumeration", "description": "Normal, Degraded, Fallback", "unit": ""}
+  ],
+  "references": [
+    {"name": "Item Definition BBW-ID-001", "description": "Source of block boundary and external actors"},
+    {"name": "Cameo Systems Modeler", "description": "Import-ready format"}
+  ]
+}
