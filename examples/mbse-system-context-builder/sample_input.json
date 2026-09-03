@@ -1,0 +1,37 @@
+{
+  "system": {"name": "Adaptive Cruise Control", "abbr": "ACC", "version": "0.1", "author": "Systems Engineering"},
+  "actors": [
+    {"id": "A01", "name": "Driver", "type": "human", "description": "Sets speed and following-gap, overrides via brake or accelerator"},
+    {"id": "A02", "name": "Lead Vehicle", "type": "external system", "description": "Preceding vehicle whose range and range-rate ACC tracks"},
+    {"id": "A03", "name": "Brake System ECU", "type": "vehicle system", "description": "Executes deceleration requests over CAN"},
+    {"id": "A04", "name": "Powertrain ECU", "type": "vehicle system", "description": "Executes torque requests over CAN"},
+    {"id": "A05", "name": "Road Environment", "type": "environment", "description": "Curvature, grade, weather, lane markings"}
+  ],
+  "interfaces": [
+    {"id": "IF01", "from": "A01", "to": "ACC", "direction": "in", "description": "Set-speed, gap setting, resume/cancel via steering-wheel switches"},
+    {"id": "IF02", "from": "A02", "to": "ACC", "direction": "in", "description": "Range / range-rate via forward radar"},
+    {"id": "IF03", "from": "ACC", "to": "A03", "direction": "out", "description": "Deceleration request (CAN)"},
+    {"id": "IF04", "from": "ACC", "to": "A04", "direction": "out", "description": "Torque request (CAN)"},
+    {"id": "IF05", "from": "A05", "to": "ACC", "direction": "in", "description": "Lane geometry via camera"},
+    {"id": "IF06", "from": "ACC", "to": "A01", "direction": "out", "description": "Status and take-over request via cluster"}
+  ],
+  "use_cases": [
+    {"id": "UC01", "name": "Engage ACC", "primary_actor": "A01", "description": "Driver activates ACC above minimum speed"},
+    {"id": "UC02", "name": "Follow lead vehicle", "primary_actor": "A02", "description": "Maintain time-gap to lead vehicle"},
+    {"id": "UC03", "name": "Driver override", "primary_actor": "A01", "description": "Brake pedal cancels, accelerator temporarily overrides"},
+    {"id": "UC04", "name": "Hand back control", "primary_actor": "A01", "description": "ACC requests take-over on capability limit"}
+  ],
+  "scenarios": [
+    {"id": "OS01", "name": "Highway cruise, clear road", "description": "Set-speed hold, no lead vehicle"},
+    {"id": "OS02", "name": "Lead vehicle cut-in", "description": "Vehicle enters gap; ACC decelerates to restore time-gap"},
+    {"id": "OS03", "name": "Heavy rain, radar degraded", "description": "Sensor blockage; ACC hands back control"}
+  ],
+  "stakeholder_needs": [
+    {"id": "SN01", "stakeholder": "Driver", "need": "Reduce workload on long highway drives", "priority": "High"},
+    {"id": "SN02", "stakeholder": "OEM Safety", "need": "Never exceed 3.5 m/s2 deceleration in ACC", "priority": "High"},
+    {"id": "SN03", "stakeholder": "Homologation", "need": "Comply with UN R79 / ISO 15622", "priority": "High"},
+    {"id": "SN04", "stakeholder": "Driver", "need": "Clear indication when ACC is inactive", "priority": "Medium"},
+    {"id": "SN05", "stakeholder": "Service", "need": "Radar alignment diagnosable via UDS", "priority": "Low"}
+  ],
+  "boundary": {"in_scope": ["Longitudinal speed and gap control"], "out_of_scope": ["Lateral control", "Stop-and-go below 30 km/h"]}
+}

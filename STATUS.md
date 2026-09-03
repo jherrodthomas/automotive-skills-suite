@@ -1,6 +1,6 @@
 # Skill Suite Status
 
-_Regenerated 2026-09-02 by autonomous daily run (`scripts/regen_status.py`)._
+_Regenerated 2026-09-03 by autonomous daily run (`scripts/regen_status.py`)._
 
 | Builder | Domain | Paired Reviewer | Last Touched | Flag |
 |---|---|---|---|---|
@@ -67,7 +67,7 @@ _Regenerated 2026-09-02 by autonomous daily run (`scripts/regen_status.py`)._
 | sw-hsis-builder.skill | safety | sw-hsis-checklist-reviewer.skill | 2026-05-01 | 🟡 |
 | sw-sr-builder.skill | safety | sw-sr-checklist-reviewer.skill | 2026-05-01 | 🟡 |
 | sysml-activity-diagram-builder.skill | sysml | sysml-activity-diagram-checklist-reviewer.skill | 2026-05-02 | 🟡 |
-| sysml-block-diagram-builder.skill | sysml | sysml-block-diagram-checklist-reviewer.skill | 2026-05-02 | 🟡 |
+| sysml-block-diagram-builder.skill | sysml | sysml-block-diagram-checklist-reviewer.skill | 2026-09-02 | 🟢 |
 | sysml-requirement-diagram-builder.skill | sysml | sysml-requirement-diagram-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 | sysml-state-machine-builder.skill | sysml | sysml-state-machine-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 | tara-builder.skill | cyber | tara-checklist-reviewer.skill | 2026-05-01 | 🟡 |
@@ -86,7 +86,7 @@ _Regenerated 2026-09-02 by autonomous daily run (`scripts/regen_status.py`)._
 - Builders: 76 · Reviewers: 76 · Total skill files: 152
 - Paired builders: 76/76 (100%)
 - 🔴 Orphan builders (no reviewer): 0
-- 🟡 Paired but stale (30+ days untouched): 66
-- 🟢 Paired and fresh (≤30 days): 10
+- 🟡 Paired but stale (30+ days untouched): 65
+- 🟢 Paired and fresh (≤30 days): 11
 
 _2 builder(s) paired via `docs/PAIRING_ALIASES.md` rather than filename convention: `item-definition-builder.skill` → `item-def-checklist-reviewer.skill`, `ppap-package-builder.skill` → `ppap-checklist-reviewer.skill`._
