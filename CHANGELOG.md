@@ -6,9 +6,36 @@ from `[Unreleased]` into a dated section at each weekly release.
 
 ## [Unreleased]
 
-_W35 (2026-08-24 → ). Accumulating since v2026.08.W34 (2026-08-22). Ships at the next Saturday RELEASE run._
+_W35 + W36 (2026-08-24 → 2026-09-04). Accumulating since v2026.08.W34 (2026-08-22). Ships at the next Saturday RELEASE run as `v2026.09.W36`._
 
-_Nothing yet — W35 opens with Monday's PLAN run._
+> **Two weeks in one section.** The scheduled run died after 2026-08-27 and missed the W35 Friday DOCS roll and the W35 Saturday RELEASE, so no `v2026.08.W35` tag exists and W35's four commits were never written up here. This DOCS run (2026-09-04) rolls both weeks. Grouped by intent, W35 first.
+
+### Fix
+- **autosar-bsw-config-builder** — W35 Tue (2026-08-25, #54): builder no longer silently drops `memory_layout` and `bus_interfaces` from its input; the paired reviewer's `C005`/`C006` are reachable again. Builder and reviewer repacked in one commit (`84ea8b4`)
+- **autosar batch (5 archives)** — W35 Wed (2026-08-26, #55): canonical 5,782-byte `recalc.py` restored and the mis-generated `## Skills inventory` heading corrected in the remaining five autosar archives. Repo-wide: `recalc.py` 152/152 at one hash, bad heading 0/152 (`656bdfe`)
+- **sysml reviewers (4 archives)** — W35 Thu (2026-08-27, #56): `sysml-block-diagram-checklist-reviewer` crashed on every input; one-line probe fix applied and the identical defect found and fixed in the other three sysml reviewers. Domain went from zero working reviewers to four (`6e8cce6`)
+- **mbse reviewers (3 archives)** — W36 Thu (2026-09-03, #58): all three mbse reviewers crashed at `dashboard.py:138` (flat list passed where `{tab: [(check, result)]}` expected — the #56 class). One-line fix, verified by execution on each reviewer's own builder output. Domain went from zero working reviewers to three; the 2026-09-01 chain-scan's unresolved `Stakeholder Needs` row settled by execution as *not a break* (`da1082a`)
+
+### Feat
+- **sysml-block-diagram-builder** — W36 Wed (2026-09-02, #57): builder now accepts `--input <model.json>`; the five placeholder blocks are gone from the generator (no `--input` now yields an empty template with a stderr warning — **behaviour change**, see Known issues); schema documented in SKILL.md with a brake-by-wire `examples/sysml-block-diagram-builder/sample_input.json`. Paired reviewer's `BDD-12` now validates both connector ends. This is the reference implementation for the W37 sysml batch (`72eefda`)
+
+### Polish
+- **traceability-matrix-builder** + reviewer — W36 Tue (2026-09-01, #52, first `v&v` entry): documented, **nothing fixed**. Builder ignores its input and emits five heading cells; reviewer certifies that empty workbook at 24/25 compliant because 22 of 25 checks are a hard-coded `LC` fall-through. Full finding in `docs/skill-polish-log/traceability-matrix-builder.md`; repair queued for W37 in dependency order (`5660048`)
+- **mbse-system-context-builder** — W36 Thu (2026-09-03, #58): first pass on the last never-entered domain. Builder populates five tabs correctly from input; seven of twelve tabs are single-cell placeholders and `stakeholder_needs` / `boundary` are silently dropped — filed HIGH in `docs/skill-polish-log/mbse-system-context-builder.md`, not fixed. `examples/mbse-system-context-builder/` (README + ACC `sample_input.json`) added (`da1082a`)
+- **sysml-block-diagram-builder** — W35 Thu (2026-08-27, #56): first sysml pass; two HIGH gaps documented and deliberately not repaired (no input path — since fixed under #57 — and reviewer check-count drift) (`6e8cce6`)
+
+### Docs
+- W35 weekly plan (Mon 2026-08-24): three targets #54, #55, #56; #56 opened (`6ed7fe5`)
+- W36 weekly plan (Mon 2026-08-31): deferred #52 slotted first, #57 and #58 opened (`30044b2`)
+- Monthly KPI report `docs/monthly/2026-08.md` (2026-09-01): 29 commits, 17 archives touched, 3 releases; best month on every velocity measure (`357da3d`)
+- **Builder-to-reviewer chain scan** (2026-09-01, inside #52): all 76 pairs scanned for reviewer-probed sheet names the paired builder never emits. Confirmed breaks: `traceability-matrix`, `test-case-catalog` (probes `Test Case Inventory`, builder emits `Test Cases`), `flexray-config` (probes `Title`, builder emits `Title_Page`). This falsifies the premise on which `docs/chain-contract-audit.md` excludes builder-to-reviewer pairs — #46 should be re-scoped, not closed
+- W36 DOCS roll (Fri 2026-09-04): this section; 4 reviewer-side example stubs added — `sysml-block-diagram-checklist-reviewer`, `mbse-system-context-checklist-reviewer`, `mbse-model-architecture-checklist-reviewer`, `mbse-requirements-allocation-checklist-reviewer` — written against the archives, which surfaced the check-count drifts below. STATUS regenerated via `scripts/regen_status.py` — 76/76 paired, 10 fresh / 66 stale / 0 orphan (this commit)
+
+### Known issues _(found these two weeks, deliberately not fixed)_
+- **Behaviour change:** `sysml-block-diagram-builder` with no `--input` emits an empty template, not the old five placeholder blocks. Anything scripting the bare command should point at `examples/sysml-block-diagram-builder/sample_input.json`
+- Reviewer check-count drift, counted from `check_definitions.py` on 2026-09-04: `sysml-block-diagram-checklist-reviewer` advertises 28 checks / 7 tabs, ships **15 / 3**; `mbse-system-context-checklist-reviewer` advertises "25+", ships **6**; `mbse-model-architecture-checklist-reviewer` advertises "30+", ships **8**; `mbse-requirements-allocation-checklist-reviewer` advertises "28+", ships **6**. Same class as the W33/W34 entries; awaiting the standing-item-9 decision on whether this task authors checks
+- `dashboard.py` in the mbse reviewers counts major issues as `NO and obligation == "Shall"` while the checks use `Must`/`Should`, so `REJECTED` can never fire — a `{}` workbook scoring 4 NO reports `CONDITIONAL APPROVAL`. Grep suggests the same split exists elsewhere; repo-wide check queued
+- `traceability-matrix` pair non-functional (above); `test-case-catalog` and `flexray-config` each have a one-name sheet mismatch that may be a one-line fix — unconfirmed
 
 ---
 

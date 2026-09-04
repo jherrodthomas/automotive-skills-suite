@@ -1,6 +1,6 @@
 # Skill Suite Status
 
-_Regenerated 2026-09-03 by autonomous daily run (`scripts/regen_status.py`)._
+_Regenerated 2026-09-04 by autonomous daily run (`scripts/regen_status.py`)._
 
 | Builder | Domain | Paired Reviewer | Last Touched | Flag |
 |---|---|---|---|---|
@@ -12,7 +12,7 @@ _Regenerated 2026-09-03 by autonomous daily run (`scripts/regen_status.py`)._
 | aspice-assessment-builder.skill | aspice | aspice-assessment-checklist-reviewer.skill | 2026-06-25 | 🟡 |
 | aspice-gap-analysis-builder.skill | aspice | aspice-gap-analysis-checklist-reviewer.skill | 2026-07-28 | 🟡 |
 | aspice-improvement-plan-builder.skill | aspice | aspice-improvement-plan-checklist-reviewer.skill | 2026-07-30 | 🟡 |
-| aspice-process-evidence-builder.skill | aspice | aspice-process-evidence-checklist-reviewer.skill | 2026-08-04 | 🟢 |
+| aspice-process-evidence-builder.skill | aspice | aspice-process-evidence-checklist-reviewer.skill | 2026-08-04 | 🟡 |
 | automotive-ethernet-builder.skill | comms | automotive-ethernet-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 | autosar-adaptive-app-builder.skill | autosar | autosar-adaptive-app-checklist-reviewer.skill | 2026-08-26 | 🟢 |
 | autosar-bsw-config-builder.skill | autosar | autosar-bsw-config-checklist-reviewer.skill | 2026-08-25 | 🟢 |
@@ -86,7 +86,7 @@ _Regenerated 2026-09-03 by autonomous daily run (`scripts/regen_status.py`)._
 - Builders: 76 · Reviewers: 76 · Total skill files: 152
 - Paired builders: 76/76 (100%)
 - 🔴 Orphan builders (no reviewer): 0
-- 🟡 Paired but stale (30+ days untouched): 65
-- 🟢 Paired and fresh (≤30 days): 11
+- 🟡 Paired but stale (30+ days untouched): 66
+- 🟢 Paired and fresh (≤30 days): 10
 
 _2 builder(s) paired via `docs/PAIRING_ALIASES.md` rather than filename convention: `item-definition-builder.skill` → `item-def-checklist-reviewer.skill`, `ppap-package-builder.skill` → `ppap-checklist-reviewer.skill`._
