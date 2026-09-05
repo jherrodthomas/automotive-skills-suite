@@ -4,6 +4,72 @@ Weekly snapshots of `github.com/jherrodthomas/automotive-skills-suite`. Tags are
 
 ---
 
+## v2026.09.W36 — 2026-09-05
+
+ISO week 36 (2026-08-24 → 2026-09-05). Accumulating since `v2026.08.W34` (2026-08-22) — **two weeks in one tag**. The scheduled run died after 2026-08-27 and missed the W35 Friday DOCS roll and the W35 Saturday RELEASE, so no `v2026.08.W35` tag exists and none is backfilled here.
+
+### Highlights
+
+- **Seven reviewers that crashed on every input now run.** The single largest correctness fix in the repo's history, and it was one line repeated seven times. `sysml-block-diagram-checklist-reviewer` (W35 Thu, #56) passed a flat list where `dashboard.py:138` expected `{tab: [(check, result)]}`; the identical line sat in the other three sysml reviewers and, a week later, in all three mbse reviewers (W36 Thu, #58). Both domains went from **zero working reviewers to fully working** — sysml 0→4, mbse 0→3. Neither defect was findable by reading the archives; both surfaced only because the polish pass executed the reviewer against its own builder's output. That is now the strongest argument on the board for the proposed fifth invariant lint: *every reviewer's `generate_checklist.py` must run to completion on its builder's `{}` output.*
+- **`sysml-block-diagram-builder` is the reference implementation for JSON input** (W36 Wed, #57). It takes `--input <model.json>`, the five hard-coded placeholder blocks are gone from the generator, the schema is documented in SKILL.md, and a brake-by-wire `sample_input.json` ships with it. The paired reviewer's `BDD-12` validates both connector ends instead of one. The W37 sysml batch (`activity`, `requirement`, `state-machine`) reuses these helpers. **Behaviour change** — see Known issues.
+- **`autosar` closed out.** #54 stopped `autosar-bsw-config-builder` silently dropping `memory_layout` and `bus_interfaces`, which made the paired reviewer's `C005`/`C006` reachable for the first time; #55 restored the canonical 5,782-byte `recalc.py` and corrected the mis-generated `## Skills inventory` heading across the remaining five archives. Repo-wide the two mechanical invariants are now clean: `recalc.py` **152/152 at one hash**, bad heading **0/152**.
+- **Two never-entered domains entered, and both were documented rather than rewritten.** `traceability-matrix` (v&v, #52) is the worst pair found to date — the builder ignores its input and emits five heading cells, and the reviewer certifies that empty workbook at 24/25 compliant because 22 of its 25 checks are a hard-coded `LC` fall-through. `mbse-system-context` (#58) reads its input and fills five tabs but leaves seven as single-cell placeholders. Both filed HIGH in the polish logs; neither repaired, because both repairs are authoring, not fixing. **Every one of the 13 domains has now had at least one polish pass.**
+- **Check-count drift is now the repo's largest open honesty problem.** Four more reviewers measured this fortnight advertise 28 / 25+ / 30+ / 28+ checks and ship **15 / 6 / 8 / 6**. Added to the W33/W34 findings that is roughly **100 advertised checks that do not exist** across at least eight reviewers. Standing item 9 — author the missing checks, or downgrade the SKILL.md claims — is no longer a question about one file and now blocks honest documentation on eight.
+- Inventory unchanged at 76 builder + 76 reviewer pairs, 100% paired. No skill added or removed this fortnight.
+
+### Changes this snapshot
+
+**feat**
+- `72eefda` auto(polish): #57 sysml-block-diagram gets JSON input, placeholders out, BDD-12 symmetric
+
+**fix**
+- `84ea8b4` auto(polish): fix #54 bsw-config input drop, C005/C006 live, all mandatory FC
+- `656bdfe` auto(polish): fix #55 autosar batch, recalc 152/152, bad heading 0/152
+- `6e8cce6` auto(polish): fix #56 sysml probe crash, 4 reviewers repaired, domain gaps logged
+- `da1082a` auto(polish): #58 mbse first pass, three crashing mbse reviewers fixed, stakeholder needs row resolved
+
+**polish**
+- `5660048` auto(polish): #52 traceability pair non-functional, reviewer passes empty workbook
+
+**docs**
+- `74d017c` auto(triage): twelve issues audited, stale rule misfires on two finished issues
+- `6ed7fe5` auto(plan): W35 takes two autosar defects and opens sysml, defers v&v #52
+- `30044b2` auto(plan): W36 slots deferred #52 first, opens sysml input and mbse first pass
+- `357da3d` auto(monthly): KPI report for August 2026
+- `b5fa14f` auto(docs): W35+W36 changelog rolled, four mbse/sysml reviewer stubs, drift logged
+
+**release** _(this snapshot commit)_
+- STATUS.md regenerated via `scripts/regen_status.py` (76/76 paired, 9 fresh / 67 stale / 0 orphan)
+- RELEASES.md appended with this section
+- CHANGELOG `[Unreleased]` rolled into `## [v2026.09.W36]`
+- `docs/AUTONOMOUS_LOG.md` updated with the RELEASE-mode entry
+
+### Skills inventory
+
+- Builders: 76
+- Reviewers: 76
+- Paired: 76/76 (100.0%, incl. 2 alias pairings per `docs/PAIRING_ALIASES.md`)
+- Freshness: 🟢 9 touched ≤30d · 🟡 67 stale · 🔴 0 orphan
+- Domain spread: safety=15, quality=10, comms=8, cyber=6, autosar=5, diagnostics=5, program-mgmt=5, v&v=5, aspice=4, sysml=4, calibration=3, mbse=3, sotif=3
+
+_Freshness fell 10 🟢 → 9 🟢 overnight with no skill regressing, and the reason is a measurement artifact worth fixing: `regen_status.py` keys `Last Touched` on the **builder** file only. Seven reviewer archives were repaired this fortnight and not one of them moved a row. A `max(builder, reviewer)` change is one line; it is deferred because the STATUS table is a contract the Monday PLAN and Saturday RELEASE runs both read, and changing what a column means is not a Saturday job._
+
+### Open issues at snapshot
+
+12 open: #43, #44, #45, #46, #47, #48, #49, #50, #51, #52, #57, #58. **All twelve have met their definition of done.** No issue has been closed since #53 on 2026-08-19; the backlog has been purely decorative for three weeks and is actively corrupting the Monday PLAN priority rule, which ranks candidates by "skills referenced by open issues". A human close pass remains the single highest-leverage ten minutes available on this repo, and it is now the second consecutive tag saying so.
+
+### Known issues shipped with this tag
+
+- **Behaviour change:** `generate_sysml_block.py` with no `--input` emits an empty template with a stderr warning, not the old five placeholder blocks. Anything scripting the bare command should point at `examples/sysml-block-diagram-builder/sample_input.json`
+- **Check-count drift, measured from `check_definitions.py` on 2026-09-04:** `sysml-block-diagram-checklist-reviewer` advertises 28 checks / 7 tabs, ships **15 / 3**; `mbse-system-context-checklist-reviewer` advertises "25+", ships **6**; `mbse-model-architecture-checklist-reviewer` advertises "30+", ships **8**; `mbse-requirements-allocation-checklist-reviewer` advertises "28+", ships **6**. Same class as `fmeda`, `autosar-bsw-config`, `cs-architecture` and `cdd`
+- **`REJECTED` may be dead code suite-wide.** `dashboard.py` counts major issues as `NO and obligation == "Shall"` while the checks use `Must` / `Should`, so a `{}` workbook scoring 4 `NO` reports `CONDITIONAL APPROVAL`. Confirmed in the mbse reviewers; grep suggests the vocabulary split is wider. A repo-wide count across all 76 `dashboard.py` is queued and is one line per archive if confirmed
+- **`traceability-matrix` pair is non-functional** as shipped (above). `test-case-catalog` (probes `Test Case Inventory`, builder emits `Test Cases`) and `flexray-config` (probes `Title`, builder emits `Title_Page`) each have a one-name sheet mismatch that may be a one-line fix — unconfirmed
+- The 2026-09-01 chain scan found builder-to-**reviewer** breaks, which falsifies the premise on which `docs/chain-contract-audit.md` excludes those pairs. #46 should be re-scoped, not closed; that decision has been awaiting a human since 09-01
+
+**Compare:** https://github.com/jherrodthomas/automotive-skills-suite/compare/v2026.08.W34...v2026.09.W36
+
+---
+
 ## v2026.08.W34 — 2026-08-22
 
 ISO week 34 (2026-08-17 → 2026-08-22). Accumulating since `v2026.08.W33` (2026-08-15).

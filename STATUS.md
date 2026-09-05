@@ -1,12 +1,12 @@
 # Skill Suite Status
 
-_Regenerated 2026-09-04 by autonomous daily run (`scripts/regen_status.py`)._
+_Regenerated 2026-09-05 by autonomous daily run (`scripts/regen_status.py`)._
 
 | Builder | Domain | Paired Reviewer | Last Touched | Flag |
 |---|---|---|---|---|
 | 5-why-builder.skill | quality | 5-why-checklist-reviewer.skill | 2026-05-01 | 🟡 |
 | 8d-problem-solving-builder.skill | quality | 8d-problem-solving-checklist-reviewer.skill | 2026-05-01 | 🟡 |
-| a2l-builder.skill | calibration | a2l-checklist-reviewer.skill | 2026-08-05 | 🟢 |
+| a2l-builder.skill | calibration | a2l-checklist-reviewer.skill | 2026-08-05 | 🟡 |
 | apqp-plan-builder.skill | quality | apqp-plan-checklist-reviewer.skill | 2026-05-01 | 🟡 |
 | arxml-system-builder.skill | comms | arxml-system-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 | aspice-assessment-builder.skill | aspice | aspice-assessment-checklist-reviewer.skill | 2026-06-25 | 🟡 |
@@ -86,7 +86,7 @@ _Regenerated 2026-09-04 by autonomous daily run (`scripts/regen_status.py`)._
 - Builders: 76 · Reviewers: 76 · Total skill files: 152
 - Paired builders: 76/76 (100%)
 - 🔴 Orphan builders (no reviewer): 0
-- 🟡 Paired but stale (30+ days untouched): 66
-- 🟢 Paired and fresh (≤30 days): 10
+- 🟡 Paired but stale (30+ days untouched): 67
+- 🟢 Paired and fresh (≤30 days): 9
 
 _2 builder(s) paired via `docs/PAIRING_ALIASES.md` rather than filename convention: `item-definition-builder.skill` → `item-def-checklist-reviewer.skill`, `ppap-package-builder.skill` → `ppap-checklist-reviewer.skill`._

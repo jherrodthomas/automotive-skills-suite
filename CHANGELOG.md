@@ -6,7 +6,13 @@ from `[Unreleased]` into a dated section at each weekly release.
 
 ## [Unreleased]
 
-_W35 + W36 (2026-08-24 → 2026-09-04). Accumulating since v2026.08.W34 (2026-08-22). Ships at the next Saturday RELEASE run as `v2026.09.W36`._
+_Nothing yet. Accumulating since v2026.09.W36 (2026-09-05); ships at the next Saturday RELEASE run._
+
+---
+
+## [v2026.09.W36] — 2026-09-05
+
+_W35 + W36 (2026-08-24 → 2026-09-05). Accumulating since v2026.08.W34 (2026-08-22). Shipped by the Saturday RELEASE run (2026-09-05). No `v2026.08.W35` tag exists and none was backfilled — see `RELEASES.md`._
 
 > **Two weeks in one section.** The scheduled run died after 2026-08-27 and missed the W35 Friday DOCS roll and the W35 Saturday RELEASE, so no `v2026.08.W35` tag exists and W35's four commits were never written up here. This DOCS run (2026-09-04) rolls both weeks. Grouped by intent, W35 first.
 
