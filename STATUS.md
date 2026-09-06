@@ -1,6 +1,6 @@
 # Skill Suite Status
 
-_Regenerated 2026-09-05 by autonomous daily run (`scripts/regen_status.py`)._
+_Regenerated 2026-09-06 by autonomous daily run (`scripts/regen_status.py`)._
 
 | Builder | Domain | Paired Reviewer | Last Touched | Flag |
 |---|---|---|---|---|
@@ -57,7 +57,7 @@ _Regenerated 2026-09-05 by autonomous daily run (`scripts/regen_status.py`)._
 | safety-case-builder.skill | safety | safety-case-checklist-reviewer.skill | 2026-05-01 | 🟡 |
 | safety-gate-review-builder.skill | program-mgmt | safety-gate-review-checklist-reviewer.skill | 2026-05-02 | 🟡 |
 | safety-plan-builder.skill | safety | safety-plan-checklist-reviewer.skill | 2026-05-01 | 🟡 |
-| safety-program-risk-register-builder.skill | program-mgmt | safety-program-risk-register-checklist-reviewer.skill | 2026-08-06 | 🟢 |
+| safety-program-risk-register-builder.skill | program-mgmt | safety-program-risk-register-checklist-reviewer.skill | 2026-08-06 | 🟡 |
 | secure-coding-guidelines-builder.skill | cyber | secure-coding-guidelines-checklist-reviewer.skill | 2026-05-01 | 🟡 |
 | sotif-analysis-builder.skill | sotif | sotif-analysis-checklist-reviewer.skill | 2026-08-11 | 🟢 |
 | sotif-validation-strategy-builder.skill | sotif | sotif-validation-strategy-checklist-reviewer.skill | 2026-05-01 | 🟡 |
@@ -86,7 +86,7 @@ _Regenerated 2026-09-05 by autonomous daily run (`scripts/regen_status.py`)._
 - Builders: 76 · Reviewers: 76 · Total skill files: 152
 - Paired builders: 76/76 (100%)
 - 🔴 Orphan builders (no reviewer): 0
-- 🟡 Paired but stale (30+ days untouched): 67
-- 🟢 Paired and fresh (≤30 days): 9
+- 🟡 Paired but stale (30+ days untouched): 68
+- 🟢 Paired and fresh (≤30 days): 8
 
 _2 builder(s) paired via `docs/PAIRING_ALIASES.md` rather than filename convention: `item-definition-builder.skill` → `item-def-checklist-reviewer.skill`, `ppap-package-builder.skill` → `ppap-checklist-reviewer.skill`._

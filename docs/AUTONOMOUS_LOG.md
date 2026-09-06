@@ -1690,3 +1690,17 @@ Housekeeping: `/tmp/automotive-work` deleted cleanly for the second run running.
 - Carried: `examples/mbse-model-architecture-builder/` and `examples/mbse-requirements-allocation-builder/` still lack `sample_input.json`; both reviewers verified only on `{}`.
 - Carried: `Bus Interfaces` reviewer check in `autosar-bsw-config`; `Inter-Module Dependencies` / `Validation Rules` schema decision; #46 re-scope decision (awaiting a human since 09-01).
 - **Human:** `v2026.09.W36` is tagged and pushed but **not published** — review `RELEASES.md` and click Publish. Then the close pass: all 12 open issues are DoD-met.
+
+## 2026-09-06 (autonomous run, TRIAGE)
+
+**Mode:** TRIAGE
+**Action:** Regenerated STATUS.md and triaged 12 open issues — no label changes warranted, 5 stale issues commented.
+**Files touched:** STATUS.md, docs/AUTONOMOUS_LOG.md
+**Tests:** N/A (no test suite in this repo yet)
+**Skill count:** 76 builders / 76 reviewers / 100% paired (2 via PAIRING_ALIASES.md)
+**Open issues:** 12
+**Notes:** Label audit found every open issue already carries a correct domain label, and the six that carry only `weekly-target` + domain (#48, #49, #50, #51, #52, #58) are PLAN-mode outputs — PLAN creates issues with exactly that two-label shape by design, so their missing type label is intentional, not an oversight. I deliberately did **not** stamp them `skill-bug` or `description-quality`: each is a *first-pass audit* whose definition of done is "validate frontmatter, smoke-test the generator", which presumes no defect. Confidence on any type label there is well under 80%, and `needs-triage` would have fought PLAN's own convention. Recording them here instead. The remaining six (#43, #44, #45, #46, #47, #57) already carry a defensible type label (`chain-break`, `skill-bug`) and were left alone. Five issues quiet 30+ days got the standard auto-triage comment: #44 and #45 (both 07-26), #48 and #49 (both 07-27), #47 (08-02). None were closed. STATUS regeneration moved four rows only — 68 stale / 8 fresh, orphan count still 0.
+**Follow-ups:**
+- Duplicate v&v domain labels exist in the repo: both `v-and-v` (in use on #52) and `vv` (unused). Human should delete one; autonomous runs should not merge labels.
+- #48 and #49 have now been open ~6 weeks as W31 targets and have been passed over by four consecutive plans. Either pull one into the next POLISH slot ahead of the priority order or close them.
+- #43 and #46 (chain-break) are the only structural issues open; both were last touched 08-23 and are the strongest candidates for the W37 plan.
