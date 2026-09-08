@@ -121,3 +121,97 @@ No `.skill` archive was modified today.
    SKILL.md. Lowest priority; cosmetic next to the above.
 
 **Severity: HIGH.** Do not put this pair's output in front of an assessor.
+
+---
+
+## 2026-09-08 — repair pass (POLISH, W37 Tuesday slot, issue #59)
+
+**Severity after this pass: MEDIUM** (was HIGH). The pair is functional and no longer certifies an
+empty document. What remains is honesty-of-labelling on 20 checks, now explicitly labelled rather
+than silently wrong.
+
+Executed in the dependency order the 09-01 entry wrote down, and for the reason it gave: the
+`TM005`/`TM006` correction had to land in the same change as the builder repair, because fixing the
+checks first would have made the builder fail its own reviewer for the wrong reason.
+
+### 1. Builder — input is now wired through to all 11 tabs (was: 5 stub tabs, input ignored)
+
+`generate_trace.py` grew from a 55-line stub that read `data` and then emitted five empty headings
+into a generator that flattens every input list into one catalog and derives the rest. All 11 tabs
+promised by SKILL.md are emitted and populated: `Title`, `Document Control`, `Trace Source
+Catalog`, `Forward Traceability`, `Backward Traceability`, `Coverage Analysis`, `Trace Quality
+Metrics`, `Gap Identification`, `Trace Convention Rules`, `Validation Rules`, `References`.
+
+Coverage model, written onto the `Validation Rules` tab so an assessor can read the definition the
+numbers were computed under: a requirement is covered when at least one lower-level requirement,
+design element or test case references its ID; a test case is an orphan when it verifies no ID
+present in the catalog.
+
+Verified against `examples/traceability-matrix-builder/sample_input.json`:
+
+```
+catalog=9  orphan_reqs=1  orphan_tests=1  overall=75.0%
+```
+
+The DoD's cell scan passes — `"PedalPlausibility module"`, a string that exists only in the sample
+input, is found at `Trace Source Catalog!C8`. The sample turns out to be well-chosen: it carries
+exactly one orphan requirement (`SYS-REQ-002`, nothing downstream of it) and one orphan test
+(`TC-900`, `verifies: []`), so it exercises both failure paths rather than producing a clean pass.
+
+### 2. Reviewer probe — sheet-name break closed, orphans and metrics now actually read
+
+`Trace Source Catalog` is now emitted, so `probed.elements` is no longer structurally empty. This
+closes the pair break proven by execution on 09-01.
+
+`trace_probe.py` previously read orphans from a fixed `min_row=6, max_row=7` window and never
+assigned `orphan_tests` anywhere. It now locates both the metric block and the orphan register **by
+label in column A**, not by row offset, so inserting a row in the builder cannot silently empty the
+probe again — which is precisely how the old window failed. `orphan_tests` and `orphan_needs` are
+populated, `metrics` and `sheetnames` are new fields.
+
+### 3. Checks — TM005/TM006/TM007 corrected, TM008/TM009 implemented, the rest labelled
+
+The three named in the DoD, plus two that came free once the metric block was readable:
+
+| Check | Was | Now |
+|---|---|---|
+| TM005 | `FC if len(orphan_reqs)==0` — absence of evidence read as compliance | `NO` with the offending IDs; `NA` with an explicit "not assessable" finding when the catalog is empty |
+| TM006 | `FC` unconditionally, forever (`orphan_tests` never assigned) | same treatment, against a field that is now populated |
+| TM007 | `FC if len(elements) > 0` — a coverage threshold decided without reading a coverage number | reads `overall_coverage` and compares to 95% |
+| TM008 / TM009 | hard-coded `LC` | read `requirement_coverage` / `test_coverage` against 100% / 95% |
+| TM003/4, TM014, TM016, TM017, TM018, TM024 | hard-coded `LC` | structural presence check on the required tab; `NO` when absent |
+| remaining 12 | hard-coded `LC`, presented as a machine verdict | still `LC`, now carrying `AUTO-SUGGEST DRAFT - not machine-verified` in the finding, and `DRAFT` in a new evidence field |
+
+Each result now carries an `evidence` string tagged `CONTENT` / `STRUCTURE` / `DRAFT` so the reader
+can tell which of the three produced the rating. `generate_checklist.py`'s Findings tab was
+widened to `ID | Confirmation Measure | Finding | Evidence` — it previously wrote a bare sentence
+with no check ID attached, which made a finding untraceable back to its measure.
+
+### 4. Measured result
+
+| Input | Before (09-01) | After |
+|---|---|---|
+| Builder's own output | 2 FC / 22 LC / 1 PC / 0 NO, Findings tab **empty** | **0 FC / 20 LC / 5 NO**, five findings with IDs and evidence |
+| Deliberately empty workbook | *(certified as above)* | **0 FC / 13 LC / 7 NO / 5 NA** — refuses to rate what it cannot see |
+
+The builder now fails its own reviewer, on five real defects present in the sample input. That is
+the correct end state and it was the stated reason for landing both halves together.
+
+Round-trip verified: both `.skill` archives were repacked, re-extracted to a clean directory, and
+run end to end from the extracted copies.
+
+### Not done — carried
+
+1. **The 12 remaining `DRAFT` checks.** Labelled honestly but still not implemented. TM010
+   (ID convention conformance) and TM019 (dangling cross-references) are the two now cheap to do —
+   the builder already computes `dangling` and writes the convention table — and should be the
+   next slice.
+2. **`build_dashboard` is still imported and not called** (`generate_checklist.py` line 14), and
+   the hand-rolled 4-row text Dashboard is unchanged. Still needs the results adapter described on
+   09-01; the SKILL.md pie-chart claim is still unmet. Deliberately left out to keep this change
+   to the DoD.
+3. **`docs/chain-contract-audit.md` still reports 0 BREAK and still excludes builder-to-reviewer
+   pairs.** This pair was the counter-example that falsified the exclusion, and it is now repaired
+   — but the *audit* has not been re-scoped, and the two other confirmed pair breaks
+   (`test-case-catalog`, `flexray-config`) are Thursday's #61. The #46 re-scope decision is still
+   waiting on a human.
