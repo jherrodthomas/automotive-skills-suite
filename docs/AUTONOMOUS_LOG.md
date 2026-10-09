@@ -1996,3 +1996,16 @@ chains, not just this one.
 **Velocity:** 25 commits, 34 archives touched (11 excluding the #63 24-reviewer batch commit); releases v2026.09.W36, W38, W39 (no W35/W37 tag); 8 calendar days with no commit (09-09→09-14, 09-29→09-30).
 **Coverage:** paired reviewer 76/76 (100.0%); builder examples 35/76 (46.1%, +4).
 **Notes:** Issues API read this run from the cloud sandbox succeeded once curl was pointed at certifi's CA bundle (the default `/etc/ssl/certs` file is missing here); the earlier 403 add_repo gate did not appear. September's engineering output was the strongest yet (column-level chain audit, pyflakes sweep found #69/#70 dead-on-arrival skills), but velocity fell and #62–#65 are once again finished-but-open, so the close-on-commit and heartbeat recommendations carry for a third month.
+
+## 2026-10-09 (autonomous run, DOCS)
+
+**Mode:** DOCS
+**Action:** Rolled CHANGELOG `[Unreleased]` for W40/W41 (no code commits this week to group) and regenerated STATUS.md.
+**Files touched:** `CHANGELOG.md`, `STATUS.md`, `docs/AUTONOMOUS_LOG.md`
+**Tests:** N/A (no test suite in this repo yet)
+**Skill count:** 76 builders / 76 reviewers / 100% paired (2 via alias) — 3 🟢 / 73 🟡 / 0 🔴
+**Open issues:** not read this run (Issues API not queried); last known 9 (#62-#65 fixed awaiting close; #66-#70 unaddressed)
+**Notes:** The last repo commit before this run was 2026-10-01 (monthly KPI). The W41 PLAN (10-05) and Tue-Thu POLISH runs (10-06..10-08) left no commits, so #66-#70 are still untouched and the W41 "quality-or-comms first" commitment was not made. No example README stubs were owed since no skills were touched. PAT was read via device_stage_files + cloud shell (Read tool cannot see the device path).
+**Follow-ups:**
+- Next POLISH/PLAN: pick up #66-#70; W41/W42 PLAN must honor the quality-or-comms-first commitment.
+- Human: authorize the repo for the session proxy if pushes are blocked; close #62-#65.
